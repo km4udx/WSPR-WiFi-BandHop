@@ -1,5 +1,5 @@
 /*
-  Modified 13 June 2026 by Dean Souleles, KK4DAS
+  Modified 13 June 2026 by Dean Souleles, KK4DAS and a good final bit by km4udx VerA WSPR_Mouse_Config_bandhop
   -- Band Hop Mode is now a portal configuration item ("Y" or "N") stored
      in EEPROM, replacing the jumper-pin-7 (all-open) detection for hop mode.
      With hop mode in the portal:
@@ -23,8 +23,6 @@
 
   Modified 2 October 2024 by Bob Fontana AK3Y
   -- Added dialog boxes for Call, Grid Square and Power entries
-  -- Added Double Reset Detector to configure ESP Reset button as "WiFi on Demand"
-  Modified 20 September 2024 by Bob Fontana AK3Y  
   -- Added WiFiManager library to enable WiFi Provisioning
 
   *** TIMING & NTP FIXES (see change log below) ***
@@ -283,7 +281,7 @@ void transmitWSPR() {
   WiFi.forceSleepWake();
   delay(100);
 
-  WiFi.begin();
+    WiFi.begin(WiFi.SSID().c_str(), WiFi.psk().c_str());
   Serial.print("Reconnecting WiFi");
   uint8_t retries = 40;          // up to 20 seconds
   while (WiFi.status() != WL_CONNECTED && retries > 0) {
@@ -500,6 +498,7 @@ void loop() {
     delay1(waitMs);
 
     getDatafromEEPROM();
+     hopMode = (myWSPRparams.myHopMode == 1);
     if (random(100) < TX_PERCENT) {
       Serial.println("WSPR TX start");
       transmitWSPR();
