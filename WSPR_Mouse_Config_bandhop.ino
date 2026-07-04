@@ -1,4 +1,10 @@
 /*
+  Tweaked good final bit by km4udx VerA WSPR_Mouse_Config_bandhop with very heavy use of "Tim Tom" the android coder
+  improved how the wifi SID is passed to the lookup on wakeup, reducing retrys a good bit, 
+  improved how the band hop flag is used to drive incremental band change
+  added time stamp to the serial output
+  thought about otherstuff, but didn't do it.
+  
   Modified 13 June 2026 by Dean Souleles, KK4DAS and a good final bit by km4udx VerA WSPR_Mouse_Config_bandhop
   -- Band Hop Mode is now a portal configuration item ("Y" or "N") stored
      in EEPROM, replacing the jumper-pin-7 (all-open) detection for hop mode.
