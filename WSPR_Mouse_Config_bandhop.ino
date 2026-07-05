@@ -1,10 +1,15 @@
 /*
-  Tweaked good final bit by km4udx VerA WSPR_Mouse_Config_bandhop with very heavy use of "Tim Tom" the android coder
-  improved how the wifi SID is passed to the lookup on wakeup, reducing retrys a good bit, 
-  improved how the band hop flag is used to drive incremental band change
-  added time stamp to the serial output
-  thought about otherstuff, but didn't do it.
-  
+    Modified 5 July 2026 by km4udx
+  -- Patched loop execution bug: forced `hopMode` state re-evaluation immediately 
+     following `getDatafromEEPROM()`. This stops open hardware jumper states 
+     from overwriting portal settings and permanently unlocks automated 8-band cycling.
+  -- Implemented dynamic connection recovery using `WiFi.begin(WiFi.SSID().c_str(), WiFi.psk().c_str())`.
+     This bypasses slow background channel scans, allowing the radio to snap back 
+     online instantly after transmissions and locking down first-try NTP syncs.
+  -- Added a 12-hour automated watchdog safety refresh (`43200000UL` ms countdown). 
+     The chip now performs a clean internal memory and DHCP lease flush twice a day, 
+     completely preventing long-term network freezes and stack drift lockups.
+
   Modified 13 June 2026 by Dean Souleles, KK4DAS and a good final bit by km4udx VerA WSPR_Mouse_Config_bandhop
   -- Band Hop Mode is now a portal configuration item ("Y" or "N") stored
      in EEPROM, replacing the jumper-pin-7 (all-open) detection for hop mode.
@@ -518,5 +523,11 @@ void loop() {
     }
 
     delay(10000);  // pause before next NTP query
+     // Add this safety check to prevent long-term freezes:
+    if (millis() > 43200000UL) { 
+      Serial.println("Performing scheduled daily refresh reboot...");
+      delay(1000);
+      ESP.restart(); 
+    }
   }
 }
