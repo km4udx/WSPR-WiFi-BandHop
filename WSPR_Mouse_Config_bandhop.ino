@@ -468,23 +468,25 @@ void sendNTPpacket(IPAddress& address) {
 // loop
 // ---------------------------------------------------------------------------
 void loop() {
-   drd.loop();
+  // Call the double reset detector method to monitor the timeout window
+  drd.loop();
 
   // Send an NTP packet to a time server
   WiFi.hostByName(ntpServerName, timeServerIP);
   
   // Clear packet buffer
   memset(packetBuffer, 0, NTP_PACKET_SIZE);
-  // Initialize values needed to form NTP request
+  
+  // Initialize values needed to form NTP request correctly inside the array
   packetBuffer[0] = 0b11100011;   // LI, Version, Mode
-  packetBuffer[1] = 0;     // Stratum, or type of clock
-  packetBuffer[2] = 6;     // Polling Interval
-  packetBuffer[3] = 0xEC;  // Peer Clock Precision
+  packetBuffer[1] = 0;            // Stratum, or type of clock
+  packetBuffer[2] = 6;            // Polling Interval
+  packetBuffer[3] = 0xEC;         // Peer Clock Precision
   // 8 bytes of zero for Root Delay & Root Dispersion
-  packetBuffer[12]  = 49;
-  packetBuffer[13]  = 49;
-  packetBuffer[14]  = 49;
-  packetBuffer[15]  = 52;
+  packetBuffer[12] = 49;
+  packetBuffer[13] = 49;
+  packetBuffer[14] = 49;
+  packetBuffer[15] = 52;
 
   // All NTP fields have been given values, now send a packet requesting a timestamp
   udp.beginPacket(timeServerIP, 123); // NTP requests are to port 123
@@ -498,6 +500,8 @@ void loop() {
 
   if (udp.parsePacket() == 0) {
     Serial.println("No NTP packet received");
+    // Feed the hardware watchdog and yield to prevent a background crash loop
+    yield();
     delay(10000); // Wait 10 seconds before trying again
   } else {
     // We've received a packet, read the data from it
