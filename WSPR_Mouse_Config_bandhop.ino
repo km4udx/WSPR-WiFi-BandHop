@@ -528,17 +528,20 @@ void loop() {
 
     delay(10000);  // pause before next NTP query
      // Add this safety check to prevent long-term freezes:
-    if (millis() > 43200000UL) { 
+         if (millis() > 43200000UL) { 
+      // Calculate the current hour directly from your running epoch
+      int currentHour = (epoch % 86400) / 3600;
+      
       // Print a clean UTC timestamp right before triggering the reset
       Serial.print("[");
-      if (hour() < 10) Serial.print("0");
-      Serial.print(hour());
+      if (currentHour < 10) Serial.print("0");
+      Serial.print(currentHour);
       Serial.print(":");
-      if (minute() < 10) Serial.print("0");
-      Serial.print(minute());
+      if (minute < 10) Serial.print("0"); // Using your existing variable
+      Serial.print(minute);
       Serial.print(":");
-      if (second() < 10) Serial.print("0");
-      Serial.print(second());
+      if (second < 10) Serial.print("0"); // Using your existing variable
+      Serial.print(second);
       Serial.print(" UTC] ");
       Serial.println("Performing scheduled every 12 hour refresh reboot...");
       
@@ -547,3 +550,4 @@ void loop() {
     }
   }
 }
+    
