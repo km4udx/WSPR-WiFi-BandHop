@@ -1,0 +1,5224 @@
+Getting data from EEPROM
+KM4UDX
+Fm18iw
+10
+Hop Mode from EEPROM: Y
+WSPR TX start
+Band Index: 0
+Base Frequency: 3568600
+TX audio offset Hz: 1517
+Reconnecting WiFi.......
+WiFi reconnected
+WSPR TX end
+Sending NTP packet...
+Seconds to wait = 111
+Residual us subtracted = 57
+Getting data from EEPROM
+KM4UDX
+Fm18iw
+10
+Hop Mode from EEPROM: Y
+WSPR TX start
+Band Index: 1
+Base Frequency: 7038600
+TX audio offset Hz: 1559
+Reconnecting WiFi.......
+WiFi reconnected
+WSPR TX end
+Sending NTP packet...
+Seconds to wait = 112
+Residual us subtracted = 58
+Getting data from EEPROM
+KM4UDX
+Fm18iw
+10
+Hop Mode from EEPROM: Y
+WSPR TX start
+Band Index: 2
+Base Frequency: 10138700
+TX audio offset Hz: 1497
+Reconnecting WiFi.......
+WiFi reconnected
+WSPR TX end
+Sending NTP packet...
+No NTP packet received
+Sending NTP packet...
+Seconds to wait = 108
+Residual us subtracted = 58
+Getting data from EEPROM
+KM4UDX
+Fm18iw
+10
+Hop Mode from EEPROM: Y
+WSPR TX start
+Band Index: 3
+Base Frequency: 14095600
+TX audio offset Hz: 1468
+Reconnecting WiFi.......
+WiFi reconnected
+WSPR TX end
+Sending NTP packet...
+No NTP packet received
+Sending NTP packet...
+Seconds to wait = 108
+Residual us subtracted = 53
+Getting data from EEPROM
+KM4UDX
+Fm18iw
+10
+Hop Mode from EEPROM: Y
+WSPR TX start
+Band Index: 4
+Base Frequency: 18104600
+TX audio offset Hz: 1542
+Reconnecting WiFi.......
+WiFi reconnected
+WSPR TX end
+Sending NTP packet...
+No NTP packet received
+Sending NTP packet...
+Seconds to wait = 109
+Residual us subtracted = 58
+Getting data from EEPROM
+KM4UDX
+Fm18iw
+10
+Hop Mode from EEPROM: Y
+WSPR TX start
+Band Index: 5
+Base Frequency: 21094600
+TX audio offset Hz: 1522
+Reconnecting WiFi.......
+WiFi reconnected
+WSPR TX end
+Sending NTP packet...
+Seconds to wait = 112
+Residual us subtracted = 58
+Getting data from EEPROM
+KM4UDX
+Fm18iw
+10
+Hop Mode from EEPROM: Y
+WSPR TX start
+Band Index: 6
+Base Frequency: 24924600
+TX audio offset Hz: 1492
+Reconnecting WiFi.......
+WiFi reconnected
+WSPR TX end
+Sending NTP packet...
+Seconds to wait = 112
+Residual us subtracted = 54
+Getting data from EEPROM
+KM4UDX
+Fm18iw
+10
+Hop Mode from EEPROM: Y
+WSPR TX start
+Band Index: 7
+Base Frequency: 28124600
+TX audio offset Hz: 1561
+Reconnecting WiFi.......
+WiFi reconnected
+WSPR TX end
+Sending NTP packet...
+No NTP packet received
+Sending NTP packet...
+Seconds to wait = 109
+Residual us subtracted = 58
+Getting data from EEPROM
+KM4UDX
+Fm18iw
+10
+Hop Mode from EEPROM: Y
+WSPR TX start
+Band Index: 0
+Base Frequency: 3568600
+TX audio offset Hz: 1415
+Reconnecting WiFi.......
+WiFi reconnected
+WSPR TX end
+Sending NTP packet...
+No NTP packet received
+Sending NTP packet...
+No NTP packet received
+Sending NTP packet...
+No NTP packet received
+Sending NTP packet...
+Seconds to wait = 102
+Residual us subtracted = 58
+Getting data from EEPROM
+KM4UDX
+Fm18iw
+10
+Hop Mode from EEPROM: Y
+WSPR TX start
+Band Index: 1
+Base Frequency: 7038600
+TX audio offset Hz: 1566
+Reconnecting WiFi.......
+WiFi reconnected
+WSPR TX end
+Sending NTP packet...
+No NTP packet received
+Sending NTP packet...
+Seconds to wait = 107
+Residual us subtracted = 54
+Getting data from EEPROM
+KM4UDX
+Fm18iw
+10
+Hop Mode from EEPROM: Y
+WSPR TX start
+Band Index: 2
+Base Frequency: 10138700
+TX audio offset Hz: 1467
+Reconnecting WiFi.......
+WiFi reconnected
+WSPR TX end
+Sending NTP packet...
+Seconds to wait = 112
+Residual us subtracted = 58
+Getting data from EEPROM
+KM4UDX
+Fm18iw
+10
+Hop Mode from EEPROM: Y
+WSPR TX start
+Band Index: 3
+Base Frequency: 14095600
+TX audio offset Hz: 1471
+Reconnecting WiFi.......
+WiFi reconnected
+WSPR TX end
+Sending NTP packet...
+No NTP packet received
+Sending NTP packet...
+No NTP packet received
+Sending NTP packet...
+Seconds to wait = 106
+Residual us subtracted = 57
+Getting data from EEPROM
+KM4UDX
+Fm18iw
+10
+Hop Mode from EEPROM: Y
+WSPR TX start
+Band Index: 4
+Base Frequency: 18104600
+TX audio offset Hz: 1566
+Reconnecting WiFi.......
+WiFi reconnected
+WSPR TX end
+Sending NTP packet...
+Seconds to wait = 109
+Residual us subtracted = 58
+Getting data from EEPROM
+KM4UDX
+Fm18iw
+10
+Hop Mode from EEPROM: Y
+WSPR TX start
+Band Index: 5
+Base Frequency: 21094600
+TX audio offset Hz: 1525
+Reconnecting WiFi.......
+WiFi reconnected
+WSPR TX end
+Sending NTP packet...
+Seconds to wait = 111
+Residual us subtracted = 57
+Getting data from EEPROM
+KM4UDX
+Fm18iw
+10
+Hop Mode from EEPROM: Y
+WSPR TX start
+Band Index: 6
+Base Frequency: 24924600
+TX audio offset Hz: 1534
+Reconnecting WiFi.......
+WiFi reconnected
+WSPR TX end
+Sending NTP packet...
+Seconds to wait = 112
+Residual us subtracted = 54
+Getting data from EEPROM
+KM4UDX
+Fm18iw
+10
+Hop Mode from EEPROM: Y
+WSPR TX start
+Band Index: 7
+Base Frequency: 28124600
+TX audio offset Hz: 1456
+Reconnecting WiFi.......
+WiFi reconnected
+WSPR TX end
+Sending NTP packet...
+No NTP packet received
+Sending NTP packet...
+No NTP packet received
+Sending NTP packet...
+No NTP packet received
+Sending NTP packet...
+Seconds to wait = 103
+Residual us subtracted = 58
+Getting data from EEPROM
+KM4UDX
+Fm18iw
+10
+Hop Mode from EEPROM: Y
+WSPR TX start
+Band Index: 0
+Base Frequency: 3568600
+TX audio offset Hz: 1589
+Reconnecting WiFi.......
+WiFi reconnected
+WSPR TX end
+Sending NTP packet...
+Seconds to wait = 111
+Residual us subtracted = 58
+Getting data from EEPROM
+KM4UDX
+Fm18iw
+10
+Hop Mode from EEPROM: Y
+WSPR TX start
+Band Index: 1
+Base Frequency: 7038600
+TX audio offset Hz: 1556
+Reconnecting WiFi.......
+WiFi reconnected
+WSPR TX end
+Sending NTP packet...
+No NTP packet received
+Sending NTP packet...
+No NTP packet received
+Sending NTP packet...
+No NTP packet received
+Sending NTP packet...
+No NTP packet received
+Sending NTP packet...
+Seconds to wait = 100
+Residual us subtracted = 58
+Getting data from EEPROM
+KM4UDX
+Fm18iw
+10
+Hop Mode from EEPROM: Y
+WSPR TX start
+Band Index: 2
+Base Frequency: 10138700
+TX audio offset Hz: 1576
+Reconnecting WiFi.......
+WiFi reconnected
+WSPR TX end
+Sending NTP packet...
+Seconds to wait = 111
+Residual us subtracted = 57
+Getting data from EEPROM
+KM4UDX
+Fm18iw
+10
+Hop Mode from EEPROM: Y
+WSPR TX start
+Band Index: 3
+Base Frequency: 14095600
+TX audio offset Hz: 1572
+Reconnecting WiFi.......
+WiFi reconnected
+WSPR TX end
+Sending NTP packet...
+Seconds to wait = 112
+Residual us subtracted = 57
+Getting data from EEPROM
+KM4UDX
+Fm18iw
+10
+Hop Mode from EEPROM: Y
+WSPR TX start
+Band Index: 4
+Base Frequency: 18104600
+TX audio offset Hz: 1509
+Reconnecting WiFi.......
+WiFi reconnected
+WSPR TX end
+Sending NTP packet...
+Seconds to wait = 112
+Residual us subtracted = 58
+Getting data from EEPROM
+KM4UDX
+Fm18iw
+10
+Hop Mode from EEPROM: Y
+WSPR TX start
+Band Index: 5
+Base Frequency: 21094600
+TX audio offset Hz: 1549
+Reconnecting WiFi.......
+WiFi reconnected
+WSPR TX end
+Sending NTP packet...
+No NTP packet received
+Sending NTP packet...
+Seconds to wait = 109
+Residual us subtracted = 58
+Getting data from EEPROM
+KM4UDX
+Fm18iw
+10
+Hop Mode from EEPROM: Y
+WSPR TX start
+Band Index: 6
+Base Frequency: 24924600
+TX audio offset Hz: 1514
+Reconnecting WiFi.......
+WiFi reconnected
+WSPR TX end
+Sending NTP packet...
+No NTP packet received
+Sending NTP packet...
+No NTP packet received
+Sending NTP packet...
+No NTP packet received
+Sending NTP packet...
+No NTP packet received
+Sending NTP packet...
+No NTP packet received
+Sending NTP packet...
+No NTP packet received
+Sending NTP packet...
+Seconds to wait = 93
+Residual us subtracted = 58
+Getting data from EEPROM
+KM4UDX
+Fm18iw
+10
+Hop Mode from EEPROM: Y
+WSPR TX start
+Band Index: 7
+Base Frequency: 28124600
+TX audio offset Hz: 1476
+Reconnecting WiFi.......
+WiFi reconnected
+WSPR TX end
+Sending NTP packet...
+No NTP packet received
+Sending NTP packet...
+No NTP packet received
+Sending NTP packet...
+No NTP packet received
+Sending NTP packet...
+No NTP packet received
+Sending NTP packet...
+No NTP packet received
+Sending NTP packet...
+Seconds to wait = 97
+Residual us subtracted = 58
+Getting data from EEPROM
+KM4UDX
+Fm18iw
+10
+Hop Mode from EEPROM: Y
+WSPR TX start
+Band Index: 0
+Base Frequency: 3568600
+TX audio offset Hz: 1482
+Reconnecting WiFi.......
+WiFi reconnected
+WSPR TX end
+Sending NTP packet...
+Seconds to wait = 111
+Residual us subtracted = 58
+Getting data from EEPROM
+KM4UDX
+Fm18iw
+10
+Hop Mode from EEPROM: Y
+WSPR TX start
+Band Index: 1
+Base Frequency: 7038600
+TX audio offset Hz: 1454
+Reconnecting WiFi.......
+WiFi reconnected
+WSPR TX end
+Sending NTP packet...
+No NTP packet received
+Sending NTP packet...
+Seconds to wait = 108
+Residual us subtracted = 57
+Getting data from EEPROM
+KM4UDX
+Fm18iw
+10
+Hop Mode from EEPROM: Y
+WSPR TX start
+Band Index: 2
+Base Frequency: 10138700
+TX audio offset Hz: 1457
+Reconnecting WiFi.......
+WiFi reconnected
+WSPR TX end
+Sending NTP packet...
+Seconds to wait = 111
+Residual us subtracted = 58
+Getting data from EEPROM
+KM4UDX
+Fm18iw
+10
+Hop Mode from EEPROM: Y
+WSPR TX start
+Band Index: 3
+Base Frequency: 14095600
+TX audio offset Hz: 1559
+Reconnecting WiFi.......
+WiFi reconnected
+WSPR TX end
+Sending NTP packet...
+Seconds to wait = 112
+Residual us subtracted = 57
+Getting data from EEPROM
+KM4UDX
+Fm18iw
+10
+Hop Mode from EEPROM: Y
+WSPR TX start
+Band Index: 4
+Base Frequency: 18104600
+TX audio offset Hz: 1567
+Reconnecting WiFi...........
+WiFi reconnected
+WSPR TX end
+Sending NTP packet...
+No NTP packet received
+Sending NTP packet...
+No NTP packet received
+Sending NTP packet...
+No NTP packet received
+Sending NTP packet...
+No NTP packet received
+Sending NTP packet...
+Seconds to wait = 98
+Residual us subtracted = 53
+Getting data from EEPROM
+KM4UDX
+Fm18iw
+10
+Hop Mode from EEPROM: Y
+WSPR TX start
+Band Index: 5
+Base Frequency: 21094600
+TX audio offset Hz: 1509
+Reconnecting WiFi.......
+WiFi reconnected
+WSPR TX end
+Sending NTP packet...
+No NTP packet received
+Sending NTP packet...
+Seconds to wait = 109
+Residual us subtracted = 58
+Getting data from EEPROM
+KM4UDX
+Fm18iw
+10
+Hop Mode from EEPROM: Y
+WSPR TX start
+Band Index: 6
+Base Frequency: 24924600
+TX audio offset Hz: 1502
+Reconnecting WiFi.......
+WiFi reconnected
+WSPR TX end
+Sending NTP packet...
+Seconds to wait = 111
+Residual us subtracted = 58
+Getting data from EEPROM
+KM4UDX
+Fm18iw
+10
+Hop Mode from EEPROM: Y
+WSPR TX start
+Band Index: 7
+Base Frequency: 28124600
+TX audio offset Hz: 1563
+Reconnecting WiFi.......
+WiFi reconnected
+WSPR TX end
+Sending NTP packet...
+No NTP packet received
+Sending NTP packet...
+Seconds to wait = 108
+Residual us subtracted = 58
+Getting data from EEPROM
+KM4UDX
+Fm18iw
+10
+Hop Mode from EEPROM: Y
+WSPR TX start
+Band Index: 0
+Base Frequency: 3568600
+TX audio offset Hz: 1563
+Reconnecting WiFi...........
+WiFi reconnected
+WSPR TX end
+Sending NTP packet...
+No NTP packet received
+Sending NTP packet...
+No NTP packet received
+Sending NTP packet...
+No NTP packet received
+Sending NTP packet...
+Seconds to wait = 101
+Residual us subtracted = 58
+Getting data from EEPROM
+KM4UDX
+Fm18iw
+10
+Hop Mode from EEPROM: Y
+WSPR TX start
+Band Index: 1
+Base Frequency: 7038600
+TX audio offset Hz: 1420
+Reconnecting WiFi.......
+WiFi reconnected
+WSPR TX end
+Sending NTP packet...
+No NTP packet received
+Sending NTP packet...
+No NTP packet received
+Sending NTP packet...
+No NTP packet received
+Sending NTP packet...
+No NTP packet received
+Sending NTP packet...
+No NTP packet received
+Sending NTP packet...
+No NTP packet received
+Sending NTP packet...
+Seconds to wait = 94
+Residual us subtracted = 57
+Getting data from EEPROM
+KM4UDX
+Fm18iw
+10
+Hop Mode from EEPROM: Y
+WSPR TX start
+Band Index: 2
+Base Frequency: 10138700
+TX audio offset Hz: 1460
+Reconnecting WiFi.......
+WiFi reconnected
+WSPR TX end
+Sending NTP packet...
+No NTP packet received
+Sending NTP packet...
+Seconds to wait = 109
+Residual us subtracted = 58
+Getting data from EEPROM
+KM4UDX
+Fm18iw
+10
+Hop Mode from EEPROM: Y
+WSPR TX start
+Band Index: 3
+Base Frequency: 14095600
+TX audio offset Hz: 1422
+Reconnecting WiFi.......
+WiFi reconnected
+WSPR TX end
+Sending NTP packet...
+Seconds to wait = 112
+Residual us subtracted = 58
+Getting data from EEPROM
+KM4UDX
+Fm18iw
+10
+Hop Mode from EEPROM: Y
+WSPR TX start
+Band Index: 4
+Base Frequency: 18104600
+TX audio offset Hz: 1441
+Reconnecting WiFi.......
+WiFi reconnected
+WSPR TX end
+Sending NTP packet...
+Seconds to wait = 111
+Residual us subtracted = 58
+Getting data from EEPROM
+KM4UDX
+Fm18iw
+10
+Hop Mode from EEPROM: Y
+WSPR TX start
+Band Index: 5
+Base Frequency: 21094600
+TX audio offset Hz: 1483
+Reconnecting WiFi.......
+WiFi reconnected
+WSPR TX end
+Sending NTP packet...
+Seconds to wait = 112
+Residual us subtracted = 54
+Getting data from EEPROM
+KM4UDX
+Fm18iw
+10
+Hop Mode from EEPROM: Y
+WSPR TX start
+Band Index: 6
+Base Frequency: 24924600
+TX audio offset Hz: 1533
+Reconnecting WiFi.......
+WiFi reconnected
+WSPR TX end
+Sending NTP packet...
+Seconds to wait = 112
+Residual us subtracted = 58
+Getting data from EEPROM
+KM4UDX
+Fm18iw
+10
+Hop Mode from EEPROM: Y
+WSPR TX start
+Band Index: 7
+Base Frequency: 28124600
+TX audio offset Hz: 1422
+Reconnecting WiFi.......
+WiFi reconnected
+WSPR TX end
+Sending NTP packet...
+No NTP packet received
+Sending NTP packet...
+No NTP packet received
+Sending NTP packet...
+No NTP packet received
+Sending NTP packet...
+No NTP packet received
+Sending NTP packet...
+Seconds to wait = 100
+Residual us subtracted = 58
+Getting data from EEPROM
+KM4UDX
+Fm18iw
+10
+Hop Mode from EEPROM: Y
+WSPR TX start
+Band Index: 0
+Base Frequency: 3568600
+TX audio offset Hz: 1456
+Reconnecting WiFi...................
+WiFi reconnected
+WSPR TX end
+Sending NTP packet...
+No NTP packet received
+Sending NTP packet...
+Seconds to wait = 102
+Residual us subtracted = 58
+Getting data from EEPROM
+KM4UDX
+Fm18iw
+10
+Hop Mode from EEPROM: Y
+WSPR TX start
+Band Index: 1
+Base Frequency: 7038600
+TX audio offset Hz: 1524
+Reconnecting WiFi.......
+WiFi reconnected
+WSPR TX end
+Sending NTP packet...
+Seconds to wait = 112
+Residual us subtracted = 57
+Getting data from EEPROM
+KM4UDX
+Fm18iw
+10
+Hop Mode from EEPROM: Y
+WSPR TX start
+Band Index: 2
+Base Frequency: 10138700
+TX audio offset Hz: 1474
+Reconnecting WiFi.......
+WiFi reconnected
+WSPR TX end
+Sending NTP packet...
+Seconds to wait = 112
+Residual us subtracted = 57
+Getting data from EEPROM
+KM4UDX
+Fm18iw
+10
+Hop Mode from EEPROM: Y
+WSPR TX start
+Band Index: 3
+Base Frequency: 14095600
+TX audio offset Hz: 1510
+Reconnecting WiFi.......
+WiFi reconnected
+WSPR TX end
+Sending NTP packet...
+No NTP packet received
+Sending NTP packet...
+Seconds to wait = 105
+Residual us subtracted = 57
+Getting data from EEPROM
+KM4UDX
+Fm18iw
+10
+Hop Mode from EEPROM: Y
+WSPR TX start
+Band Index: 4
+Base Frequency: 18104600
+TX audio offset Hz: 1410
+Reconnecting WiFi.......
+WiFi reconnected
+WSPR TX end
+Sending NTP packet...
+No NTP packet received
+Sending NTP packet...
+Seconds to wait = 109
+Residual us subtracted = 58
+Getting data from EEPROM
+KM4UDX
+Fm18iw
+10
+Hop Mode from EEPROM: Y
+WSPR TX start
+Band Index: 5
+Base Frequency: 21094600
+TX audio offset Hz: 1552
+Reconnecting WiFi.......
+WiFi reconnected
+WSPR TX end
+Sending NTP packet...
+No NTP packet received
+Sending NTP packet...
+Seconds to wait = 109
+Residual us subtracted = 58
+Getting data from EEPROM
+KM4UDX
+Fm18iw
+10
+Hop Mode from EEPROM: Y
+WSPR TX start
+Band Index: 6
+Base Frequency: 24924600
+TX audio offset Hz: 1488
+Reconnecting WiFi.......
+WiFi reconnected
+WSPR TX end
+Sending NTP packet...
+Seconds to wait = 112
+Residual us subtracted = 57
+Getting data from EEPROM
+KM4UDX
+Fm18iw
+10
+Hop Mode from EEPROM: Y
+WSPR TX start
+Band Index: 7
+Base Frequency: 28124600
+TX audio offset Hz: 1477
+Reconnecting WiFi.......
+WiFi reconnected
+WSPR TX end
+Sending NTP packet...
+No NTP packet received
+Sending NTP packet...
+Seconds to wait = 108
+Residual us subtracted = 57
+Getting data from EEPROM
+KM4UDX
+Fm18iw
+10
+Hop Mode from EEPROM: Y
+WSPR TX start
+Band Index: 0
+Base Frequency: 3568600
+TX audio offset Hz: 1434
+Reconnecting WiFi.......
+WiFi reconnected
+WSPR TX end
+Sending NTP packet...
+Seconds to wait = 112
+Residual us subtracted = 57
+Getting data from EEPROM
+KM4UDX
+Fm18iw
+10
+Hop Mode from EEPROM: Y
+WSPR TX start
+Band Index: 1
+Base Frequency: 7038600
+TX audio offset Hz: 1567
+Reconnecting WiFi.......
+WiFi reconnected
+WSPR TX end
+Sending NTP packet...
+Seconds to wait = 110
+Residual us subtracted = 58
+Getting data from EEPROM
+KM4UDX
+Fm18iw
+10
+Hop Mode from EEPROM: Y
+WSPR TX start
+Band Index: 2
+Base Frequency: 10138700
+TX audio offset Hz: 1432
+Reconnecting WiFi.......
+WiFi reconnected
+WSPR TX end
+Sending NTP packet...
+No NTP packet received
+Sending NTP packet...
+Seconds to wait = 105
+Residual us subtracted = 58
+Getting data from EEPROM
+KM4UDX
+Fm18iw
+10
+Hop Mode from EEPROM: Y
+WSPR TX start
+Band Index: 3
+Base Frequency: 14095600
+TX audio offset Hz: 1488
+Reconnecting WiFi.......
+WiFi reconnected
+WSPR TX end
+Sending NTP packet...
+Seconds to wait = 112
+Residual us subtracted = 58
+Getting data from EEPROM
+KM4UDX
+Fm18iw
+10
+Hop Mode from EEPROM: Y
+WSPR TX start
+Band Index: 4
+Base Frequency: 18104600
+TX audio offset Hz: 1521
+Reconnecting WiFi.......
+WiFi reconnected
+WSPR TX end
+Sending NTP packet...
+Seconds to wait = 110
+Residual us subtracted = 57
+Getting data from EEPROM
+KM4UDX
+Fm18iw
+10
+Hop Mode from EEPROM: Y
+WSPR TX start
+Band Index: 5
+Base Frequency: 21094600
+TX audio offset Hz: 1563
+Reconnecting WiFi.......
+WiFi reconnected
+WSPR TX end
+Sending NTP packet...
+Seconds to wait = 111
+Residual us subtracted = 57
+Getting data from EEPROM
+KM4UDX
+Fm18iw
+10
+Hop Mode from EEPROM: Y
+WSPR TX start
+Band Index: 6
+Base Frequency: 24924600
+TX audio offset Hz: 1560
+Reconnecting WiFi.......
+WiFi reconnected
+WSPR TX end
+Sending NTP packet...
+Seconds to wait = 112
+Residual us subtracted = 57
+Getting data from EEPROM
+KM4UDX
+Fm18iw
+10
+Hop Mode from EEPROM: Y
+WSPR TX start
+Band Index: 7
+Base Frequency: 28124600
+TX audio offset Hz: 1515
+Reconnecting WiFi.......
+WiFi reconnected
+WSPR TX end
+Sending NTP packet...
+Seconds to wait = 112
+Residual us subtracted = 58
+Getting data from EEPROM
+KM4UDX
+Fm18iw
+10
+Hop Mode from EEPROM: Y
+WSPR TX start
+Band Index: 0
+Base Frequency: 3568600
+TX audio offset Hz: 1556
+Reconnecting WiFi.......
+WiFi reconnected
+WSPR TX end
+Sending NTP packet...
+Seconds to wait = 112
+Residual us subtracted = 58
+Getting data from EEPROM
+KM4UDX
+Fm18iw
+10
+Hop Mode from EEPROM: Y
+WSPR TX start
+Band Index: 1
+Base Frequency: 7038600
+TX audio offset Hz: 1541
+Reconnecting WiFi...........
+WiFi reconnected
+WSPR TX end
+Sending NTP packet...
+No NTP packet received
+Sending NTP packet...
+Seconds to wait = 107
+Residual us subtracted = 57
+Getting data from EEPROM
+KM4UDX
+Fm18iw
+10
+Hop Mode from EEPROM: Y
+WSPR TX start
+Band Index: 2
+Base Frequency: 10138700
+TX audio offset Hz: 1497
+Reconnecting WiFi.......
+WiFi reconnected
+WSPR TX end
+Sending NTP packet...
+No NTP packet received
+Sending NTP packet...
+No NTP packet received
+Sending NTP packet...
+Seconds to wait = 106
+Residual us subtracted = 58
+Getting data from EEPROM
+KM4UDX
+Fm18iw
+10
+Hop Mode from EEPROM: Y
+WSPR TX start
+Band Index: 3
+Base Frequency: 14095600
+TX audio offset Hz: 1427
+Reconnecting WiFi.......
+WiFi reconnected
+WSPR TX end
+Sending NTP packet...
+No NTP packet received
+Sending NTP packet...
+No NTP packet received
+Sending NTP packet...
+No NTP packet received
+Sending NTP packet...
+Seconds to wait = 101
+Residual us subtracted = 57
+Getting data from EEPROM
+KM4UDX
+Fm18iw
+10
+Hop Mode from EEPROM: Y
+WSPR TX start
+Band Index: 4
+Base Frequency: 18104600
+TX audio offset Hz: 1482
+Reconnecting WiFi.......
+WiFi reconnected
+WSPR TX end
+Sending NTP packet...
+Seconds to wait = 112
+Residual us subtracted = 58
+Getting data from EEPROM
+KM4UDX
+Fm18iw
+10
+Hop Mode from EEPROM: Y
+WSPR TX start
+Band Index: 5
+Base Frequency: 21094600
+TX audio offset Hz: 1537
+Reconnecting WiFi.......
+WiFi reconnected
+WSPR TX end
+Sending NTP packet...
+No NTP packet received
+Sending NTP packet...
+Seconds to wait = 109
+Residual us subtracted = 57
+Getting data from EEPROM
+KM4UDX
+Fm18iw
+10
+Hop Mode from EEPROM: Y
+WSPR TX start
+Band Index: 6
+Base Frequency: 24924600
+TX audio offset Hz: 1478
+Reconnecting WiFi.......
+WiFi reconnected
+WSPR TX end
+Sending NTP packet...
+Seconds to wait = 110
+Residual us subtracted = 58
+Getting data from EEPROM
+KM4UDX
+Fm18iw
+10
+Hop Mode from EEPROM: Y
+WSPR TX start
+Band Index: 7
+Base Frequency: 28124600
+TX audio offset Hz: 1583
+Reconnecting WiFi.......
+WiFi reconnected
+WSPR TX end
+Sending NTP packet...
+No NTP packet received
+Sending NTP packet...
+No NTP packet received
+Sending NTP packet...
+Seconds to wait = 104
+Residual us subtracted = 58
+Getting data from EEPROM
+KM4UDX
+Fm18iw
+10
+Hop Mode from EEPROM: Y
+WSPR TX start
+Band Index: 0
+Base Frequency: 3568600
+TX audio offset Hz: 1501
+Reconnecting WiFi.......
+WiFi reconnected
+WSPR TX end
+Sending NTP packet...
+No NTP packet received
+Sending NTP packet...
+Seconds to wait = 107
+Residual us subtracted = 53
+Getting data from EEPROM
+KM4UDX
+Fm18iw
+10
+Hop Mode from EEPROM: Y
+WSPR TX start
+Band Index: 1
+Base Frequency: 7038600
+TX audio offset Hz: 1438
+Reconnecting WiFi.......
+WiFi reconnected
+WSPR TX end
+Sending NTP packet...
+No NTP packet received
+Sending NTP packet...
+No NTP packet received
+Sending NTP packet...
+No NTP packet received
+Sending NTP packet...
+Seconds to wait = 103
+Residual us subtracted = 58
+Getting data from EEPROM
+KM4UDX
+Fm18iw
+10
+Hop Mode from EEPROM: Y
+WSPR TX start
+Band Index: 2
+Base Frequency: 10138700
+TX audio offset Hz: 1496
+Reconnecting WiFi.......
+WiFi reconnected
+WSPR TX end
+Sending NTP packet...
+No NTP packet received
+Sending NTP packet...
+No NTP packet received
+Sending NTP packet...
+Seconds to wait = 106
+Residual us subtracted = 58
+Getting data from EEPROM
+KM4UDX
+Fm18iw
+10
+Hop Mode from EEPROM: Y
+WSPR TX start
+Band Index: 3
+Base Frequency: 14095600
+TX audio offset Hz: 1565
+Reconnecting WiFi.......
+WiFi reconnected
+WSPR TX end
+Sending NTP packet...
+No NTP packet received
+Sending NTP packet...
+No NTP packet received
+Sending NTP packet...
+No NTP packet received
+Sending NTP packet...
+No NTP packet received
+Sending NTP packet...
+Seconds to wait = 100
+Residual us subtracted = 58
+Getting data from EEPROM
+KM4UDX
+Fm18iw
+10
+Hop Mode from EEPROM: Y
+WSPR TX start
+Band Index: 4
+Base Frequency: 18104600
+TX audio offset Hz: 1420
+Reconnecting WiFi.......
+WiFi reconnected
+WSPR TX end
+Sending NTP packet...
+Seconds to wait = 111
+Residual us subtracted = 58
+Getting data from EEPROM
+KM4UDX
+Fm18iw
+10
+Hop Mode from EEPROM: Y
+WSPR TX start
+Band Index: 5
+Base Frequency: 21094600
+TX audio offset Hz: 1537
+Reconnecting WiFi.......
+WiFi reconnected
+WSPR TX end
+Sending NTP packet...
+Seconds to wait = 112
+Residual us subtracted = 57
+Getting data from EEPROM
+KM4UDX
+Fm18iw
+10
+Hop Mode from EEPROM: Y
+WSPR TX start
+Band Index: 6
+Base Frequency: 24924600
+TX audio offset Hz: 1426
+Reconnecting WiFi.......
+WiFi reconnected
+WSPR TX end
+Sending NTP packet...
+Seconds to wait = 112
+Residual us subtracted = 57
+Getting data from EEPROM
+KM4UDX
+Fm18iw
+10
+Hop Mode from EEPROM: Y
+WSPR TX start
+Band Index: 7
+Base Frequency: 28124600
+TX audio offset Hz: 1517
+Reconnecting WiFi.......
+WiFi reconnected
+WSPR TX end
+Sending NTP packet...
+Seconds to wait = 112
+Residual us subtracted = 58
+Getting data from EEPROM
+KM4UDX
+Fm18iw
+10
+Hop Mode from EEPROM: Y
+WSPR TX start
+Band Index: 0
+Base Frequency: 3568600
+TX audio offset Hz: 1405
+Reconnecting WiFi...........
+WiFi reconnected
+WSPR TX end
+Sending NTP packet...
+No NTP packet received
+Sending NTP packet...
+Seconds to wait = 106
+Residual us subtracted = 57
+Getting data from EEPROM
+KM4UDX
+Fm18iw
+10
+Hop Mode from EEPROM: Y
+WSPR TX start
+Band Index: 1
+Base Frequency: 7038600
+TX audio offset Hz: 1577
+Reconnecting WiFi.......
+WiFi reconnected
+WSPR TX end
+Sending NTP packet...
+No NTP packet received
+Sending NTP packet...
+Seconds to wait = 108
+Residual us subtracted = 58
+Getting data from EEPROM
+KM4UDX
+Fm18iw
+10
+Hop Mode from EEPROM: Y
+WSPR TX start
+Band Index: 2
+Base Frequency: 10138700
+TX audio offset Hz: 1417
+Reconnecting WiFi.......
+WiFi reconnected
+WSPR TX end
+Sending NTP packet...
+No NTP packet received
+Sending NTP packet...
+No NTP packet received
+Sending NTP packet...
+No NTP packet received
+Sending NTP packet...
+Seconds to wait = 103
+Residual us subtracted = 58
+Getting data from EEPROM
+KM4UDX
+Fm18iw
+10
+Hop Mode from EEPROM: Y
+WSPR TX start
+Band Index: 3
+Base Frequency: 14095600
+TX audio offset Hz: 1480
+Reconnecting WiFi...........
+WiFi reconnected
+WSPR TX end
+Sending NTP packet...
+No NTP packet received
+Sending NTP packet...
+No NTP packet received
+Sending NTP packet...
+Seconds to wait = 104
+Residual us subtracted = 58
+Getting data from EEPROM
+KM4UDX
+Fm18iw
+10
+Hop Mode from EEPROM: Y
+WSPR TX start
+Band Index: 4
+Base Frequency: 18104600
+TX audio offset Hz: 1547
+Reconnecting WiFi.......
+WiFi reconnected
+WSPR TX end
+Sending NTP packet...
+Seconds to wait = 110
+Residual us subtracted = 58
+Getting data from EEPROM
+KM4UDX
+Fm18iw
+10
+Hop Mode from EEPROM: Y
+WSPR TX start
+Band Index: 5
+Base Frequency: 21094600
+TX audio offset Hz: 1421
+Reconnecting WiFi.......
+WiFi reconnected
+WSPR TX end
+Sending NTP packet...
+Seconds to wait = 111
+Residual us subtracted = 57
+Getting data from EEPROM
+KM4UDX
+Fm18iw
+10
+Hop Mode from EEPROM: Y
+WSPR TX start
+Band Index: 6
+Base Frequency: 24924600
+TX audio offset Hz: 1426
+Reconnecting WiFi.......
+WiFi reconnected
+WSPR TX end
+Sending NTP packet...
+Seconds to wait = 110
+Residual us subtracted = 58
+Getting data from EEPROM
+KM4UDX
+Fm18iw
+10
+Hop Mode from EEPROM: Y
+WSPR TX start
+Band Index: 7
+Base Frequency: 28124600
+TX audio offset Hz: 1489
+Reconnecting WiFi.......
+WiFi reconnected
+WSPR TX end
+Sending NTP packet...
+Seconds to wait = 110
+Residual us subtracted = 57
+Getting data from EEPROM
+KM4UDX
+Fm18iw
+10
+Hop Mode from EEPROM: Y
+WSPR TX start
+Band Index: 0
+Base Frequency: 3568600
+TX audio offset Hz: 1568
+Reconnecting WiFi.......
+WiFi reconnected
+WSPR TX end
+Sending NTP packet...
+No NTP packet received
+Sending NTP packet...
+Seconds to wait = 108
+Residual us subtracted = 57
+Getting data from EEPROM
+KM4UDX
+Fm18iw
+10
+Hop Mode from EEPROM: Y
+WSPR TX start
+Band Index: 1
+Base Frequency: 7038600
+TX audio offset Hz: 1464
+Reconnecting WiFi.......
+WiFi reconnected
+WSPR TX end
+Sending NTP packet...
+No NTP packet received
+Sending NTP packet...
+Seconds to wait = 109
+Residual us subtracted = 58
+Getting data from EEPROM
+KM4UDX
+Fm18iw
+10
+Hop Mode from EEPROM: Y
+WSPR TX start
+Band Index: 2
+Base Frequency: 10138700
+TX audio offset Hz: 1463
+Reconnecting WiFi.......
+WiFi reconnected
+WSPR TX end
+Sending NTP packet...
+No NTP packet received
+Sending NTP packet...
+No NTP packet received
+Sending NTP packet...
+No NTP packet received
+Sending NTP packet...
+No NTP packet received
+Sending NTP packet...
+No NTP packet received
+Sending NTP packet...
+Seconds to wait = 97
+Residual us subtracted = 53
+Getting data from EEPROM
+KM4UDX
+Fm18iw
+10
+Hop Mode from EEPROM: Y
+WSPR TX start
+Band Index: 3
+Base Frequency: 14095600
+TX audio offset Hz: 1523
+Reconnecting WiFi.......
+WiFi reconnected
+WSPR TX end
+Sending NTP packet...
+No NTP packet received
+Sending NTP packet...
+Seconds to wait = 109
+Residual us subtracted = 58
+Getting data from EEPROM
+KM4UDX
+Fm18iw
+10
+Hop Mode from EEPROM: Y
+WSPR TX start
+Band Index: 4
+Base Frequency: 18104600
+TX audio offset Hz: 1405
+Reconnecting WiFi.......
+WiFi reconnected
+WSPR TX end
+Sending NTP packet...
+No NTP packet received
+Sending NTP packet...
+No NTP packet received
+Sending NTP packet...
+Seconds to wait = 106
+Residual us subtracted = 57
+Getting data from EEPROM
+KM4UDX
+Fm18iw
+10
+Hop Mode from EEPROM: Y
+WSPR TX start
+Band Index: 5
+Base Frequency: 21094600
+TX audio offset Hz: 1468
+Reconnecting WiFi.......
+WiFi reconnected
+WSPR TX end
+Sending NTP packet...
+Seconds to wait = 110
+Residual us subtracted = 54
+Getting data from EEPROM
+KM4UDX
+Fm18iw
+10
+Hop Mode from EEPROM: Y
+WSPR TX start
+Band Index: 6
+Base Frequency: 24924600
+TX audio offset Hz: 1470
+Reconnecting WiFi.......
+WiFi reconnected
+WSPR TX end
+Sending NTP packet...
+Seconds to wait = 112
+Residual us subtracted = 57
+Getting data from EEPROM
+KM4UDX
+Fm18iw
+10
+Hop Mode from EEPROM: Y
+WSPR TX start
+Band Index: 7
+Base Frequency: 28124600
+TX audio offset Hz: 1438
+Reconnecting WiFi.......
+WiFi reconnected
+WSPR TX end
+Sending NTP packet...
+No NTP packet received
+Sending NTP packet...
+No NTP packet received
+Sending NTP packet...
+No NTP packet received
+Sending NTP packet...
+No NTP packet received
+Sending NTP packet...
+Seconds to wait = 100
+Residual us subtracted = 58
+Getting data from EEPROM
+KM4UDX
+Fm18iw
+10
+Hop Mode from EEPROM: Y
+WSPR TX start
+Band Index: 0
+Base Frequency: 3568600
+TX audio offset Hz: 1488
+Reconnecting WiFi.......
+WiFi reconnected
+WSPR TX end
+Sending NTP packet...
+No NTP packet received
+Sending NTP packet...
+No NTP packet received
+Sending NTP packet...
+Seconds to wait = 106
+Residual us subtracted = 57
+Getting data from EEPROM
+KM4UDX
+Fm18iw
+10
+Hop Mode from EEPROM: Y
+WSPR TX start
+Band Index: 1
+Base Frequency: 7038600
+TX audio offset Hz: 1581
+Reconnecting WiFi.......
+WiFi reconnected
+WSPR TX end
+Sending NTP packet...
+Seconds to wait = 111
+Residual us subtracted = 58
+Getting data from EEPROM
+KM4UDX
+Fm18iw
+10
+Hop Mode from EEPROM: Y
+WSPR TX start
+Band Index: 2
+Base Frequency: 10138700
+TX audio offset Hz: 1497
+Reconnecting WiFi.......
+WiFi reconnected
+WSPR TX end
+Sending NTP packet...
+Seconds to wait = 112
+Residual us subtracted = 57
+Getting data from EEPROM
+KM4UDX
+Fm18iw
+10
+Hop Mode from EEPROM: Y
+WSPR TX start
+Band Index: 3
+Base Frequency: 14095600
+TX audio offset Hz: 1467
+Reconnecting WiFi.......
+WiFi reconnected
+WSPR TX end
+Sending NTP packet...
+Seconds to wait = 112
+Residual us subtracted = 58
+Getting data from EEPROM
+KM4UDX
+Fm18iw
+10
+Hop Mode from EEPROM: Y
+WSPR TX start
+Band Index: 4
+Base Frequency: 18104600
+TX audio offset Hz: 1417
+Reconnecting WiFi...........
+WiFi reconnected
+WSPR TX end
+Sending NTP packet...
+No NTP packet received
+Sending NTP packet...
+Seconds to wait = 106
+Residual us subtracted = 58
+Getting data from EEPROM
+KM4UDX
+Fm18iw
+10
+Hop Mode from EEPROM: Y
+WSPR TX start
+Band Index: 5
+Base Frequency: 21094600
+TX audio offset Hz: 1422
+Reconnecting WiFi...........
+WiFi reconnected
+WSPR TX end
+Sending NTP packet...
+Seconds to wait = 109
+Residual us subtracted = 58
+Getting data from EEPROM
+KM4UDX
+Fm18iw
+10
+Hop Mode from EEPROM: Y
+WSPR TX start
+Band Index: 6
+Base Frequency: 24924600
+TX audio offset Hz: 1555
+Reconnecting WiFi.......
+WiFi reconnected
+WSPR TX end
+Sending NTP packet...
+Seconds to wait = 112
+Residual us subtracted = 57
+Getting data from EEPROM
+KM4UDX
+Fm18iw
+10
+Hop Mode from EEPROM: Y
+WSPR TX start
+Band Index: 7
+Base Frequency: 28124600
+TX audio offset Hz: 1575
+Reconnecting WiFi.......
+WiFi reconnected
+WSPR TX end
+Sending NTP packet...
+Seconds to wait = 112
+Residual us subtracted = 58
+Getting data from EEPROM
+KM4UDX
+Fm18iw
+10
+Hop Mode from EEPROM: Y
+WSPR TX start
+Band Index: 0
+Base Frequency: 3568600
+TX audio offset Hz: 1409
+Reconnecting WiFi.......
+WiFi reconnected
+WSPR TX end
+Sending NTP packet...
+Seconds to wait = 112
+Residual us subtracted = 57
+Getting data from EEPROM
+KM4UDX
+Fm18iw
+10
+Hop Mode from EEPROM: Y
+WSPR TX start
+Band Index: 1
+Base Frequency: 7038600
+TX audio offset Hz: 1539
+Reconnecting WiFi.......
+WiFi reconnected
+WSPR TX end
+Sending NTP packet...
+No NTP packet received
+Sending NTP packet...
+Seconds to wait = 109
+Residual us subtracted = 57
+Getting data from EEPROM
+KM4UDX
+Fm18iw
+10
+Hop Mode from EEPROM: Y
+WSPR TX start
+Band Index: 2
+Base Frequency: 10138700
+TX audio offset Hz: 1466
+Reconnecting WiFi.......
+WiFi reconnected
+WSPR TX end
+Sending NTP packet...
+Seconds to wait = 111
+Residual us subtracted = 54
+Getting data from EEPROM
+KM4UDX
+Fm18iw
+10
+Hop Mode from EEPROM: Y
+WSPR TX start
+Band Index: 3
+Base Frequency: 14095600
+TX audio offset Hz: 1567
+Reconnecting WiFi.......
+WiFi reconnected
+WSPR TX end
+Sending NTP packet...
+No NTP packet received
+Sending NTP packet...
+No NTP packet received
+Sending NTP packet...
+No NTP packet received
+Sending NTP packet...
+Seconds to wait = 102
+Residual us subtracted = 57
+Getting data from EEPROM
+KM4UDX
+Fm18iw
+10
+Hop Mode from EEPROM: Y
+WSPR TX start
+Band Index: 4
+Base Frequency: 18104600
+TX audio offset Hz: 1517
+Reconnecting WiFi.......
+WiFi reconnected
+WSPR TX end
+Sending NTP packet...
+No NTP packet received
+Sending NTP packet...
+No NTP packet received
+Sending NTP packet...
+Seconds to wait = 106
+Residual us subtracted = 58
+Getting data from EEPROM
+KM4UDX
+Fm18iw
+10
+Hop Mode from EEPROM: Y
+WSPR TX start
+Band Index: 5
+Base Frequency: 21094600
+TX audio offset Hz: 1481
+Reconnecting WiFi.......
+WiFi reconnected
+WSPR TX end
+Sending NTP packet...
+Seconds to wait = 112
+Residual us subtracted = 58
+Getting data from EEPROM
+KM4UDX
+Fm18iw
+10
+Hop Mode from EEPROM: Y
+WSPR TX start
+Band Index: 6
+Base Frequency: 24924600
+TX audio offset Hz: 1544
+Reconnecting WiFi.......
+WiFi reconnected
+WSPR TX end
+Sending NTP packet...
+Seconds to wait = 111
+Residual us subtracted = 57
+Getting data from EEPROM
+KM4UDX
+Fm18iw
+10
+Hop Mode from EEPROM: Y
+WSPR TX start
+Band Index: 7
+Base Frequency: 28124600
+TX audio offset Hz: 1568
+Reconnecting WiFi.......
+WiFi reconnected
+WSPR TX end
+Sending NTP packet...
+No NTP packet received
+Sending NTP packet...
+Seconds to wait = 109
+Residual us subtracted = 53
+Getting data from EEPROM
+KM4UDX
+Fm18iw
+10
+Hop Mode from EEPROM: Y
+WSPR TX start
+Band Index: 0
+Base Frequency: 3568600
+TX audio offset Hz: 1588
+Reconnecting WiFi.......
+WiFi reconnected
+WSPR TX end
+Sending NTP packet...
+No NTP packet received
+Sending NTP packet...
+No NTP packet received
+Sending NTP packet...
+Seconds to wait = 105
+Residual us subtracted = 54
+Getting data from EEPROM
+KM4UDX
+Fm18iw
+10
+Hop Mode from EEPROM: Y
+WSPR TX start
+Band Index: 1
+Base Frequency: 7038600
+TX audio offset Hz: 1493
+Reconnecting WiFi.......
+WiFi reconnected
+WSPR TX end
+Sending NTP packet...
+Seconds to wait = 112
+Residual us subtracted = 58
+Getting data from EEPROM
+KM4UDX
+Fm18iw
+10
+Hop Mode from EEPROM: Y
+WSPR TX start
+Band Index: 2
+Base Frequency: 10138700
+TX audio offset Hz: 1412
+Reconnecting WiFi.......
+WiFi reconnected
+WSPR TX end
+Sending NTP packet...
+Seconds to wait = 112
+Residual us subtracted = 58
+Getting data from EEPROM
+KM4UDX
+Fm18iw
+10
+Hop Mode from EEPROM: Y
+WSPR TX start
+Band Index: 3
+Base Frequency: 14095600
+TX audio offset Hz: 1526
+Reconnecting WiFi.......
+WiFi reconnected
+WSPR TX end
+Sending NTP packet...
+No NTP packet received
+Sending NTP packet...
+Seconds to wait = 109
+Residual us subtracted = 57
+Getting data from EEPROM
+KM4UDX
+Fm18iw
+10
+Hop Mode from EEPROM: Y
+WSPR TX start
+Band Index: 4
+Base Frequency: 18104600
+TX audio offset Hz: 1465
+Reconnecting WiFi.......
+WiFi reconnected
+WSPR TX end
+Sending NTP packet...
+No NTP packet received
+Sending NTP packet...
+Seconds to wait = 108
+Residual us subtracted = 57
+Getting data from EEPROM
+KM4UDX
+Fm18iw
+10
+Hop Mode from EEPROM: Y
+WSPR TX start
+Band Index: 5
+Base Frequency: 21094600
+TX audio offset Hz: 1505
+Reconnecting WiFi.......
+WiFi reconnected
+WSPR TX end
+Sending NTP packet...
+Seconds to wait = 111
+Residual us subtracted = 58
+Getting data from EEPROM
+KM4UDX
+Fm18iw
+10
+Hop Mode from EEPROM: Y
+WSPR TX start
+Band Index: 6
+Base Frequency: 24924600
+TX audio offset Hz: 1430
+Reconnecting WiFi.......
+WiFi reconnected
+WSPR TX end
+Sending NTP packet...
+No NTP packet received
+Sending NTP packet...
+Seconds to wait = 109
+Residual us subtracted = 58
+Getting data from EEPROM
+KM4UDX
+Fm18iw
+10
+Hop Mode from EEPROM: Y
+WSPR TX start
+Band Index: 7
+Base Frequency: 28124600
+TX audio offset Hz: 1534
+Reconnecting WiFi.......
+WiFi reconnected
+WSPR TX end
+Sending NTP packet...
+No NTP packet received
+Sending NTP packet...
+Seconds to wait = 109
+Residual us subtracted = 58
+Getting data from EEPROM
+KM4UDX
+Fm18iw
+10
+Hop Mode from EEPROM: Y
+WSPR TX start
+Band Index: 0
+Base Frequency: 3568600
+TX audio offset Hz: 1558
+Reconnecting WiFi.......
+WiFi reconnected
+WSPR TX end
+Sending NTP packet...
+No NTP packet received
+Sending NTP packet...
+Seconds to wait = 109
+Residual us subtracted = 58
+Getting data from EEPROM
+KM4UDX
+Fm18iw
+10
+Hop Mode from EEPROM: Y
+WSPR TX start
+Band Index: 1
+Base Frequency: 7038600
+TX audio offset Hz: 1444
+Reconnecting WiFi.......
+WiFi reconnected
+WSPR TX end
+Sending NTP packet...
+No NTP packet received
+Sending NTP packet...
+Seconds to wait = 108
+Residual us subtracted = 58
+Getting data from EEPROM
+KM4UDX
+Fm18iw
+10
+Hop Mode from EEPROM: Y
+WSPR TX start
+Band Index: 2
+Base Frequency: 10138700
+TX audio offset Hz: 1428
+Reconnecting WiFi.......
+WiFi reconnected
+WSPR TX end
+Sending NTP packet...
+No NTP packet received
+Sending NTP packet...
+No NTP packet received
+Sending NTP packet...
+Seconds to wait = 106
+Residual us subtracted = 53
+Getting data from EEPROM
+KM4UDX
+Fm18iw
+10
+Hop Mode from EEPROM: Y
+WSPR TX start
+Band Index: 3
+Base Frequency: 14095600
+TX audio offset Hz: 1563
+Reconnecting WiFi...........................
+WiFi reconnected
+WSPR TX end
+Sending NTP packet...
+No NTP packet received
+Sending NTP packet...
+No NTP packet received
+Sending NTP packet...
+No NTP packet received
+Sending NTP packet...
+No NTP packet received
+Sending NTP packet...
+Seconds to wait = 90
+Residual us subtracted = 57
+Getting data from EEPROM
+KM4UDX
+Fm18iw
+10
+Hop Mode from EEPROM: Y
+WSPR TX start
+Band Index: 4
+Base Frequency: 18104600
+TX audio offset Hz: 1515
+Reconnecting WiFi.......
+WiFi reconnected
+WSPR TX end
+Sending NTP packet...
+Seconds to wait = 112
+Residual us subtracted = 57
+Getting data from EEPROM
+KM4UDX
+Fm18iw
+10
+Hop Mode from EEPROM: Y
+WSPR TX start
+Band Index: 5
+Base Frequency: 21094600
+TX audio offset Hz: 1456
+Reconnecting WiFi.......
+WiFi reconnected
+WSPR TX end
+Sending NTP packet...
+Seconds to wait = 112
+Residual us subtracted = 58
+Getting data from EEPROM
+KM4UDX
+Fm18iw
+10
+Hop Mode from EEPROM: Y
+WSPR TX start
+Band Index: 6
+Base Frequency: 24924600
+TX audio offset Hz: 1548
+Reconnecting WiFi.......
+WiFi reconnected
+WSPR TX end
+Sending NTP packet...
+Seconds to wait = 111
+Residual us subtracted = 58
+Getting data from EEPROM
+KM4UDX
+Fm18iw
+10
+Hop Mode from EEPROM: Y
+WSPR TX start
+Band Index: 7
+Base Frequency: 28124600
+TX audio offset Hz: 1480
+Reconnecting WiFi.......
+WiFi reconnected
+WSPR TX end
+Sending NTP packet...
+No NTP packet received
+Sending NTP packet...
+Seconds to wait = 109
+Residual us subtracted = 57
+Getting data from EEPROM
+KM4UDX
+Fm18iw
+10
+Hop Mode from EEPROM: Y
+WSPR TX start
+Band Index: 0
+Base Frequency: 3568600
+TX audio offset Hz: 1568
+Reconnecting WiFi.......
+WiFi reconnected
+WSPR TX end
+Sending NTP packet...
+No NTP packet received
+Sending NTP packet...
+Seconds to wait = 109
+Residual us subtracted = 57
+Getting data from EEPROM
+KM4UDX
+Fm18iw
+10
+Hop Mode from EEPROM: Y
+WSPR TX start
+Band Index: 1
+Base Frequency: 7038600
+TX audio offset Hz: 1440
+Reconnecting WiFi.......
+WiFi reconnected
+WSPR TX end
+Sending NTP packet...
+Seconds to wait = 112
+Residual us subtracted = 57
+Getting data from EEPROM
+KM4UDX
+Fm18iw
+10
+Hop Mode from EEPROM: Y
+WSPR TX start
+Band Index: 2
+Base Frequency: 10138700
+TX audio offset Hz: 1592
+Reconnecting WiFi.......
+WiFi reconnected
+WSPR TX end
+Sending NTP packet...
+No NTP packet received
+Sending NTP packet...
+Seconds to wait = 109
+Residual us subtracted = 58
+Getting data from EEPROM
+KM4UDX
+Fm18iw
+10
+Hop Mode from EEPROM: Y
+WSPR TX start
+Band Index: 3
+Base Frequency: 14095600
+TX audio offset Hz: 1457
+Reconnecting WiFi.......
+WiFi reconnected
+WSPR TX end
+Sending NTP packet...
+No NTP packet received
+Sending NTP packet...
+No NTP packet received
+Sending NTP packet...
+Seconds to wait = 105
+Residual us subtracted = 58
+Getting data from EEPROM
+KM4UDX
+Fm18iw
+10
+Hop Mode from EEPROM: Y
+WSPR TX start
+Band Index: 4
+Base Frequency: 18104600
+TX audio offset Hz: 1452
+Reconnecting WiFi.......
+WiFi reconnected
+WSPR TX end
+Sending NTP packet...
+No NTP packet received
+Sending NTP packet...
+No NTP packet received
+Sending NTP packet...
+No NTP packet received
+Sending NTP packet...
+No NTP packet received
+Sending NTP packet...
+Seconds to wait = 100
+Residual us subtracted = 58
+Getting data from EEPROM
+KM4UDX
+Fm18iw
+10
+Hop Mode from EEPROM: Y
+WSPR TX start
+Band Index: 5
+Base Frequency: 21094600
+TX audio offset Hz: 1409
+Reconnecting WiFi.......
+WiFi reconnected
+WSPR TX end
+Sending NTP packet...
+Seconds to wait = 110
+Residual us subtracted = 57
+Getting data from EEPROM
+KM4UDX
+Fm18iw
+10
+Hop Mode from EEPROM: Y
+WSPR TX start
+Band Index: 6
+Base Frequency: 24924600
+TX audio offset Hz: 1465
+Reconnecting WiFi.......
+WiFi reconnected
+WSPR TX end
+Sending NTP packet...
+No NTP packet received
+Sending NTP packet...
+No NTP packet received
+Sending NTP packet...
+Seconds to wait = 106
+Residual us subtracted = 57
+Getting data from EEPROM
+KM4UDX
+Fm18iw
+10
+Hop Mode from EEPROM: Y
+WSPR TX start
+Band Index: 7
+Base Frequency: 28124600
+TX audio offset Hz: 1555
+Reconnecting WiFi.......
+WiFi reconnected
+WSPR TX end
+Sending NTP packet...
+Seconds to wait = 112
+Residual us subtracted = 57
+Getting data from EEPROM
+KM4UDX
+Fm18iw
+10
+Hop Mode from EEPROM: Y
+WSPR TX start
+Band Index: 0
+Base Frequency: 3568600
+TX audio offset Hz: 1455
+Reconnecting WiFi.......
+WiFi reconnected
+WSPR TX end
+Sending NTP packet...
+Seconds to wait = 110
+Residual us subtracted = 58
+Getting data from EEPROM
+KM4UDX
+Fm18iw
+10
+Hop Mode from EEPROM: Y
+WSPR TX start
+Band Index: 1
+Base Frequency: 7038600
+TX audio offset Hz: 1562
+Reconnecting WiFi.......
+WiFi reconnected
+WSPR TX end
+Sending NTP packet...
+No NTP packet received
+Sending NTP packet...
+Seconds to wait = 108
+Residual us subtracted = 57
+Getting data from EEPROM
+KM4UDX
+Fm18iw
+10
+Hop Mode from EEPROM: Y
+WSPR TX start
+Band Index: 2
+Base Frequency: 10138700
+TX audio offset Hz: 1481
+Reconnecting WiFi.......
+WiFi reconnected
+WSPR TX end
+Sending NTP packet...
+No NTP packet received
+Sending NTP packet...
+Seconds to wait = 109
+Residual us subtracted = 57
+Getting data from EEPROM
+KM4UDX
+Fm18iw
+10
+Hop Mode from EEPROM: Y
+WSPR TX start
+Band Index: 3
+Base Frequency: 14095600
+TX audio offset Hz: 1548
+Reconnecting WiFi.......
+WiFi reconnected
+WSPR TX end
+Sending NTP packet...
+Seconds to wait = 112
+Residual us subtracted = 58
+Getting data from EEPROM
+KM4UDX
+Fm18iw
+10
+Hop Mode from EEPROM: Y
+WSPR TX start
+Band Index: 4
+Base Frequency: 18104600
+TX audio offset Hz: 1591
+Reconnecting WiFi.......
+WiFi reconnected
+WSPR TX end
+Sending NTP packet...
+Seconds to wait = 111
+Residual us subtracted = 58
+Getting data from EEPROM
+KM4UDX
+Fm18iw
+10
+Hop Mode from EEPROM: Y
+WSPR TX start
+Band Index: 5
+Base Frequency: 21094600
+TX audio offset Hz: 1411
+Reconnecting WiFi.......
+WiFi reconnected
+WSPR TX end
+Sending NTP packet...
+No NTP packet received
+Sending NTP packet...
+No NTP packet received
+Sending NTP packet...
+No NTP packet received
+Sending NTP packet...
+No NTP packet received
+Sending NTP packet...
+No NTP packet received
+Sending NTP packet...
+Seconds to wait = 97
+Residual us subtracted = 58
+Getting data from EEPROM
+KM4UDX
+Fm18iw
+10
+Hop Mode from EEPROM: Y
+WSPR TX start
+Band Index: 6
+Base Frequency: 24924600
+TX audio offset Hz: 1557
+Reconnecting WiFi.......
+WiFi reconnected
+WSPR TX end
+Sending NTP packet...
+No NTP packet received
+Sending NTP packet...
+Seconds to wait = 109
+Residual us subtracted = 57
+Getting data from EEPROM
+KM4UDX
+Fm18iw
+10
+Hop Mode from EEPROM: Y
+WSPR TX start
+Band Index: 7
+Base Frequency: 28124600
+TX audio offset Hz: 1542
+Reconnecting WiFi.......
+WiFi reconnected
+WSPR TX end
+Sending NTP packet...
+No NTP packet received
+Sending NTP packet...
+Seconds to wait = 109
+Residual us subtracted = 54
+Getting data from EEPROM
+KM4UDX
+Fm18iw
+10
+Hop Mode from EEPROM: Y
+WSPR TX start
+Band Index: 0
+Base Frequency: 3568600
+TX audio offset Hz: 1556
+Reconnecting WiFi.......
+WiFi reconnected
+WSPR TX end
+Sending NTP packet...
+Seconds to wait = 112
+Residual us subtracted = 57
+Getting data from EEPROM
+KM4UDX
+Fm18iw
+10
+Hop Mode from EEPROM: Y
+WSPR TX start
+Band Index: 1
+Base Frequency: 7038600
+TX audio offset Hz: 1479
+Reconnecting WiFi.......
+WiFi reconnected
+WSPR TX end
+Sending NTP packet...
+No NTP packet received
+Sending NTP packet...
+No NTP packet received
+Sending NTP packet...
+No NTP packet received
+Sending NTP packet...
+No NTP packet received
+Sending NTP packet...
+No NTP packet received
+Sending NTP packet...
+No NTP packet received
+Sending NTP packet...
+No NTP packet received
+Sending NTP packet...
+No NTP packet received
+Sending NTP packet...
+No NTP packet received
+Sending NTP packet...
+No NTP packet received
+Sending NTP packet...
+Seconds to wait = 81
+Residual us subtracted = 57
+Getting data from EEPROM
+KM4UDX
+Fm18iw
+10
+Hop Mode from EEPROM: Y
+WSPR TX start
+Band Index: 2
+Base Frequency: 10138700
+TX audio offset Hz: 1405
+Reconnecting WiFi.......
+WiFi reconnected
+WSPR TX end
+Sending NTP packet...
+Seconds to wait = 112
+Residual us subtracted = 57
+Getting data from EEPROM
+KM4UDX
+Fm18iw
+10
+Hop Mode from EEPROM: Y
+WSPR TX start
+Band Index: 3
+Base Frequency: 14095600
+TX audio offset Hz: 1583
+Reconnecting WiFi.......
+WiFi reconnected
+WSPR TX end
+Sending NTP packet...
+No NTP packet received
+Sending NTP packet...
+No NTP packet received
+Sending NTP packet...
+No NTP packet received
+Sending NTP packet...
+No NTP packet received
+Sending NTP packet...
+No NTP packet received
+Sending NTP packet...
+No NTP packet received
+Sending NTP packet...
+No NTP packet received
+Sending NTP packet...
+No NTP packet received
+Sending NTP packet...
+No NTP packet received
+Sending NTP packet...
+Seconds to wait = 85
+Residual us subtracted = 54
+Getting data from EEPROM
+KM4UDX
+Fm18iw
+10
+Hop Mode from EEPROM: Y
+WSPR TX start
+Band Index: 4
+Base Frequency: 18104600
+TX audio offset Hz: 1486
+Reconnecting WiFi...........
+WiFi reconnected
+WSPR TX end
+Sending NTP packet...
+Seconds to wait = 110
+Residual us subtracted = 58
+Getting data from EEPROM
+KM4UDX
+Fm18iw
+10
+Hop Mode from EEPROM: Y
+WSPR TX start
+Band Index: 5
+Base Frequency: 21094600
+TX audio offset Hz: 1486
+Reconnecting WiFi.......
+WiFi reconnected
+WSPR TX end
+Sending NTP packet...
+Seconds to wait = 110
+Residual us subtracted = 54
+Getting data from EEPROM
+KM4UDX
+Fm18iw
+10
+Hop Mode from EEPROM: Y
+WSPR TX start
+Band Index: 6
+Base Frequency: 24924600
+TX audio offset Hz: 1486
+Reconnecting WiFi.......
+WiFi reconnected
+WSPR TX end
+Sending NTP packet...
+No NTP packet received
+Sending NTP packet...
+Seconds to wait = 107
+Residual us subtracted = 58
+Getting data from EEPROM
+KM4UDX
+Fm18iw
+10
+Hop Mode from EEPROM: Y
+WSPR TX start
+Band Index: 7
+Base Frequency: 28124600
+TX audio offset Hz: 1423
+Reconnecting WiFi...........
+WiFi reconnected
+WSPR TX end
+Sending NTP packet...
+No NTP packet received
+Sending NTP packet...
+No NTP packet received
+Sending NTP packet...
+No NTP packet received
+Sending NTP packet...
+Seconds to wait = 101
+Residual us subtracted = 57
+Getting data from EEPROM
+KM4UDX
+Fm18iw
+10
+Hop Mode from EEPROM: Y
+WSPR TX start
+Band Index: 0
+Base Frequency: 3568600
+TX audio offset Hz: 1442
+Reconnecting WiFi.......
+WiFi reconnected
+WSPR TX end
+Sending NTP packet...
+No NTP packet received
+Sending NTP packet...
+No NTP packet received
+Sending NTP packet...
+No NTP packet received
+Sending NTP packet...
+No NTP packet received
+Sending NTP packet...
+Seconds to wait = 99
+Residual us subtracted = 58
+Getting data from EEPROM
+KM4UDX
+Fm18iw
+10
+Hop Mode from EEPROM: Y
+WSPR TX start
+Band Index: 1
+Base Frequency: 7038600
+TX audio offset Hz: 1408
+Reconnecting WiFi.......
+WiFi reconnected
+WSPR TX end
+Sending NTP packet...
+No NTP packet received
+Sending NTP packet...
+Seconds to wait = 109
+Residual us subtracted = 58
+Getting data from EEPROM
+KM4UDX
+Fm18iw
+10
+Hop Mode from EEPROM: Y
+WSPR TX start
+Band Index: 2
+Base Frequency: 10138700
+TX audio offset Hz: 1465
+Reconnecting WiFi.......
+WiFi reconnected
+WSPR TX end
+Sending NTP packet...
+No NTP packet received
+Sending NTP packet...
+Seconds to wait = 108
+Residual us subtracted = 58
+Getting data from EEPROM
+KM4UDX
+Fm18iw
+10
+Hop Mode from EEPROM: Y
+WSPR TX start
+Band Index: 3
+Base Frequency: 14095600
+TX audio offset Hz: 1488
+Reconnecting WiFi.......
+WiFi reconnected
+WSPR TX end
+Sending NTP packet...
+Seconds to wait = 112
+Residual us subtracted = 58
+Getting data from EEPROM
+KM4UDX
+Fm18iw
+10
+Hop Mode from EEPROM: Y
+WSPR TX start
+Band Index: 4
+Base Frequency: 18104600
+TX audio offset Hz: 1416
+Reconnecting WiFi.......
+WiFi reconnected
+WSPR TX end
+Sending NTP packet...
+No NTP packet received
+Sending NTP packet...
+Seconds to wait = 109
+Residual us subtracted = 58
+Getting data from EEPROM
+KM4UDX
+Fm18iw
+10
+Hop Mode from EEPROM: Y
+WSPR TX start
+Band Index: 5
+Base Frequency: 21094600
+TX audio offset Hz: 1590
+Reconnecting WiFi.......
+WiFi reconnected
+WSPR TX end
+Sending NTP packet...
+No NTP packet received
+Sending NTP packet...
+No NTP packet received
+Sending NTP packet...
+No NTP packet received
+Sending NTP packet...
+No NTP packet received
+Sending NTP packet...
+Seconds to wait = 99
+Residual us subtracted = 57
+Getting data from EEPROM
+KM4UDX
+Fm18iw
+10
+Hop Mode from EEPROM: Y
+WSPR TX start
+Band Index: 6
+Base Frequency: 24924600
+TX audio offset Hz: 1528
+Reconnecting WiFi.......
+WiFi reconnected
+WSPR TX end
+Sending NTP packet...
+Seconds to wait = 111
+Residual us subtracted = 58
+Getting data from EEPROM
+KM4UDX
+Fm18iw
+10
+Hop Mode from EEPROM: Y
+WSPR TX start
+Band Index: 7
+Base Frequency: 28124600
+TX audio offset Hz: 1545
+Reconnecting WiFi.......
+WiFi reconnected
+WSPR TX end
+Sending NTP packet...
+Seconds to wait = 112
+Residual us subtracted = 58
+Getting data from EEPROM
+KM4UDX
+Fm18iw
+10
+Hop Mode from EEPROM: Y
+WSPR TX start
+Band Index: 0
+Base Frequency: 3568600
+TX audio offset Hz: 1487
+Reconnecting WiFi.......
+WiFi reconnected
+WSPR TX end
+Sending NTP packet...
+No NTP packet received
+Sending NTP packet...
+Seconds to wait = 109
+Residual us subtracted = 57
+Getting data from EEPROM
+KM4UDX
+Fm18iw
+10
+Hop Mode from EEPROM: Y
+WSPR TX start
+Band Index: 1
+Base Frequency: 7038600
+TX audio offset Hz: 1492
+Reconnecting WiFi.......
+WiFi reconnected
+WSPR TX end
+Sending NTP packet...
+No NTP packet received
+Sending NTP packet...
+Seconds to wait = 109
+Residual us subtracted = 54
+Getting data from EEPROM
+KM4UDX
+Fm18iw
+10
+Hop Mode from EEPROM: Y
+WSPR TX start
+Band Index: 2
+Base Frequency: 10138700
+TX audio offset Hz: 1436
+Reconnecting WiFi.......
+WiFi reconnected
+WSPR TX end
+Sending NTP packet...
+No NTP packet received
+Sending NTP packet...
+No NTP packet received
+Sending NTP packet...
+No NTP packet received
+Sending NTP packet...
+Seconds to wait = 103
+Residual us subtracted = 58
+Getting data from EEPROM
+KM4UDX
+Fm18iw
+10
+Hop Mode from EEPROM: Y
+WSPR TX start
+Band Index: 3
+Base Frequency: 14095600
+TX audio offset Hz: 1414
+Reconnecting WiFi.......
+WiFi reconnected
+WSPR TX end
+Sending NTP packet...
+No NTP packet received
+Sending NTP packet...
+Seconds to wait = 109
+Residual us subtracted = 54
+Getting data from EEPROM
+KM4UDX
+Fm18iw
+10
+Hop Mode from EEPROM: Y
+WSPR TX start
+Band Index: 4
+Base Frequency: 18104600
+TX audio offset Hz: 1509
+Reconnecting WiFi...................
+WiFi reconnected
+WSPR TX end
+Sending NTP packet...
+No NTP packet received
+Sending NTP packet...
+No NTP packet received
+Sending NTP packet...
+No NTP packet received
+Sending NTP packet...
+No NTP packet received
+Sending NTP packet...
+Seconds to wait = 92
+Residual us subtracted = 57
+Getting data from EEPROM
+KM4UDX
+Fm18iw
+10
+Hop Mode from EEPROM: Y
+WSPR TX start
+Band Index: 5
+Base Frequency: 21094600
+TX audio offset Hz: 1528
+Reconnecting WiFi.......
+WiFi reconnected
+WSPR TX end
+Sending NTP packet...
+No NTP packet received
+Sending NTP packet...
+No NTP packet received
+Sending NTP packet...
+No NTP packet received
+Sending NTP packet...
+Seconds to wait = 103
+Residual us subtracted = 58
+Getting data from EEPROM
+KM4UDX
+Fm18iw
+10
+Hop Mode from EEPROM: Y
+WSPR TX start
+Band Index: 6
+Base Frequency: 24924600
+TX audio offset Hz: 1518
+Reconnecting WiFi.......
+WiFi reconnected
+WSPR TX end
+Sending NTP packet...
+Seconds to wait = 112
+Residual us subtracted = 58
+Getting data from EEPROM
+KM4UDX
+Fm18iw
+10
+Hop Mode from EEPROM: Y
+WSPR TX start
+Band Index: 7
+Base Frequency: 28124600
+TX audio offset Hz: 1532
+Reconnecting WiFi...................
+WiFi reconnected
+WSPR TX end
+Sending NTP packet...
+No NTP packet received
+Sending NTP packet...
+No NTP packet received
+Sending NTP packet...
+No NTP packet received
+Sending NTP packet...
+No NTP packet received
+Sending NTP packet...
+Seconds to wait = 94
+Residual us subtracted = 58
+Getting data from EEPROM
+KM4UDX
+Fm18iw
+10
+Hop Mode from EEPROM: Y
+WSPR TX start
+Band Index: 0
+Base Frequency: 3568600
+TX audio offset Hz: 1529
+Reconnecting WiFi.......
+WiFi reconnected
+WSPR TX end
+Sending NTP packet...
+No NTP packet received
+Sending NTP packet...
+No NTP packet received
+Sending NTP packet...
+No NTP packet received
+Sending NTP packet...
+Seconds to wait = 102
+Residual us subtracted = 57
+Getting data from EEPROM
+KM4UDX
+Fm18iw
+10
+Hop Mode from EEPROM: Y
+WSPR TX start
+Band Index: 1
+Base Frequency: 7038600
+TX audio offset Hz: 1468
+Reconnecting WiFi...........
+WiFi reconnected
+WSPR TX end
+Sending NTP packet...
+No NTP packet received
+Sending NTP packet...
+No NTP packet received
+Sending NTP packet...
+No NTP packet received
+Sending NTP packet...
+No NTP packet received
+Sending NTP packet...
+Seconds to wait = 98
+Residual us subtracted = 58
+Getting data from EEPROM
+KM4UDX
+Fm18iw
+10
+Hop Mode from EEPROM: Y
+WSPR TX start
+Band Index: 2
+Base Frequency: 10138700
+TX audio offset Hz: 1539
+Reconnecting WiFi.......
+WiFi reconnected
+WSPR TX end
+Sending NTP packet...
+No NTP packet received
+Sending NTP packet...
+No NTP packet received
+Sending NTP packet...
+No NTP packet received
+Sending NTP packet...
+No NTP packet received
+Sending NTP packet...
+No NTP packet received
+Sending NTP packet...
+No NTP packet received
+Sending NTP packet...
+No NTP packet received
+Sending NTP packet...
+Seconds to wait = 91
+Residual us subtracted = 58
+Getting data from EEPROM
+KM4UDX
+Fm18iw
+10
+Hop Mode from EEPROM: Y
+WSPR TX start
+Band Index: 3
+Base Frequency: 14095600
+TX audio offset Hz: 1407
+Reconnecting WiFi.......
+WiFi reconnected
+WSPR TX end
+Sending NTP packet...
+Seconds to wait = 112
+Residual us subtracted = 57
+Getting data from EEPROM
+KM4UDX
+Fm18iw
+10
+Hop Mode from EEPROM: Y
+WSPR TX start
+Band Index: 4
+Base Frequency: 18104600
+TX audio offset Hz: 1450
+Reconnecting WiFi.......
+WiFi reconnected
+WSPR TX end
+Sending NTP packet...
+Seconds to wait = 108
+Residual us subtracted = 57
+Getting data from EEPROM
+KM4UDX
+Fm18iw
+10
+Hop Mode from EEPROM: Y
+WSPR TX start
+Band Index: 5
+Base Frequency: 21094600
+TX audio offset Hz: 1451
+Reconnecting WiFi.......
+WiFi reconnected
+WSPR TX end
+Sending NTP packet...
+No NTP packet received
+Sending NTP packet...
+Seconds to wait = 109
+Residual us subtracted = 58
+Getting data from EEPROM
+KM4UDX
+Fm18iw
+10
+Hop Mode from EEPROM: Y
+WSPR TX start
+Band Index: 6
+Base Frequency: 24924600
+TX audio offset Hz: 1467
+Reconnecting WiFi.......
+WiFi reconnected
+WSPR TX end
+Sending NTP packet...
+Seconds to wait = 111
+Residual us subtracted = 57
+Getting data from EEPROM
+KM4UDX
+Fm18iw
+10
+Hop Mode from EEPROM: Y
+WSPR TX start
+Band Index: 7
+Base Frequency: 28124600
+TX audio offset Hz: 1527
+Reconnecting WiFi.......
+WiFi reconnected
+WSPR TX end
+Sending NTP packet...
+No NTP packet received
+Sending NTP packet...
+Seconds to wait = 109
+Residual us subtracted = 58
+Getting data from EEPROM
+KM4UDX
+Fm18iw
+10
+Hop Mode from EEPROM: Y
+WSPR TX start
+Band Index: 0
+Base Frequency: 3568600
+TX audio offset Hz: 1451
+Reconnecting WiFi.......
+WiFi reconnected
+WSPR TX end
+Sending NTP packet...
+Seconds to wait = 112
+Residual us subtracted = 57
+Getting data from EEPROM
+KM4UDX
+Fm18iw
+10
+Hop Mode from EEPROM: Y
+WSPR TX start
+Band Index: 1
+Base Frequency: 7038600
+TX audio offset Hz: 1454
+Reconnecting WiFi.......
+WiFi reconnected
+WSPR TX end
+Sending NTP packet...
+Seconds to wait = 112
+Residual us subtracted = 58
+Getting data from EEPROM
+KM4UDX
+Fm18iw
+10
+Hop Mode from EEPROM: Y
+WSPR TX start
+Band Index: 2
+Base Frequency: 10138700
+TX audio offset Hz: 1415
+Reconnecting WiFi.......
+WiFi reconnected
+WSPR TX end
+Sending NTP packet...
+No NTP packet received
+Sending NTP packet...
+No NTP packet received
+Sending NTP packet...
+No NTP packet received
+Sending NTP packet...
+Seconds to wait = 100
+Residual us subtracted = 57
+Getting data from EEPROM
+KM4UDX
+Fm18iw
+10
+Hop Mode from EEPROM: Y
+WSPR TX start
+Band Index: 3
+Base Frequency: 14095600
+TX audio offset Hz: 1543
+Reconnecting WiFi.......
+WiFi reconnected
+WSPR TX end
+Sending NTP packet...
+No NTP packet received
+Sending NTP packet...
+Seconds to wait = 109
+Residual us subtracted = 58
+Getting data from EEPROM
+KM4UDX
+Fm18iw
+10
+Hop Mode from EEPROM: Y
+WSPR TX start
+Band Index: 4
+Base Frequency: 18104600
+TX audio offset Hz: 1422
+Reconnecting WiFi.......
+WiFi reconnected
+WSPR TX end
+Sending NTP packet...
+No NTP packet received
+Sending NTP packet...
+No NTP packet received
+Sending NTP packet...
+Seconds to wait = 106
+Residual us subtracted = 58
+Getting data from EEPROM
+KM4UDX
+Fm18iw
+10
+Hop Mode from EEPROM: Y
+WSPR TX start
+Band Index: 5
+Base Frequency: 21094600
+TX audio offset Hz: 1433
+Reconnecting WiFi.......
+WiFi reconnected
+WSPR TX end
+Sending NTP packet...
+No NTP packet received
+Sending NTP packet...
+Seconds to wait = 109
+Residual us subtracted = 57
+Getting data from EEPROM
+KM4UDX
+Fm18iw
+10
+Hop Mode from EEPROM: Y
+WSPR TX start
+Band Index: 6
+Base Frequency: 24924600
+TX audio offset Hz: 1432
+Reconnecting WiFi.......
+WiFi reconnected
+WSPR TX end
+Sending NTP packet...
+Seconds to wait = 111
+Residual us subtracted = 57
+Getting data from EEPROM
+KM4UDX
+Fm18iw
+10
+Hop Mode from EEPROM: Y
+WSPR TX start
+Band Index: 7
+Base Frequency: 28124600
+TX audio offset Hz: 1491
+Reconnecting WiFi.......
+WiFi reconnected
+WSPR TX end
+Sending NTP packet...
+Seconds to wait = 112
+Residual us subtracted = 58
+Getting data from EEPROM
+KM4UDX
+Fm18iw
+10
+Hop Mode from EEPROM: Y
+WSPR TX start
+Band Index: 0
+Base Frequency: 3568600
+TX audio offset Hz: 1430
+Reconnecting WiFi.......
+WiFi reconnected
+WSPR TX end
+Sending NTP packet...
+Seconds to wait = 111
+Residual us subtracted = 58
+Getting data from EEPROM
+KM4UDX
+Fm18iw
+10
+Hop Mode from EEPROM: Y
+WSPR TX start
+Band Index: 1
+Base Frequency: 7038600
+TX audio offset Hz: 1582
+Reconnecting WiFi.......
+WiFi reconnected
+WSPR TX end
+Sending NTP packet...
+Seconds to wait = 112
+Residual us subtracted = 58
+Getting data from EEPROM
+KM4UDX
+Fm18iw
+10
+Hop Mode from EEPROM: Y
+WSPR TX start
+Band Index: 2
+Base Frequency: 10138700
+TX audio offset Hz: 1582
+Reconnecting WiFi.......
+WiFi reconnected
+WSPR TX end
+Sending NTP packet...
+Seconds to wait = 111
+Residual us subtracted = 58
+Getting data from EEPROM
+KM4UDX
+Fm18iw
+10
+Hop Mode from EEPROM: Y
+WSPR TX start
+Band Index: 3
+Base Frequency: 14095600
+TX audio offset Hz: 1421
+Reconnecting WiFi.......
+WiFi reconnected
+WSPR TX end
+Sending NTP packet...
+Seconds to wait = 111
+Residual us subtracted = 58
+Getting data from EEPROM
+KM4UDX
+Fm18iw
+10
+Hop Mode from EEPROM: Y
+WSPR TX start
+Band Index: 4
+Base Frequency: 18104600
+TX audio offset Hz: 1537
+Reconnecting WiFi.......
+WiFi reconnected
+WSPR TX end
+Performing scheduled daily refresh reboot...
+    1 D  LH K$jb WSPR WiFi Setup
+i2c found!
+WiFiManager version: v2.0.17
+Starting Auto Connect Process
+*wm:AutoConnect 
+*wm:Connect Wifi, ATTEMPT # 1 of 5
+*wm:Connecting to SAVED AP: FosbakFios
+*wm:AutoConnect: SUCCESS 
+*wm:STA IP Address: 192.168.1.237
+WiFi connected successfully
+Fixed Band Mode - jumper index: 0
+Sending NTP packet...
+No NTP packet received
+Sending NTP packet...
+No NTP packet received
+Sending NTP packet...
+Seconds to wait = 99
+Residual us subtracted = 45
+Getting data from EEPROM
+KM4UDX
+Fm18iw
+10
+Hop Mode from EEPROM: Y
+WSPR TX start
+Band Index: 0
+Base Frequency: 3568600
+TX audio offset Hz: 1507
+Reconnecting WiFi.......
+WiFi reconnected
+WSPR TX end
+Sending NTP packet...
+Seconds to wait = 112
+Residual us subtracted = 58
+Getting data from EEPROM
+KM4UDX
+Fm18iw
+10
+Hop Mode from EEPROM: Y
+WSPR TX start
+Band Index: 1
+Base Frequency: 7038600
+TX audio offset Hz: 1495
+Reconnecting WiFi.......
+WiFi reconnected
+WSPR TX end
+Sending NTP packet...
+Seconds to wait = 112
+Residual us subtracted = 58
+Getting data from EEPROM
+KM4UDX
+Fm18iw
+10
+Hop Mode from EEPROM: Y
+WSPR TX start
+Band Index: 2
+Base Frequency: 10138700
+TX audio offset Hz: 1514
+Reconnecting WiFi.......
+WiFi reconnected
+WSPR TX end
+Sending NTP packet...
+No NTP packet received
+Sending NTP packet...
+Seconds to wait = 108
+Residual us subtracted = 58
+Getting data from EEPROM
+KM4UDX
+Fm18iw
+10
+Hop Mode from EEPROM: Y
+WSPR TX start
+Band Index: 3
+Base Frequency: 14095600
+TX audio offset Hz: 1459
+Reconnecting WiFi.......
+WiFi reconnected
+WSPR TX end
+Sending NTP packet...
+Seconds to wait = 112
+Residual us subtracted = 58
+Getting data from EEPROM
+KM4UDX
+Fm18iw
+10
+Hop Mode from EEPROM: Y
+WSPR TX start
+Band Index: 4
+Base Frequency: 18104600
+TX audio offset Hz: 1482
+Reconnecting WiFi.......
+WiFi reconnected
+WSPR TX end
+Sending NTP packet...
+No NTP packet received
+Sending NTP packet...
+No NTP packet received
+Sending NTP packet...
+Seconds to wait = 106
+Residual us subtracted = 57
+Getting data from EEPROM
+KM4UDX
+Fm18iw
+10
+Hop Mode from EEPROM: Y
+WSPR TX start
+Band Index: 5
+Base Frequency: 21094600
+TX audio offset Hz: 1550
+Reconnecting WiFi...........
+WiFi reconnected
+WSPR TX end
+Sending NTP packet...
+Seconds to wait = 109
+Residual us subtracted = 54
+Getting data from EEPROM
+KM4UDX
+Fm18iw
+10
+Hop Mode from EEPROM: Y
+WSPR TX start
+Band Index: 6
+Base Frequency: 24924600
+TX audio offset Hz: 1569
+Reconnecting WiFi.......
+WiFi reconnected
+WSPR TX end
+Sending NTP packet...
+Seconds to wait = 112
+Residual us subtracted = 58
+Getting data from EEPROM
+KM4UDX
+Fm18iw
+10
+Hop Mode from EEPROM: Y
+WSPR TX start
+Band Index: 7
+Base Frequency: 28124600
+TX audio offset Hz: 1496
+Reconnecting WiFi.......
+WiFi reconnected
+WSPR TX end
+Sending NTP packet...
+No NTP packet received
+Sending NTP packet...
+No NTP packet received
+Sending NTP packet...
+No NTP packet received
+Sending NTP packet...
+Seconds to wait = 103
+Residual us subtracted = 58
+Getting data from EEPROM
+KM4UDX
+Fm18iw
+10
+Hop Mode from EEPROM: Y
+WSPR TX start
+Band Index: 0
+Base Frequency: 3568600
+TX audio offset Hz: 1518
+Reconnecting WiFi.......
+WiFi reconnected
+WSPR TX end
+Sending NTP packet...
+Seconds to wait = 111
+Residual us subtracted = 58
+Getting data from EEPROM
+KM4UDX
+Fm18iw
+10
+Hop Mode from EEPROM: Y
+WSPR TX start
+Band Index: 1
+Base Frequency: 7038600
+TX audio offset Hz: 1481
+Reconnecting WiFi.......
+WiFi reconnected
+WSPR TX end
+Sending NTP packet...
+Seconds to wait = 112
+Residual us subtracted = 53
+Getting data from EEPROM
+KM4UDX
+Fm18iw
+10
+Hop Mode from EEPROM: Y
+WSPR TX start
+Band Index: 2
+Base Frequency: 10138700
+TX audio offset Hz: 1591
+Reconnecting WiFi...........
+WiFi reconnected
+WSPR TX end
+Sending NTP packet...
+No NTP packet received
+Sending NTP packet...
+Seconds to wait = 107
+Residual us subtracted = 57
+Getting data from EEPROM
+KM4UDX
+Fm18iw
+10
+Hop Mode from EEPROM: Y
+WSPR TX start
+Band Index: 3
+Base Frequency: 14095600
+TX audio offset Hz: 1453
+Reconnecting WiFi.......
+WiFi reconnected
+WSPR TX end
+Sending NTP packet...
+No NTP packet received
+Sending NTP packet...
+Seconds to wait = 108
+Residual us subtracted = 57
+Getting data from EEPROM
+KM4UDX
+Fm18iw
+10
+Hop Mode from EEPROM: Y
+WSPR TX start
+Band Index: 4
+Base Frequency: 18104600
+TX audio offset Hz: 1567
+Reconnecting WiFi.......
+WiFi reconnected
+WSPR TX end
+Sending NTP packet...
+No NTP packet received
+Sending NTP packet...
+Seconds to wait = 109
+Residual us subtracted = 58
+Getting data from EEPROM
+KM4UDX
+Fm18iw
+10
+Hop Mode from EEPROM: Y
+WSPR TX start
+Band Index: 5
+Base Frequency: 21094600
+TX audio offset Hz: 1575
+Reconnecting WiFi.......
+WiFi reconnected
+WSPR TX end
+Sending NTP packet...
+Seconds to wait = 111
+Residual us subtracted = 54
+Getting data from EEPROM
+KM4UDX
+Fm18iw
+10
+Hop Mode from EEPROM: Y
+WSPR TX start
+Band Index: 6
+Base Frequency: 24924600
+TX audio offset Hz: 1419
+Reconnecting WiFi.......
+WiFi reconnected
+WSPR TX end
+Sending NTP packet...
+Seconds to wait = 112
+Residual us subtracted = 57
+Getting data from EEPROM
+KM4UDX
+Fm18iw
+10
+Hop Mode from EEPROM: Y
+WSPR TX start
+Band Index: 7
+Base Frequency: 28124600
+TX audio offset Hz: 1581
+Reconnecting WiFi.......
+WiFi reconnected
+WSPR TX end
+Sending NTP packet...
+Seconds to wait = 112
+Residual us subtracted = 58
+Getting data from EEPROM
+KM4UDX
+Fm18iw
+10
+Hop Mode from EEPROM: Y
+WSPR TX start
+Band Index: 0
+Base Frequency: 3568600
+TX audio offset Hz: 1403
+Reconnecting WiFi...........
+WiFi reconnected
+WSPR TX end
+Sending NTP packet...
+Seconds to wait = 108
+Residual us subtracted = 57
+Getting data from EEPROM
+KM4UDX
+Fm18iw
+10
+Hop Mode from EEPROM: Y
+WSPR TX start
+Band Index: 1
+Base Frequency: 7038600
+TX audio offset Hz: 1434
+Reconnecting WiFi.......
+WiFi reconnected
+WSPR TX end
+Sending NTP packet...
+No NTP packet received
+Sending NTP packet...
+Seconds to wait = 109
+Residual us subtracted = 58
+Getting data from EEPROM
+KM4UDX
+Fm18iw
+10
+Hop Mode from EEPROM: Y
+WSPR TX start
+Band Index: 2
+Base Frequency: 10138700
+TX audio offset Hz: 1461
+Reconnecting WiFi.......
+WiFi reconnected
+WSPR TX end
+Sending NTP packet...
+No NTP packet received
+Sending NTP packet...
+Seconds to wait = 108
+Residual us subtracted = 58
+Getting data from EEPROM
+KM4UDX
+Fm18iw
+10
+Hop Mode from EEPROM: Y
+WSPR TX start
+Band Index: 3
+Base Frequency: 14095600
+TX audio offset Hz: 1532
+Reconnecting WiFi.......
+WiFi reconnected
+WSPR TX end
+Sending NTP packet...
+Seconds to wait = 112
+Residual us subtracted = 57
+Getting data from EEPROM
+KM4UDX
+Fm18iw
+10
+Hop Mode from EEPROM: Y
+WSPR TX start
+Band Index: 4
+Base Frequency: 18104600
+TX audio offset Hz: 1590
+Reconnecting WiFi.......
+WiFi reconnected
+WSPR TX end
+Sending NTP packet...
+No NTP packet received
+Sending NTP packet...
+No NTP packet received
+Sending NTP packet...
+No NTP packet received
+Sending NTP packet...
+No NTP packet received
+Sending NTP packet...
+No NTP packet received
+Sending NTP packet...
+No NTP packet received
+Sending NTP packet...
+No NTP packet received
+Sending NTP packet...
+No NTP packet received
+Sending NTP packet...
+Seconds to wait = 88
+Residual us subtracted = 54
+Getting data from EEPROM
+KM4UDX
+Fm18iw
+10
+Hop Mode from EEPROM: Y
+WSPR TX start
+Band Index: 5
+Base Frequency: 21094600
+TX audio offset Hz: 1413
+Reconnecting WiFi.......
+WiFi reconnected
+WSPR TX end
+Sending NTP packet...
+Seconds to wait = 111
+Residual us subtracted = 58
+Getting data from EEPROM
+KM4UDX
+Fm18iw
+10
+Hop Mode from EEPROM: Y
+WSPR TX start
+Band Index: 6
+Base Frequency: 24924600
+TX audio offset Hz: 1524
+Reconnecting WiFi.......
+WiFi reconnected
+WSPR TX end
+Sending NTP packet...
+No NTP packet received
+Sending NTP packet...
+Seconds to wait = 109
+Residual us subtracted = 58
+Getting data from EEPROM
+KM4UDX
+Fm18iw
+10
+Hop Mode from EEPROM: Y
+WSPR TX start
+Band Index: 7
+Base Frequency: 28124600
+TX audio offset Hz: 1494
+Reconnecting WiFi.......
+WiFi reconnected
+WSPR TX end
+Sending NTP packet...
+No NTP packet received
+Sending NTP packet...
+No NTP packet received
+Sending NTP packet...
+No NTP packet received
+Sending NTP packet...
+No NTP packet received
+Sending NTP packet...
+Seconds to wait = 100
+Residual us subtracted = 58
+Getting data from EEPROM
+KM4UDX
+Fm18iw
+10
+Hop Mode from EEPROM: Y
+WSPR TX start
+Band Index: 0
+Base Frequency: 3568600
+TX audio offset Hz: 1578
+Reconnecting WiFi.......
+WiFi reconnected
+WSPR TX end
+Sending NTP packet...
+No NTP packet received
+Sending NTP packet...
+No NTP packet received
+Sending NTP packet...
+No NTP packet received
+Sending NTP packet...
+No NTP packet received
+Sending NTP packet...
+Seconds to wait = 100
+Residual us subtracted = 58
+Getting data from EEPROM
+KM4UDX
+Fm18iw
+10
+Hop Mode from EEPROM: Y
+WSPR TX start
+Band Index: 1
+Base Frequency: 7038600
+TX audio offset Hz: 1532
+Reconnecting WiFi.......
+WiFi reconnected
+WSPR TX end
+Sending NTP packet...
+Seconds to wait = 112
+Residual us subtracted = 57
+Getting data from EEPROM
+KM4UDX
+Fm18iw
+10
+Hop Mode from EEPROM: Y
+WSPR TX start
+Band Index: 2
+Base Frequency: 10138700
+TX audio offset Hz: 1463
+Reconnecting WiFi.......
+WiFi reconnected
+WSPR TX end
+Sending NTP packet...
+Seconds to wait = 112
+Residual us subtracted = 58
+Getting data from EEPROM
+KM4UDX
+Fm18iw
+10
+Hop Mode from EEPROM: Y
+WSPR TX start
+Band Index: 3
+Base Frequency: 14095600
+TX audio offset Hz: 1456
+Reconnecting WiFi.......
+WiFi reconnected
+WSPR TX end
+Sending NTP packet...
+Seconds to wait = 111
+Residual us subtracted = 57
+Getting data from EEPROM
+KM4UDX
+Fm18iw
+10
+Hop Mode from EEPROM: Y
+WSPR TX start
+Band Index: 4
+Base Frequency: 18104600
+TX audio offset Hz: 1420
+Reconnecting WiFi.......
+WiFi reconnected
+WSPR TX end
+Sending NTP packet...
+No NTP packet received
+Sending NTP packet...
+Seconds to wait = 109
+Residual us subtracted = 54
+Getting data from EEPROM
+KM4UDX
+Fm18iw
+10
+Hop Mode from EEPROM: Y
+WSPR TX start
+Band Index: 5
+Base Frequency: 21094600
+TX audio offset Hz: 1508
+Reconnecting WiFi.......
+WiFi reconnected
+WSPR TX end
+Sending NTP packet...
+No NTP packet received
+Sending NTP packet...
+No NTP packet received
+Sending NTP packet...
+Seconds to wait = 106
+Residual us subtracted = 58
+Getting data from EEPROM
+KM4UDX
+Fm18iw
+10
+Hop Mode from EEPROM: Y
+WSPR TX start
+Band Index: 6
+Base Frequency: 24924600
+TX audio offset Hz: 1436
+Reconnecting WiFi.......
+WiFi reconnected
+WSPR TX end
+Sending NTP packet...
+No NTP packet received
+Sending NTP packet...
+No NTP packet received
+Sending NTP packet...
+No NTP packet received
+Sending NTP packet...
+Seconds to wait = 102
+Residual us subtracted = 58
+Getting data from EEPROM
+KM4UDX
+Fm18iw
+10
+Hop Mode from EEPROM: Y
+WSPR TX start
+Band Index: 7
+Base Frequency: 28124600
+TX audio offset Hz: 1547
+Reconnecting WiFi.......
+WiFi reconnected
+WSPR TX end
+Sending NTP packet...
+Seconds to wait = 111
+Residual us subtracted = 58
+Getting data from EEPROM
+KM4UDX
+Fm18iw
+10
+Hop Mode from EEPROM: Y
+WSPR TX start
+Band Index: 0
+Base Frequency: 3568600
+TX audio offset Hz: 1511
+Reconnecting WiFi.......
+WiFi reconnected
+WSPR TX end
+Sending NTP packet...
+No NTP packet received
+Sending NTP packet...
+No NTP packet received
+Sending NTP packet...
+No NTP packet received
+Sending NTP packet...
+No NTP packet received
+Sending NTP packet...
+Seconds to wait = 100
+Residual us subtracted = 58
+Getting data from EEPROM
+KM4UDX
+Fm18iw
+10
+Hop Mode from EEPROM: Y
+WSPR TX start
+Band Index: 1
+Base Frequency: 7038600
+TX audio offset Hz: 1579
+Reconnecting WiFi.......
+WiFi reconnected
+WSPR TX end
+Sending NTP packet...
+Seconds to wait = 112
+Residual us subtracted = 57
+Getting data from EEPROM
+KM4UDX
+Fm18iw
+10
+Hop Mode from EEPROM: Y
+WSPR TX start
+Band Index: 2
+Base Frequency: 10138700
+TX audio offset Hz: 1430
+Reconnecting WiFi.......
+WiFi reconnected
+WSPR TX end
+Sending NTP packet...
+Seconds to wait = 111
+Residual us subtracted = 58
+Getting data from EEPROM
+KM4UDX
+Fm18iw
+10
+Hop Mode from EEPROM: Y
+WSPR TX start
+Band Index: 3
+Base Frequency: 14095600
+TX audio offset Hz: 1527
+Reconnecting WiFi.......
+WiFi reconnected
+WSPR TX end
+Sending NTP packet...
+No NTP packet received
+Sending NTP packet...
+No NTP packet received
+Sending NTP packet...
+Seconds to wait = 106
+Residual us subtracted = 54
+Getting data from EEPROM
+KM4UDX
+Fm18iw
+10
+Hop Mode from EEPROM: Y
+WSPR TX start
+Band Index: 4
+Base Frequency: 18104600
+TX audio offset Hz: 1416
+Reconnecting WiFi...........
+WiFi reconnected
+WSPR TX end
+Sending NTP packet...
+Seconds to wait = 110
+Residual us subtracted = 54
+Getting data from EEPROM
+KM4UDX
+Fm18iw
+10
+Hop Mode from EEPROM: Y
+WSPR TX start
+Band Index: 5
+Base Frequency: 21094600
+TX audio offset Hz: 1419
+Reconnecting WiFi.......
+WiFi reconnected
+WSPR TX end
+Sending NTP packet...
+Seconds to wait = 112
+Residual us subtracted = 58
+Getting data from EEPROM
+KM4UDX
+Fm18iw
+10
+Hop Mode from EEPROM: Y
+WSPR TX start
+Band Index: 6
+Base Frequency: 24924600
+TX audio offset Hz: 1523
+Reconnecting WiFi.......
+WiFi reconnected
+WSPR TX end
+Sending NTP packet...
+No NTP packet received
+Sending NTP packet...
+No NTP packet received
+Sending NTP packet...
+No NTP packet received
+Sending NTP packet...
+No NTP packet received
+Sending NTP packet...
+No NTP packet received
+Sending NTP packet...
+No NTP packet received
+Sending NTP packet...
+No NTP packet received
+Sending NTP packet...
+Seconds to wait = 91
+Residual us subtracted = 58
+Getting data from EEPROM
+KM4UDX
+Fm18iw
+10
+Hop Mode from EEPROM: Y
+WSPR TX start
+Band Index: 7
+Base Frequency: 28124600
+TX audio offset Hz: 1410
+Reconnecting WiFi.......
+WiFi reconnected
+WSPR TX end
+Sending NTP packet...
+Seconds to wait = 109
+Residual us subtracted = 58
+Getting data from EEPROM
+KM4UDX
+Fm18iw
+10
+Hop Mode from EEPROM: Y
+WSPR TX start
+Band Index: 0
+Base Frequency: 3568600
+TX audio offset Hz: 1555
+Reconnecting WiFi.............
+WiFi reconnected
+WSPR TX end
+Sending NTP packet...
+Seconds to wait = 109
+Residual us subtracted = 57
+Getting data from EEPROM
+KM4UDX
+Fm18iw
+10
+Hop Mode from EEPROM: Y
+WSPR TX start
+Band Index: 1
+Base Frequency: 7038600
+TX audio offset Hz: 1451
+Reconnecting WiFi.......
+WiFi reconnected
+WSPR TX end
+Sending NTP packet...
+Seconds to wait = 110
+Residual us subtracted = 57
+Getting data from EEPROM
+KM4UDX
+Fm18iw
+10
+Hop Mode from EEPROM: Y
+WSPR TX start
+Band Index: 2
+Base Frequency: 10138700
+TX audio offset Hz: 1526
+Reconnecting WiFi.......
+WiFi reconnected
+WSPR TX end
+Sending NTP packet...
+Seconds to wait = 110
+Residual us subtracted = 58
+Getting data from EEPROM
+KM4UDX
+Fm18iw
+10
+Hop Mode from EEPROM: Y
+WSPR TX start
+Band Index: 3
+Base Frequency: 14095600
+TX audio offset Hz: 1432
+Reconnecting WiFi.......
+WiFi reconnected
+WSPR TX end
+Sending NTP packet...
+Seconds to wait = 111
+Residual us subtracted = 57
+Getting data from EEPROM
+KM4UDX
+Fm18iw
+10
+Hop Mode from EEPROM: Y
+WSPR TX start
+Band Index: 4
+Base Frequency: 18104600
+TX audio offset Hz: 1539
+Reconnecting WiFi...........
+WiFi reconnected
+WSPR TX end
+Sending NTP packet...
+No NTP packet received
+Sending NTP packet...
+No NTP packet received
+Sending NTP packet...
+Seconds to wait = 104
+Residual us subtracted = 58
+Getting data from EEPROM
+KM4UDX
+Fm18iw
+10
+Hop Mode from EEPROM: Y
+WSPR TX start
+Band Index: 5
+Base Frequency: 21094600
+TX audio offset Hz: 1400
+Reconnecting WiFi.......
+WiFi reconnected
+WSPR TX end
+Sending NTP packet...
+Seconds to wait = 111
+Residual us subtracted = 58
+Getting data from EEPROM
+KM4UDX
+Fm18iw
+10
+Hop Mode from EEPROM: Y
+WSPR TX start
+Band Index: 6
+Base Frequency: 24924600
+TX audio offset Hz: 1525
+Reconnecting WiFi.......
+WiFi reconnected
+WSPR TX end
+Sending NTP packet...
+No NTP packet received
+Sending NTP packet...
+Seconds to wait = 109
+Residual us subtracted = 58
+Getting data from EEPROM
+KM4UDX
+Fm18iw
+10
+Hop Mode from EEPROM: Y
+WSPR TX start
+Band Index: 7
+Base Frequency: 28124600
+TX audio offset Hz: 1547
+Reconnecting WiFi.......
+WiFi reconnected
+WSPR TX end
+Sending NTP packet...
+No NTP packet received
+Sending NTP packet...
+No NTP packet received
+Sending NTP packet...
+Seconds to wait = 105
+Residual us subtracted = 58
+Getting data from EEPROM
+KM4UDX
+Fm18iw
+10
+Hop Mode from EEPROM: Y
+WSPR TX start
+Band Index: 0
+Base Frequency: 3568600
+TX audio offset Hz: 1494
+Reconnecting WiFi.......
+WiFi reconnected
+WSPR TX end
+Sending NTP packet...
+Seconds to wait = 111
+Residual us subtracted = 57
+Getting data from EEPROM
+KM4UDX
+Fm18iw
+10
+Hop Mode from EEPROM: Y
+WSPR TX start
+Band Index: 1
+Base Frequency: 7038600
+TX audio offset Hz: 1548
+Reconnecting WiFi.......
+WiFi reconnected
+WSPR TX end
+Sending NTP packet...
+No NTP packet received
+Sending NTP packet...
+No NTP packet received
+Sending NTP packet...
+No NTP packet received
+Sending NTP packet...
+Seconds to wait = 103
+Residual us subtracted = 58
+Getting data from EEPROM
+KM4UDX
+Fm18iw
+10
+Hop Mode from EEPROM: Y
+WSPR TX start
+Band Index: 2
+Base Frequency: 10138700
+TX audio offset Hz: 1572
+Reconnecting WiFi.......
+WiFi reconnected
+WSPR TX end
+Sending NTP packet...
+No NTP packet received
+Sending NTP packet...
+No NTP packet received
+Sending NTP packet...
+Seconds to wait = 106
+Residual us subtracted = 58
+Getting data from EEPROM
+KM4UDX
+Fm18iw
+10
+Hop Mode from EEPROM: Y
+WSPR TX start
+Band Index: 3
+Base Frequency: 14095600
+TX audio offset Hz: 1575
+Reconnecting WiFi.......
+WiFi reconnected
+WSPR TX end
+Sending NTP packet...
+No NTP packet received
+Sending NTP packet...
+Seconds to wait = 108
+Residual us subtracted = 58
+Getting data from EEPROM
+KM4UDX
+Fm18iw
+10
+Hop Mode from EEPROM: Y
+WSPR TX start
+Band Index: 4
+Base Frequency: 18104600
+TX audio offset Hz: 1426
+Reconnecting WiFi.......
+WiFi reconnected
+WSPR TX end
+Sending NTP packet...
+No NTP packet received
+Sending NTP packet...
+Seconds to wait = 108
+Residual us subtracted = 58
+Getting data from EEPROM
+KM4UDX
+Fm18iw
+10
+Hop Mode from EEPROM: Y
+WSPR TX start
+Band Index: 5
+Base Frequency: 21094600
+TX audio offset Hz: 1512
+Reconnecting WiFi.......
+WiFi reconnected
+WSPR TX end
+Sending NTP packet...
+No NTP packet received
+Sending NTP packet...
+No NTP packet received
+Sending NTP packet...
+Seconds to wait = 104
+Residual us subtracted = 58
+Getting data from EEPROM
+KM4UDX
+Fm18iw
+10
+Hop Mode from EEPROM: Y
+WSPR TX start
+Band Index: 6
+Base Frequency: 24924600
+TX audio offset Hz: 1557
+Reconnecting WiFi.......
+WiFi reconnected
+WSPR TX end
+Sending NTP packet...
+Seconds to wait = 112
+Residual us subtracted = 58
+Getting data from EEPROM
+KM4UDX
+Fm18iw
+10
+Hop Mode from EEPROM: Y
+WSPR TX start
+Band Index: 7
+Base Frequency: 28124600
+TX audio offset Hz: 1430
+Reconnecting WiFi.......
+WiFi reconnected
+WSPR TX end
+Sending NTP packet...
+Seconds to wait = 111
+Residual us subtracted = 58
+Getting data from EEPROM
+KM4UDX
+Fm18iw
+10
+Hop Mode from EEPROM: Y
+WSPR TX start
+Band Index: 0
+Base Frequency: 3568600
+TX audio offset Hz: 1419
+Reconnecting WiFi.......
+WiFi reconnected
+WSPR TX end
+Sending NTP packet...
+No NTP packet received
+Sending NTP packet...
+Seconds to wait = 109
+Residual us subtracted = 58
+Getting data from EEPROM
+KM4UDX
+Fm18iw
+10
+Hop Mode from EEPROM: Y
+WSPR TX start
+Band Index: 1
+Base Frequency: 7038600
+TX audio offset Hz: 1579
+Reconnecting WiFi.......
+WiFi reconnected
+WSPR TX end
+Sending NTP packet...
+Seconds to wait = 112
+Residual us subtracted = 53
+Getting data from EEPROM
+KM4UDX
+Fm18iw
+10
+Hop Mode from EEPROM: Y
+WSPR TX start
+Band Index: 2
+Base Frequency: 10138700
+TX audio offset Hz: 1490
+Reconnecting WiFi...........
+WiFi reconnected
+WSPR TX end
+Sending NTP packet...
+No NTP packet received
+Sending NTP packet...
+No NTP packet received
+Sending NTP packet...
+Seconds to wait = 104
+Residual us subtracted = 58
+Getting data from EEPROM
+KM4UDX
+Fm18iw
+10
+Hop Mode from EEPROM: Y
+WSPR TX start
+Band Index: 3
+Base Frequency: 14095600
+TX audio offset Hz: 1495
+Reconnecting WiFi...........
+WiFi reconnected
+WSPR TX end
+Sending NTP packet...
+No NTP packet received
+Sending NTP packet...
+No NTP packet received
+Sending NTP packet...
+No NTP packet received
+Sending NTP packet...
+Seconds to wait = 101
+Residual us subtracted = 58
+Getting data from EEPROM
+KM4UDX
+Fm18iw
+10
+Hop Mode from EEPROM: Y
+WSPR TX start
+Band Index: 4
+Base Frequency: 18104600
+TX audio offset Hz: 1452
+Reconnecting WiFi.......
+WiFi reconnected
+WSPR TX end
+Sending NTP packet...
+No NTP packet received
+Sending NTP packet...
+No NTP packet received
+Sending NTP packet...
+No NTP packet received
+Sending NTP packet...
+No NTP packet received
+Sending NTP packet...
+No NTP packet received
+Sending NTP packet...
+No NTP packet received
+Sending NTP packet...
+No NTP packet received
+Sending NTP packet...
+Seconds to wait = 90
+Residual us subtracted = 57
+Getting data from EEPROM
+KM4UDX
+Fm18iw
+10
+Hop Mode from EEPROM: Y
+WSPR TX start
+Band Index: 5
+Base Frequency: 21094600
+TX audio offset Hz: 1554
+Reconnecting WiFi.......
+WiFi reconnected
+WSPR TX end
+Sending NTP packet...
+Seconds to wait = 112
+Residual us subtracted = 57
+Getting data from EEPROM
+KM4UDX
+Fm18iw
+10
+Hop Mode from EEPROM: Y
+WSPR TX start
+Band Index: 6
+Base Frequency: 24924600
+TX audio offset Hz: 1438
+Reconnecting WiFi.......
+WiFi reconnected
+WSPR TX end
+Sending NTP packet...
+No NTP packet received
+Sending NTP packet...
+Seconds to wait = 109
+Residual us subtracted = 57
+Getting data from EEPROM
+KM4UDX
+Fm18iw
+10
+Hop Mode from EEPROM: Y
+WSPR TX start
+Band Index: 7
+Base Frequency: 28124600
+TX audio offset Hz: 1576
+Reconnecting WiFi.......
+WiFi reconnected
+WSPR TX end
+Sending NTP packet...
+No NTP packet received
+Sending NTP packet...
+Seconds to wait = 109
+Residual us subtracted = 58
+Getting data from EEPROM
+KM4UDX
+Fm18iw
+10
+Hop Mode from EEPROM: Y
+WSPR TX start
+Band Index: 0
+Base Frequency: 3568600
+TX audio offset Hz: 1488
+Reconnecting WiFi.......
+WiFi reconnected
+WSPR TX end
+Sending NTP packet...
+Seconds to wait = 111
+Residual us subtracted = 58
+Getting data from EEPROM
+KM4UDX
+Fm18iw
+10
+Hop Mode from EEPROM: Y
+WSPR TX start
+Band Index: 1
+Base Frequency: 7038600
+TX audio offset Hz: 1578
+Reconnecting WiFi.......
+WiFi reconnected
+WSPR TX end
+Sending NTP packet...
+No NTP packet received
+Sending NTP packet...
+Seconds to wait = 108
+Residual us subtracted = 58
+Getting data from EEPROM
+KM4UDX
+Fm18iw
+10
+Hop Mode from EEPROM: Y
+WSPR TX start
+Band Index: 2
+Base Frequency: 10138700
+TX audio offset Hz: 1489
+Reconnecting WiFi.......
+WiFi reconnected
+WSPR TX end
+Sending NTP packet...
+Seconds to wait = 111
+Residual us subtracted = 58
+Getting data from EEPROM
+KM4UDX
+Fm18iw
+10
+Hop Mode from EEPROM: Y
+WSPR TX start
+Band Index: 3
+Base Frequency: 14095600
+TX audio offset Hz: 1484
+Reconnecting WiFi...........
+WiFi reconnected
+WSPR TX end
+Sending NTP packet...
+No NTP packet received
+Sending NTP packet...
+Seconds to wait = 107
+Residual us subtracted = 53
+Getting data from EEPROM
+KM4UDX
+Fm18iw
+10
+Hop Mode from EEPROM: Y
+WSPR TX start
+Band Index: 4
+Base Frequency: 18104600
+TX audio offset Hz: 1506
+Reconnecting WiFi.......
+WiFi reconnected
+WSPR TX end
+Sending NTP packet...
+No NTP packet received
+Sending NTP packet...
+No NTP packet received
+Sending NTP packet...
+No NTP packet received
+Sending NTP packet...
+No NTP packet received
+Sending NTP packet...
+No NTP packet received
+Sending NTP packet...
+Seconds to wait = 97
+Residual us subtracted = 57
+Getting data from EEPROM
+KM4UDX
+Fm18iw
+10
+Hop Mode from EEPROM: Y
+WSPR TX start
+Band Index: 5
+Base Frequency: 21094600
+TX audio offset Hz: 1427
+Reconnecting WiFi...........
+WiFi reconnected
+WSPR TX end
+Sending NTP packet...
+No NTP packet received
+Sending NTP packet...
+Seconds to wait = 107
+Residual us subtracted = 58
+Getting data from EEPROM
+KM4UDX
+Fm18iw
+10
+Hop Mode from EEPROM: Y
+WSPR TX start
+Band Index: 6
+Base Frequency: 24924600
+TX audio offset Hz: 1466
+Reconnecting WiFi.......
+WiFi reconnected
+WSPR TX end
+Sending NTP packet...
+No NTP packet received
+Sending NTP packet...
+No NTP packet received
+Sending NTP packet...
+Seconds to wait = 104
+Residual us subtracted = 57
+Getting data from EEPROM
+KM4UDX
+Fm18iw
+10
+Hop Mode from EEPROM: Y
+WSPR TX start
+Band Index: 7
+Base Frequency: 28124600
+TX audio offset Hz: 1412
+Reconnecting WiFi.......
+WiFi reconnected
+WSPR TX end
+Sending NTP packet...
+Seconds to wait = 111
+Residual us subtracted = 57
+Getting data from EEPROM
+KM4UDX
+Fm18iw
+10
+Hop Mode from EEPROM: Y
+WSPR TX start
+Band Index: 0
+Base Frequency: 3568600
+TX audio offset Hz: 1534
+Reconnecting WiFi.......
+WiFi reconnected
+WSPR TX end
+Sending NTP packet...
+No NTP packet received
+Sending NTP packet...
+Seconds to wait = 109
+Residual us subtracted = 58
+Getting data from EEPROM
+KM4UDX
+Fm18iw
+10
+Hop Mode from EEPROM: Y
+WSPR TX start
+Band Index: 1
+Base Frequency: 7038600
+TX audio offset Hz: 1435
+Reconnecting WiFi.......
+WiFi reconnected
+WSPR TX end
+Sending NTP packet...
+Seconds to wait = 112
+Residual us subtracted = 58
+Getting data from EEPROM
+KM4UDX
+Fm18iw
+10
+Hop Mode from EEPROM: Y
+WSPR TX start
+Band Index: 2
+Base Frequency: 10138700
+TX audio offset Hz: 1591
+Reconnecting WiFi.......
+WiFi reconnected
+WSPR TX end
+Sending NTP packet...
+No NTP packet received
+Sending NTP packet...
+No NTP packet received
+Sending NTP packet...
+No NTP packet received
+Sending NTP packet...
+No NTP packet received
+Sending NTP packet...
+No NTP packet received
+Sending NTP packet...
+No NTP packet received
+Sending NTP packet...
+No NTP packet received
+Sending NTP packet...
+No NTP packet received
+Sending NTP packet...
+No NTP packet received
+Sending NTP packet...
+No NTP packet received
+Sending NTP packet...
+Seconds to wait = 82
+Residual us subtracted = 57
+Getting data from EEPROM
+KM4UDX
+Fm18iw
+10
+Hop Mode from EEPROM: Y
+WSPR TX start
+Band Index: 3
+Base Frequency: 14095600
+TX audio offset Hz: 1452
+Reconnecting WiFi.......
+WiFi reconnected
+WSPR TX end
+Sending NTP packet...
+No NTP packet received
+Sending NTP packet...
+No NTP packet received
+Sending NTP packet...
+No NTP packet received
+Sending NTP packet...
+Seconds to wait = 102
+Residual us subtracted = 58
+Getting data from EEPROM
+KM4UDX
+Fm18iw
+10
+Hop Mode from EEPROM: Y
+WSPR TX start
+Band Index: 4
+Base Frequency: 18104600
+TX audio offset Hz: 1502
+Reconnecting WiFi...........
+WiFi reconnected
+WSPR TX end
+Sending NTP packet...
+Seconds to wait = 110
+Residual us subtracted = 58
+Getting data from EEPROM
+KM4UDX
+Fm18iw
+10
+Hop Mode from EEPROM: Y
+WSPR TX start
+Band Index: 5
+Base Frequency: 21094600
+TX audio offset Hz: 1500
+Reconnecting WiFi.......
+WiFi reconnected
+WSPR TX end
+Sending NTP packet...
+Seconds to wait = 111
+Residual us subtracted = 58
+Getting data from EEPROM
+KM4UDX
+Fm18iw
+10
+Hop Mode from EEPROM: Y
+WSPR TX start
+Band Index: 6
+Base Frequency: 24924600
+TX audio offset Hz: 1434
+Reconnecting WiFi.......
+WiFi reconnected
+WSPR TX end
+Sending NTP packet...
+Seconds to wait = 112
+Residual us subtracted = 58
+Getting data from EEPROM
+KM4UDX
+Fm18iw
+10
+Hop Mode from EEPROM: Y
+WSPR TX start
+Band Index: 7
+Base Frequency: 28124600
+TX audio offset Hz: 1450
+Reconnecting WiFi.......
+WiFi reconnected
+WSPR TX end
+Sending NTP packet...
+No NTP packet received
+Sending NTP packet...
+Seconds to wait = 108
+Residual us subtracted = 57
+Getting data from EEPROM
+KM4UDX
+Fm18iw
+10
+Hop Mode from EEPROM: Y
+WSPR TX start
+Band Index: 0
+Base Frequency: 3568600
+TX audio offset Hz: 1457
+Reconnecting WiFi.......
+WiFi reconnected
+WSPR TX end
+Sending NTP packet...
+No NTP packet received
+Sending NTP packet...
+No NTP packet received
+Sending NTP packet...
+Seconds to wait = 106
+Residual us subtracted = 58
+Getting data from EEPROM
+KM4UDX
+Fm18iw
+10
+Hop Mode from EEPROM: Y
+WSPR TX start
+Band Index: 1
+Base Frequency: 7038600
+TX audio offset Hz: 1504
+Reconnecting WiFi.......
+WiFi reconnected
+WSPR TX end
+Sending NTP packet...
+No NTP packet received
+Sending NTP packet...
+No NTP packet received
+Sending NTP packet...
+No NTP packet received
+Sending NTP packet...
+No NTP packet received
+Sending NTP packet...
+Seconds to wait = 100
+Residual us subtracted = 58
+Getting data from EEPROM
+KM4UDX
+Fm18iw
+10
+Hop Mode from EEPROM: Y
+WSPR TX start
+Band Index: 2
+Base Frequency: 10138700
+TX audio offset Hz: 1414
+Reconnecting WiFi.......
+WiFi reconnected
+WSPR TX end
+Sending NTP packet...
+No NTP packet received
+Sending NTP packet...
+No NTP packet received
+Sending NTP packet...
+No NTP packet received
+Sending NTP packet...
+No NTP packet received
+Sending NTP packet...
+No NTP packet received
+Sending NTP packet...
+Seconds to wait = 94
+Residual us subtracted = 57
+Getting data from EEPROM
+KM4UDX
+Fm18iw
+10
+Hop Mode from EEPROM: Y
+WSPR TX start
+Band Index: 3
+Base Frequency: 14095600
+TX audio offset Hz: 1401
+Reconnecting WiFi.......
+WiFi reconnected
+WSPR TX end
+Sending NTP packet...
+No NTP packet received
+Sending NTP packet...
+No NTP packet received
+Sending NTP packet...
+No NTP packet received
+Sending NTP packet...
+Seconds to wait = 103
+Residual us subtracted = 58
+Getting data from EEPROM
+KM4UDX
+Fm18iw
+10
+Hop Mode from EEPROM: Y
+WSPR TX start
+Band Index: 4
+Base Frequency: 18104600
+TX audio offset Hz: 1477
+Reconnecting WiFi...........
+WiFi reconnected
+WSPR TX end
+Sending NTP packet...
+Seconds to wait = 110
+Residual us subtracted = 58
+Getting data from EEPROM
+KM4UDX
+Fm18iw
+10
+Hop Mode from EEPROM: Y
+WSPR TX start
+Band Index: 5
+Base Frequency: 21094600
+TX audio offset Hz: 1590
+Reconnecting WiFi.......
+WiFi reconnected
+WSPR TX end
+Sending NTP packet...
+Seconds to wait = 112
+Residual us subtracted = 53
+Getting data from EEPROM
+KM4UDX
+Fm18iw
+10
+Hop Mode from EEPROM: Y
+WSPR TX start
+Band Index: 6
+Base Frequency: 24924600
+TX audio offset Hz: 1432
+Reconnecting WiFi.......
+WiFi reconnected
+WSPR TX end
+Sending NTP packet...
+No NTP packet received
+Sending NTP packet...
+Seconds to wait = 109
+Residual us subtracted = 58
+Getting data from EEPROM
+KM4UDX
+Fm18iw
+10
+Hop Mode from EEPROM: Y
+WSPR TX start
+Band Index: 7
+Base Frequency: 28124600
+TX audio offset Hz: 1494
+Reconnecting WiFi...........
+WiFi reconnected
+WSPR TX end
+Sending NTP packet...
+Seconds to wait = 110
+Residual us subtracted = 58
+Getting data from EEPROM
+KM4UDX
+Fm18iw
+10
+Hop Mode from EEPROM: Y
+WSPR TX start
+Band Index: 0
+Base Frequency: 3568600
+TX audio offset Hz: 1572
+Reconnecting WiFi.......
+WiFi reconnected
+WSPR TX end
+Sending NTP packet...
+No NTP packet received
+Sending NTP packet...
+Seconds to wait = 107
+Residual us subtracted = 58
+Getting data from EEPROM
+KM4UDX
+Fm18iw
+10
+Hop Mode from EEPROM: Y
+WSPR TX start
+Band Index: 1
+Base Frequency: 7038600
+TX audio offset Hz: 1467
+Reconnecting WiFi.......
+WiFi reconnected
+WSPR TX end
+Sending NTP packet...
+Seconds to wait = 112
+Residual us subtracted = 57
+Getting data from EEPROM
+KM4UDX
+Fm18iw
+10
+Hop Mode from EEPROM: Y
+WSPR TX start
+Band Index: 2
+Base Frequency: 10138700
+TX audio offset Hz: 1499
+Reconnecting WiFi.......
+WiFi reconnected
+WSPR TX end
+Sending NTP packet...
+No NTP packet received
+Sending NTP packet...
+Seconds to wait = 109
+Residual us subtracted = 58
+Getting data from EEPROM
+KM4UDX
+Fm18iw
+10
+Hop Mode from EEPROM: Y
+WSPR TX start
+Band Index: 3
+Base Frequency: 14095600
+TX audio offset Hz: 1459
+Reconnecting WiFi.......
+WiFi reconnected
+WSPR TX end
+Sending NTP packet...
+No NTP packet received
+Sending NTP packet...
+No NTP packet received
+Sending NTP packet...
+No NTP packet received
+Sending NTP packet...
+Seconds to wait = 100
+Residual us subtracted = 58
+Getting data from EEPROM
+KM4UDX
+Fm18iw
+10
+Hop Mode from EEPROM: Y
+WSPR TX start
+Band Index: 4
+Base Frequency: 18104600
+TX audio offset Hz: 1472
+Reconnecting WiFi.......
+WiFi reconnected
+WSPR TX end
+Sending NTP packet...
+Seconds to wait = 112
+Residual us subtracted = 53
+Getting data from EEPROM
+KM4UDX
+Fm18iw
+10
+Hop Mode from EEPROM: Y
+WSPR TX start
+Band Index: 5
+Base Frequency: 21094600
+TX audio offset Hz: 1513
+Reconnecting WiFi.......
+WiFi reconnected
+WSPR TX end
+Sending NTP packet...
+Seconds to wait = 112
+Residual us subtracted = 58
+Getting data from EEPROM
+KM4UDX
+Fm18iw
+10
+Hop Mode from EEPROM: Y
+WSPR TX start
+Band Index: 6
+Base Frequency: 24924600
+TX audio offset Hz: 1577
+Reconnecting WiFi.......
+WiFi reconnected
+WSPR TX end
+Sending NTP packet...
+Seconds to wait = 111
+Residual us subtracted = 58
+Getting data from EEPROM
+KM4UDX
+Fm18iw
+10
+Hop Mode from EEPROM: Y
+WSPR TX start
+Band Index: 7
+Base Frequency: 28124600
+TX audio offset Hz: 1405
+Reconnecting WiFi.......
+WiFi reconnected
+WSPR TX end
+Sending NTP packet...
+No NTP packet received
+Sending NTP packet...
+No NTP packet received
+Sending NTP packet...
+No NTP packet received
+Sending NTP packet...
+No NTP packet received
+Sending NTP packet...
+No NTP packet received
+Sending NTP packet...
+No NTP packet received
+Sending NTP packet...
+No NTP packet received
+Sending NTP packet...
+Seconds to wait = 91
+Residual us subtracted = 58
+Getting data from EEPROM
+KM4UDX
+Fm18iw
+10
+Hop Mode from EEPROM: Y
+WSPR TX start
+Band Index: 0
+Base Frequency: 3568600
+TX audio offset Hz: 1406
+Reconnecting WiFi.......
+WiFi reconnected
+WSPR TX end
+Sending NTP packet...
+Seconds to wait = 111
+Residual us subtracted = 58
+Getting data from EEPROM
+KM4UDX
+Fm18iw
+10
+Hop Mode from EEPROM: Y
+WSPR TX start
+Band Index: 1
+Base Frequency: 7038600
+TX audio offset Hz: 1418
+Reconnecting WiFi.......
+WiFi reconnected
+WSPR TX end
+Sending NTP packet...
+No NTP packet received
+Sending NTP packet...
+Seconds to wait = 108
+Residual us subtracted = 54
+Getting data from EEPROM
+KM4UDX
+Fm18iw
+10
+Hop Mode from EEPROM: Y
+WSPR TX start
+Band Index: 2
+Base Frequency: 10138700
+TX audio offset Hz: 1514
+Reconnecting WiFi.......
+WiFi reconnected
+WSPR TX end
+Sending NTP packet...
+Seconds to wait = 112
+Residual us subtracted = 57
+Getting data from EEPROM
+KM4UDX
+Fm18iw
+10
+Hop Mode from EEPROM: Y
+WSPR TX start
+Band Index: 3
+Base Frequency: 14095600
+TX audio offset Hz: 1444
+Reconnecting WiFi.......
+WiFi reconnected
+WSPR TX end
+Sending NTP packet...
+No NTP packet received
+Sending NTP packet...
+No NTP packet received
+Sending NTP packet...
+No NTP packet received
+Sending NTP packet...
+Seconds to wait = 103
+Residual us subtracted = 58
+Getting data from EEPROM
+KM4UDX
+Fm18iw
+10
+Hop Mode from EEPROM: Y
+WSPR TX start
+Band Index: 4
+Base Frequency: 18104600
+TX audio offset Hz: 1538
+Reconnecting WiFi.......
+WiFi reconnected
+WSPR TX end
+Sending NTP packet...
+No NTP packet received
+Sending NTP packet...
+Seconds to wait = 109
+Residual us subtracted = 58
+Getting data from EEPROM
+KM4UDX
+Fm18iw
+10
+Hop Mode from EEPROM: Y
+WSPR TX start
+Band Index: 5
+Base Frequency: 21094600
+TX audio offset Hz: 1437
+Reconnecting WiFi.......
+WiFi reconnected
+WSPR TX end
+Sending NTP packet...
+No NTP packet received
+Sending NTP packet...
+Seconds to wait = 109
+Residual us subtracted = 57
+Getting data from EEPROM
+KM4UDX
+Fm18iw
+10
+Hop Mode from EEPROM: Y
+WSPR TX start
+Band Index: 6
+Base Frequency: 24924600
+TX audio offset Hz: 1433
+Reconnecting WiFi.......
+WiFi reconnected
+WSPR TX end
+Sending NTP packet...
+Seconds to wait = 109
+Residual us subtracted = 58
+Getting data from EEPROM
+KM4UDX
+Fm18iw
+10
+Hop Mode from EEPROM: Y
+WSPR TX start
+Band Index: 7
+Base Frequency: 28124600
+TX audio offset Hz: 1560
+Reconnecting WiFi.......
+WiFi reconnected
+WSPR TX end
+Sending NTP packet...
+No NTP packet received
+Sending NTP packet...
+Seconds to wait = 109
+Residual us subtracted = 58
+Getting data from EEPROM
+KM4UDX
+Fm18iw
+10
+Hop Mode from EEPROM: Y
+WSPR TX start
+Band Index: 0
+Base Frequency: 3568600
+TX audio offset Hz: 1520
+Reconnecting WiFi.......
+WiFi reconnected
+WSPR TX end
+Sending NTP packet...
+Seconds to wait = 112
+Residual us subtracted = 58
+Getting data from EEPROM
+KM4UDX
+Fm18iw
+10
+Hop Mode from EEPROM: Y
+WSPR TX start
+Band Index: 1
+Base Frequency: 7038600
+TX audio offset Hz: 1589
+Reconnecting WiFi.......
+WiFi reconnected
+WSPR TX end
+Sending NTP packet...
+No NTP packet received
+Sending NTP packet...
+Seconds to wait = 109
+Residual us subtracted = 58
+Getting data from EEPROM
+KM4UDX
+Fm18iw
+10
+Hop Mode from EEPROM: Y
+WSPR TX start
+Band Index: 2
+Base Frequency: 10138700
+TX audio offset Hz: 1488
+Reconnecting WiFi...........
+WiFi reconnected
+WSPR TX end
+Sending NTP packet...
+Seconds to wait = 109
+Residual us subtracted = 58
+Getting data from EEPROM
+KM4UDX
+Fm18iw
+10
+Hop Mode from EEPROM: Y
+WSPR TX start
+Band Index: 3
+Base Frequency: 14095600
+TX audio offset Hz: 1531
+Reconnecting WiFi.......
+WiFi reconnected
+WSPR TX end
+Sending NTP packet...
+Seconds to wait = 112
+Residual us subtracted = 58
+Getting data from EEPROM
+KM4UDX
+Fm18iw
+10
+Hop Mode from EEPROM: Y
+WSPR TX start
+Band Index: 4
+Base Frequency: 18104600
+TX audio offset Hz: 1444
+Reconnecting WiFi.......
+WiFi reconnected
+WSPR TX end
+Sending NTP packet...
+Seconds to wait = 112
+Residual us subtracted = 58
+Getting data from EEPROM
+KM4UDX
+Fm18iw
+10
+Hop Mode from EEPROM: Y
+WSPR TX start
+Band Index: 5
+Base Frequency: 21094600
+TX audio offset Hz: 1465
+Reconnecting WiFi.......
+WiFi reconnected
+WSPR TX end
+Sending NTP packet...
+Seconds to wait = 112
+Residual us subtracted = 58
+Getting data from EEPROM
+KM4UDX
+Fm18iw
+10
+Hop Mode from EEPROM: Y
+WSPR TX start
+Band Index: 6
+Base Frequency: 24924600
+TX audio offset Hz: 1561
+Reconnecting WiFi.......
+WiFi reconnected
+WSPR TX end
+Sending NTP packet...
+Seconds to wait = 112
+Residual us subtracted = 58
+Getting data from EEPROM
+KM4UDX
+Fm18iw
+10
+Hop Mode from EEPROM: Y
+WSPR TX start
+Band Index: 7
+Base Frequency: 28124600
+TX audio offset Hz: 1558
+Reconnecting WiFi.......
+WiFi reconnected
+WSPR TX end
+Sending NTP packet...
+Seconds to wait = 112
+Residual us subtracted = 53
+Getting data from EEPROM
+KM4UDX
+Fm18iw
+10
+Hop Mode from EEPROM: Y
+WSPR TX start
+Band Index: 0
+Base Frequency: 3568600
+TX audio offset Hz: 1466
+Reconnecting WiFi.......
+WiFi reconnected
+WSPR TX end
+Sending NTP packet...
+No NTP packet received
+Sending NTP packet...
+Seconds to wait = 108
+Residual us subtracted = 58
+Getting data from EEPROM
+KM4UDX
+Fm18iw
+10
+Hop Mode from EEPROM: Y
+WSPR TX start
+Band Index: 1
+Base Frequency: 7038600
+TX audio offset Hz: 1489
+Reconnecting WiFi.......
+WiFi reconnected
+WSPR TX end
+Sending NTP packet...
+No NTP packet received
+Sending NTP packet...
+No NTP packet received
+Sending NTP packet...
+Seconds to wait = 106
+Residual us subtracted = 57
+Getting data from EEPROM
+KM4UDX
+Fm18iw
+10
+Hop Mode from EEPROM: Y
+WSPR TX start
+Band Index: 2
+Base Frequency: 10138700
+TX audio offset Hz: 1539
+Reconnecting WiFi.......
+WiFi reconnected
+WSPR TX end
+Sending NTP packet...
+Seconds to wait = 112
+Residual us subtracted = 58
+Getting data from EEPROM
+KM4UDX
+Fm18iw
+10
+Hop Mode from EEPROM: Y
+WSPR TX start
+Band Index: 3
+Base Frequency: 14095600
+TX audio offset Hz: 1418
+Reconnecting WiFi.......
+WiFi reconnected
+WSPR TX end
+Sending NTP packet...
+Seconds to wait = 112
+Residual us subtracted = 58
+Getting data from EEPROM
+KM4UDX
+Fm18iw
+10
+Hop Mode from EEPROM: Y
+WSPR TX start
+Band Index: 4
+Base Frequency: 18104600
+TX audio offset Hz: 1496
+Reconnecting WiFi.......
+WiFi reconnected
+WSPR TX end
+Sending NTP packet...
+No NTP packet received
+Sending NTP packet...
+Seconds to wait = 109
+Residual us subtracted = 58
+Getting data from EEPROM
+KM4UDX
+Fm18iw
+10
+Hop Mode from EEPROM: Y
+WSPR TX start
+Band Index: 5
+Base Frequency: 21094600
+TX audio offset Hz: 1517
+Reconnecting WiFi.......
+WiFi reconnected
+WSPR TX end
+Sending NTP packet...
+Seconds to wait = 111
+Residual us subtracted = 54
+Getting data from EEPROM
+KM4UDX
+Fm18iw
+10
+Hop Mode from EEPROM: Y
+WSPR TX start
+Band Index: 6
+Base Frequency: 24924600
+TX audio offset Hz: 1402
+Reconnecting WiFi.......
+WiFi reconnected
+WSPR TX end
+Sending NTP packet...
+Seconds to wait = 112
+Residual us subtracted = 57
