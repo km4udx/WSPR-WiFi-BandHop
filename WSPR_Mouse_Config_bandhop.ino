@@ -488,7 +488,7 @@ void loop() {
   udp.write(packetBuffer, NTP_PACKET_SIZE);
   udp.endPacket();
 
-  uint32_t startTime = millis();
+  uint32_t ntpTimer = millis();
   while (udp.parsePacket() == 0 && millis() - startTime < 3000) {
     delay(50);
   }
