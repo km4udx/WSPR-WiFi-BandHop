@@ -493,7 +493,17 @@ void loop() {
     uint32_t elapsed_us = micros() - packet_rx_micros;
     epoch += elapsed_us / 1000000UL;
     uint32_t residual_us = elapsed_us % 1000000UL;
-
+ 
+      // Calculate raw calendar days since 1970
+    unsigned long daysSince1970 = epoch / 86400UL;
+    // Standard Epoch calendar conversion for day and month estimation
+    int currentDay = ((daysSince1970 * 4 + 3) % 1461) / 4 + 1;
+    int currentMonth = (currentDay * 5 + 2) / 153;
+    currentDay -= (currentMonth * 153 + 2) / 5;
+    currentMonth += 3;
+    if (currentMonth > 12) {
+      currentMonth -= 12;
+    }
     int minute = (epoch % 3600) / 60;
     int second  = epoch % 60;
 
@@ -515,7 +525,17 @@ void loop() {
     getDatafromEEPROM();
      hopMode = (myWSPRparams.myHopMode == 1);
     if (random(100) < TX_PERCENT) {
+      // Calculate the current hour directly from your running epoch
+      int currentHour = (epoch % 86400) / 3600;
+
+      // Print a clean UTC Month/Day Date and Time stamp right next to your TX launch message
       Serial.print("[");
+      if (currentMonth < 10) Serial.print("0");
+      Serial.print(currentMonth);
+      Serial.print("/");
+      if (currentDay < 10) Serial.print("0");
+      Serial.print(currentDay);
+      Serial.print(" ");
       if (currentHour < 10) Serial.print("0");
       Serial.print(currentHour);
       Serial.print(":");
@@ -529,11 +549,11 @@ void loop() {
       
       transmitWSPR();
       Serial.println("WSPR TX end");
-      transmitWSPR();
-      Serial.println("WSPR TX end");
 
       if (hopMode) {
         hopBandIndex = (hopBandIndex + 1) % 8;
+      }
+    } else {
       }
     } else {
       Serial.println("WSPR TX skipped (duty cycle)");
