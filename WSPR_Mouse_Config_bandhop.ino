@@ -400,6 +400,10 @@ void hw_wdt_disable() {
 
 void setup() {
   Serial.begin(9600);
+   delay(500); // Give the serial port a moment to stabilize
+  Serial.println("\n=============================================");
+  Serial.println("!!! BEACON Power up or REBOOT EXECUTED / RESET COMPLETED !!!");
+  Serial.println("=============================================\n");
   randomSeed(micros());  // seed RNG from free-running timer for random offset
   delay(1000);
   Serial.println("WSPR WiFi Setup");
@@ -525,7 +529,22 @@ void loop() {
     delay(10000);  // pause before next NTP query
      // Add this safety check to prevent long-term freezes:
     if (millis() > 43200000UL) { 
-      Serial.println("Performing scheduled daily refresh reboot...");
+        if (millis() > 43200000UL) { 
+      // Print a clean UTC timestamp right before triggering the reset
+      Serial.print("[");
+      if (hour() < 10) Serial.print("0");
+      Serial.print(hour());
+      Serial.print(":");
+      if (minute() < 10) Serial.print("0");
+      Serial.print(minute());
+      Serial.print(":");
+      if (second() < 10) Serial.print("0");
+      Serial.print(second());
+      Serial.print(" UTC] ");
+      Serial.println("Performing scheduled every 12 hour refresh reboot...");
+      
+      delay(1000);
+      ESP.restart(); 
       delay(1000);
       ESP.restart(); 
     }
