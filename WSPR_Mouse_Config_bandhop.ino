@@ -529,7 +529,6 @@ void loop() {
     delay(10000);  // pause before next NTP query
      // Add this safety check to prevent long-term freezes:
     if (millis() > 43200000UL) { 
-        if (millis() > 43200000UL) { 
       // Print a clean UTC timestamp right before triggering the reset
       Serial.print("[");
       if (hour() < 10) Serial.print("0");
@@ -543,8 +542,6 @@ void loop() {
       Serial.print(" UTC] ");
       Serial.println("Performing scheduled every 12 hour refresh reboot...");
       
-      delay(1000);
-      ESP.restart(); 
       delay(1000);
       ESP.restart(); 
     }
