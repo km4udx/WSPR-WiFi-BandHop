@@ -468,28 +468,21 @@ void sendNTPpacket(IPAddress& address) {
 // loop
 // ---------------------------------------------------------------------------
 void loop() {
-  // Call the double reset detector method to monitor the timeout window
   drd.loop();
 
-  // Send an NTP packet to a time server
   WiFi.hostByName(ntpServerName, timeServerIP);
-  
-  // Clear packet buffer
   memset(packetBuffer, 0, NTP_PACKET_SIZE);
   
-  // Initialize values needed to form NTP request correctly inside the array
-  packetBuffer[0] = 0b11100011;   // LI, Version, Mode
-  packetBuffer[1] = 0;            // Stratum, or type of clock
-  packetBuffer[2] = 6;            // Polling Interval
-  packetBuffer[3] = 0xEC;         // Peer Clock Precision
-  // 8 bytes of zero for Root Delay & Root Dispersion
+  packetBuffer[0] = 0b11100011;   
+  packetBuffer[1] = 0;     
+  packetBuffer[2] = 6;     
+  packetBuffer[3] = 0xEC;  
   packetBuffer[12] = 49;
   packetBuffer[13] = 49;
   packetBuffer[14] = 49;
   packetBuffer[15] = 52;
 
-  // All NTP fields have been given values, now send a packet requesting a timestamp
-  udp.beginPacket(timeServerIP, 123); // NTP requests are to port 123
+  udp.beginPacket(timeServerIP, 123); 
   udp.write(packetBuffer, NTP_PACKET_SIZE);
   udp.endPacket();
 
@@ -500,41 +493,28 @@ void loop() {
 
   if (udp.parsePacket() == 0) {
     Serial.println("No NTP packet received");
-    // Feed the hardware watchdog and yield to prevent a background crash loop
     yield();
-    delay(10000); // Wait 10 seconds before trying again
+    delay(10000); 
   } else {
-    // We've received a packet, read the data from it
     uint32_t packet_rx_micros = micros();
-    udp.read(packetBuffer, NTP_PACKET_SIZE); // read the packet into the buffer
+    udp.read(packetBuffer, NTP_PACKET_SIZE); 
 
-    // The timestamp starts at byte 40 of the received packet and is four bytes,
-    // or two words, long. First, extract the two words:
     unsigned long highWord = word(packetBuffer[40], packetBuffer[41]);
     unsigned long lowWord = word(packetBuffer[42], packetBuffer[43]);
-    // combine the four bytes into a long integer
-    // this is NTP time (seconds since Jan 1 1900):
     unsigned long secsSince1900 = highWord << 16 | lowWord;
 
-    // Now convert NTP time into everyday time:
-    // Unix time starts on Jan 1 1970. In seconds, that's 2208988800:
     const unsigned long seventyYears = 2208988800UL;
-    // subtract seventy years:
     unsigned long epoch = secsSince1900 - seventyYears;
 
-    // Correct for the time spent processing the packet
     uint32_t elapsed_us = micros() - packet_rx_micros;
     epoch += elapsed_us / 1000000UL;
     uint32_t residual_us = elapsed_us % 1000000UL;
 
-    // Calculate time metrics
     int minute = (epoch % 3600) / 60;
     int second = epoch % 60;
     int currentHour = (epoch % 86400) / 3600;
 
-    // NEW CALENDAR DATE MATH: Calculate raw calendar days since 1970
     unsigned long daysSince1970 = epoch / 86400UL;
-    // Standard Epoch calendar conversion logic for Day and Month tracking
     int currentDay = ((daysSince1970 * 4 + 3) % 1461) / 4 + 1;
     int currentMonth = (currentDay * 5 + 2) / 153;
     currentDay -= (currentMonth * 153 + 2) / 5;
@@ -543,7 +523,6 @@ void loop() {
       currentMonth -= 12;
     }
 
-    // Determine how long to wait until the next even minute slot
     int minutesToWait = ((minute + 1) % 2);
     int secondsToWait = (minutesToWait * 60) + (60 - second);
 
@@ -557,14 +536,26 @@ void loop() {
     Serial.print("Residual us subtracted = ");
     Serial.println(residual_us);
 
-    // Pause until the exact even minute window opens
     delay(waitMs);
 
     getDatafromEEPROM();
     hopMode = (myWSPRparams.myHopMode == 1);
     
+    if (!hopMode) {
+      if (digitalRead(D3) == HIGH && digitalRead(D4) == HIGH && digitalRead(D5) == HIGH && digitalRead(D6) == HIGH && digitalRead(D7) == HIGH) {
+        hopBandIndex = 7; 
+        Serial.println("Fixed Band Mode - jumper index: 7 (10m - All Open)");
+      } else {
+        hopBandIndex = 0;
+        if (digitalRead(D3) == LOW) hopBandIndex += 1;
+        if (digitalRead(D4) == LOW) hopBandIndex += 2;
+        if (digitalRead(D5) == LOW) hopBandIndex += 4;
+        Serial.print("Fixed Band Mode - jumper index: ");
+        Serial.println(hopBandIndex);
+      }
+    }
+
     if (random(100) < TX_PERCENT) {
-      // Print a clean UTC Month/Day Date and Time stamp right next to your TX launch message
       Serial.print("[");
       if (currentMonth < 10) Serial.print("0");
       Serial.print(currentMonth);
@@ -593,11 +584,9 @@ void loop() {
       Serial.println("WSPR TX skipped (duty cycle)");
     }
 
-    delay(10000);  // pause before next NTP query
+    delay(10000);  
 
-    // Add this safety check to prevent long-term freezes:
     if (millis() > 43200000UL) { 
-      // Print a clean UTC Month/Day Date and Time stamp right before triggering the reset
       Serial.print("[");
       if (currentMonth < 10) Serial.print("0");
       Serial.print(currentMonth);
