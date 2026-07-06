@@ -467,7 +467,7 @@ void sendNTPpacket(IPAddress& address) {
 // ---------------------------------------------------------------------------
 // loop
 // ---------------------------------------------------------------------------
-void loop() {void loop() {
+void loop() {
   if (drd.loop()) {
     Serial.println("Double Reset Detected! Opening Portal...");
     shouldSaveConfig = true;
