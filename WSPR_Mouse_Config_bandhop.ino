@@ -469,6 +469,8 @@ void sendNTPpacket(IPAddress& address) {
 // ---------------------------------------------------------------------------
 void loop() {
   drd.loop();
+// Re-open the UDP local port so the chip can accept server responses!
+  udp.begin(localPort);
 
   WiFi.hostByName(ntpServerName, timeServerIP);
   memset(packetBuffer, 0, NTP_PACKET_SIZE);
