@@ -105,7 +105,7 @@ bool shouldSaveConfig = false;
 DoubleResetDetector drd(DRD_TIMEOUT, DRD_ADDRESS);
 
 IPAddress timeServerIP;
-const char* ntpServerName = "time.nist.gov";  // NTP server address
+const char* ntpServerName = "pool.ntp.org";  // NTP server address
 const int NTP_PACKET_SIZE = 48;               // NTP time stamp is in the first 48 bytes of the message
 byte packetBuffer[NTP_PACKET_SIZE];           // buffer to hold incoming and outgoing packets
 
