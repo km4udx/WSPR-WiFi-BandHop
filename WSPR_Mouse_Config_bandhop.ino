@@ -489,11 +489,12 @@ void loop() {
   udp.endPacket();
 
   uint32_t ntpTimer = millis();
-  while (udp.parsePacket() == 0 && millis() - ntpTimer < 3000) {
+  int packetSize = 0;
+  while ((packetSize = udp.parsePacket()) == 0 && millis() - ntpTimer < 3000) {
     delay(50);
   }
 
-  if (udp.parsePacket() == 0) {
+  if (packetSize == 0) {
     Serial.println("No NTP packet received");
     yield();
     delay(10000); 
