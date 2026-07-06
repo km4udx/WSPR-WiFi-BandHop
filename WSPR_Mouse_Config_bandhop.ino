@@ -467,36 +467,73 @@ void sendNTPpacket(IPAddress& address) {
 // ---------------------------------------------------------------------------
 // loop
 // ---------------------------------------------------------------------------
-void loop() {
-  drd.loop();
-  udp.begin(localPort);
+void loop() {void loop() {
+  if (drd.loop()) {
+    Serial.println("Double Reset Detected! Opening Portal...");
+    shouldSaveConfig = true;
+  }
+
+  // Send an NTP packet to a time server
   WiFi.hostByName(ntpServerName, timeServerIP);
-  sendNTPpacket(timeServerIP);
-  delay(2000);  // wait for NTP reply
+  
+  // Clear packet buffer
+  memset(packetBuffer, 0, NTP_PACKET_SIZE);
+  // Initialize values needed to form NTP request
+  packetBuffer[0] = 0b11100011;   // LI, Version, Mode
+  packetBuffer[1] = 0;     // Stratum, or type of clock
+  packetBuffer[2] = 6;     // Polling Interval
+  packetBuffer[3] = 0xEC;  // Peer Clock Precision
+  // 8 bytes of zero for Root Delay & Root Dispersion
+  packetBuffer[12]  = 49;
+  packetBuffer[13]  = 49;
+  packetBuffer[14]  = 49;
+  packetBuffer[15]  = 52;
 
-  int cb = udp.parsePacket();
-  if (!cb) {
+  // All NTP fields have been given values, now send a packet requesting a timestamp
+  udp.beginPacket(timeServerIP, 123); // NTP requests are to port 123
+  udp.write(packetBuffer, NTP_PACKET_SIZE);
+  udp.endPacket();
+
+  uint32_t startTime = millis();
+  while (udp.parsePacket() == 0 && millis() - startTime < 3000) {
+    delay(50);
+  }
+
+  if (udp.parsePacket() == 0) {
     Serial.println("No NTP packet received");
-    delay(1000);
+    delay(10000); // Wait 10 seconds before trying again
   } else {
+    // We've received a packet, read the data from it
     uint32_t packet_rx_micros = micros();
+    udp.read(packetBuffer, NTP_PACKET_SIZE); // read the packet into the buffer
 
-    udp.read(packetBuffer, NTP_PACKET_SIZE);
-
-    unsigned long highWord     = word(packetBuffer[40], packetBuffer[41]);
-    unsigned long lowWord      = word(packetBuffer[42], packetBuffer[43]);
+    // The timestamp starts at byte 40 of the received packet and is four bytes,
+    // or two words, long. First, extract the two words:
+    unsigned long highWord = word(packetBuffer[40], packetBuffer[41]);
+    unsigned long lowWord = word(packetBuffer[42], packetBuffer[43]);
+    // combine the four bytes into a long integer
+    // this is NTP time (seconds since Jan 1 1900):
     unsigned long secsSince1900 = highWord << 16 | lowWord;
 
+    // Now convert NTP time into everyday time:
+    // Unix time starts on Jan 1 1970. In seconds, that's 2208988800:
     const unsigned long seventyYears = 2208988800UL;
+    // subtract seventy years:
     unsigned long epoch = secsSince1900 - seventyYears;
 
+    // Correct for the time spent processing the packet
     uint32_t elapsed_us = micros() - packet_rx_micros;
     epoch += elapsed_us / 1000000UL;
     uint32_t residual_us = elapsed_us % 1000000UL;
- 
-      // Calculate raw calendar days since 1970
+
+    // Calculate time metrics
+    int minute = (epoch % 3600) / 60;
+    int second = epoch % 60;
+    int currentHour = (epoch % 86400) / 3600;
+
+    // NEW CALENDAR DATE MATH: Calculate raw calendar days since 1970
     unsigned long daysSince1970 = epoch / 86400UL;
-    // Standard Epoch calendar conversion for day and month estimation
+    // Standard Epoch calendar conversion logic for Day and Month tracking
     int currentDay = ((daysSince1970 * 4 + 3) % 1461) / 4 + 1;
     int currentMonth = (currentDay * 5 + 2) / 153;
     currentDay -= (currentMonth * 153 + 2) / 5;
@@ -504,11 +541,10 @@ void loop() {
     if (currentMonth > 12) {
       currentMonth -= 12;
     }
-    int minute = (epoch % 3600) / 60;
-    int second  = epoch % 60;
 
-    int minutesToWait  = ((minute + 1) % 2);
-    int secondsToWait  = (minutesToWait * 60) + (60 - second);
+    // Determine how long to wait until the next even minute slot
+    int minutesToWait = ((minute + 1) % 2);
+    int secondsToWait = (minutesToWait * 60) + (60 - second);
 
     unsigned long waitMs = (unsigned long)secondsToWait * 1000UL;
     if (waitMs > residual_us / 1000UL) {
@@ -520,14 +556,13 @@ void loop() {
     Serial.print("Residual us subtracted = ");
     Serial.println(residual_us);
 
-    delay1(waitMs);
+    // Pause until the exact even minute window opens
+    delay(waitMs);
 
     getDatafromEEPROM();
-     hopMode = (myWSPRparams.myHopMode == 1);
+    hopMode = (myWSPRparams.myHopMode == 1);
+    
     if (random(100) < TX_PERCENT) {
-      // Calculate the current hour directly from your running epoch
-      int currentHour = (epoch % 86400) / 3600;
-
       // Print a clean UTC Month/Day Date and Time stamp right next to your TX launch message
       Serial.print("[");
       if (currentMonth < 10) Serial.print("0");
@@ -554,26 +589,28 @@ void loop() {
         hopBandIndex = (hopBandIndex + 1) % 8;
       }
     } else {
-      }
-    } else {
       Serial.println("WSPR TX skipped (duty cycle)");
     }
 
     delay(10000);  // pause before next NTP query
-     // Add this safety check to prevent long-term freezes:
-         if (millis() > 43200000UL) { 
-      // Calculate the current hour directly from your running epoch
-      int currentHour = (epoch % 86400) / 3600;
-      
-      // Print a clean UTC timestamp right before triggering the reset
+
+    // Add this safety check to prevent long-term freezes:
+    if (millis() > 43200000UL) { 
+      // Print a clean UTC Month/Day Date and Time stamp right before triggering the reset
       Serial.print("[");
+      if (currentMonth < 10) Serial.print("0");
+      Serial.print(currentMonth);
+      Serial.print("/");
+      if (currentDay < 10) Serial.print("0");
+      Serial.print(currentDay);
+      Serial.print(" ");
       if (currentHour < 10) Serial.print("0");
       Serial.print(currentHour);
       Serial.print(":");
-      if (minute < 10) Serial.print("0"); // Using your existing variable
+      if (minute < 10) Serial.print("0");
       Serial.print(minute);
       Serial.print(":");
-      if (second < 10) Serial.print("0"); // Using your existing variable
+      if (second < 10) Serial.print("0");
       Serial.print(second);
       Serial.print(" UTC] ");
       Serial.println("Performing scheduled every 12 hour refresh reboot...");
@@ -583,4 +620,3 @@ void loop() {
     }
   }
 }
-    
