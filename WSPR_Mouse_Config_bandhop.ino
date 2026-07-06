@@ -468,10 +468,7 @@ void sendNTPpacket(IPAddress& address) {
 // loop
 // ---------------------------------------------------------------------------
 void loop() {
-  if (drd.loop()) {
-    Serial.println("Double Reset Detected! Opening Portal...");
-    shouldSaveConfig = true;
-  }
+   drd.loop();
 
   // Send an NTP packet to a time server
   WiFi.hostByName(ntpServerName, timeServerIP);
