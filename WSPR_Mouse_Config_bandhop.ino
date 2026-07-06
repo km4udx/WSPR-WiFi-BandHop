@@ -515,7 +515,20 @@ void loop() {
     getDatafromEEPROM();
      hopMode = (myWSPRparams.myHopMode == 1);
     if (random(100) < TX_PERCENT) {
+      Serial.print("[");
+      if (currentHour < 10) Serial.print("0");
+      Serial.print(currentHour);
+      Serial.print(":");
+      if (minute < 10) Serial.print("0");
+      Serial.print(minute);
+      Serial.print(":");
+      if (second < 10) Serial.print("0");
+      Serial.print(second);
+      Serial.print(" UTC] ");
       Serial.println("WSPR TX start");
+      
+      transmitWSPR();
+      Serial.println("WSPR TX end");
       transmitWSPR();
       Serial.println("WSPR TX end");
 
