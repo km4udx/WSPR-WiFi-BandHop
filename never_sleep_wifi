@@ -1,13 +1,5 @@
 /*
-  WSPR_Project_Info.h
-  -------------------
-  Human-readable project header + compile-time macro defaults describing the
-  WSPR-WiFi-BandHop changes, rationale, and testing notes.
-
-  Place this file in the sketch folder (or repo root) for documentation and
-  optional compile-time reference.  This file is informational and safe to
-  include from your .ino (it only defines macros and comments).
-
+ 
   Maintainers:
     - km4udx (primary), Dean Souleles KK4DAS, Bob Fontana AK3Y, et al.
 
@@ -19,18 +11,7 @@
     project's license). Adapt as needed.
 */
 
-#ifndef WSPR_PROJECT_INFO_H
-#define WSPR_PROJECT_INFO_H
 
-/* Project identity */
-#define WSPR_PROJECT_NAME      "WSPR WiFi BandHop"
-#define WSPR_PROJECT_VERSION   "2026.07.05-km4udx-never_sleep_wifi"
-#define WSPR_PROJECT_AUTHOR    "km4udx (with contributions from KK4DAS, AK3Y, et al)"
-#define WSPR_REPO_URL          "https://github.com/km4udx/WSPR-WiFi-BandHop"
-
-/* Key compile-time defaults (documented here for convenience).
-   To change behavior, edit the actual configuration macros in the main sketch
-   (or override these in the build if desired). */
 #define SUSPEND_WIFI_FOR_TX_DEFAULT 0     // 0 = keep WiFi on during TX (recommended)
 #define DEFAULT_NTP_SERVER          "time.google.com"
 #define DEFAULT_UDP_LOCAL_PORT      2390
@@ -71,56 +52,11 @@
      * WiFiManager portal, EEPROM storage, and UI changes
 */
 
-/* Testing & validation checklist (how we verified no regressions)
-   - NTP reliability:
-       * Moved to stable NTP host (time.google.com) and added udpBound handling.
-       * Observed consistent udp.parsePacket() = 48 responses after TX cycles.
-   - Symbol timing & frequency stability:
-       * Timer1 ISR in IRAM enforces precise 0.682666s symbols.
-       * WSPR spot reports show drft = 0 for almost all spots.
-   - RF quality:
-       * Multi-band spots across receivers show typical SNR distribution for 10mW.
-       * No systematic SNR degradation or decoding failures observed.
-   - If you re-enable SUSPEND_WIFI_FOR_TX (set to 1), monitor:
-       * UDP re-binding after TX (udpBound prints), and occasional DNS/NTP misses;
-       * whether receivers report missed symbols or increased drift (A/B test recommended).
-*/
-
-/* Recommended simple A/B test to detect subtle impact of WiFi on RF:
-   - Run mode A (SUSPEND_WIFI_FOR_TX = 0) for 12–24 hours and collect spot logs.
-   - Run mode B (SUSPEND_WIFI_FOR_TX = 1) for 12–24 hours and collect spot logs.
-   - Compare: % transmissions decoded, median SNR (per band), percent drft!=0.
-   - Statistically significant drops (> ~2 dB median SNR or large % fewer spots)
-     indicate a measurable issue worth deeper RF/firmware analysis.
-*/
-
-/* Useful notes/commands
-   - Include in sketch:
-       #include "WSPR_Project_Info.h"
-     (this provides only documentation and macro defaults; the real config
-      remains in the main .ino)
-   - To rename Arduino sketch folder and main .ino to match repo:
-       * Ensure folder name == main .ino basename (Arduino requirement)
-       * Use git mv or file explorer to rename and commit/push to GitHub.
-   - Repository URL (issues/discussions): see WSPR_REPO_URL above.
-*/
-
-#endif // WSPR_PROJECT_INFO_H
 
 /*
-  Library Dependencies
-
-  Install the following libraries:
-  	ESP_EEPROM (by j-watson)
-    Etherkit JTEncode (by Jason Mildrum)
-    Etherkit Si5351 (by Jason Mildrum)
-    WiFiManager (by tablatronix, tzapu)
-    DoubleResetDetector (by Stephen Denne)
-  
-  Add the following link to the "Additional Boards Manager" in File/Preferences
-    http://arduino.esp8266.com/stable/package_esp8266com_index.json
 
 */
+
 
 // Compile-time toggle: set to 1 to suspend WiFi during transmission (original behavior).
 // Set to 0 to keep WiFi active during TX (recommended for stable NTP/UDP).
@@ -140,7 +76,7 @@
 int32_t cal_factor = 0;  
 
 int LED_INTERNAL = 2;           // NodeMCU onboard LED
-unsigned int localPort = 2390;  // local port to listen for UDP packets
+unsigned int localPort = DEFAULT_UDP_LOCAL_PORT;  // local port to listen for UDP packets
 bool shouldSaveConfig = false;
 
 #define DRD_ADDRESS 0   // Double Reset Detector Parameters
@@ -149,7 +85,7 @@ bool shouldSaveConfig = false;
 DoubleResetDetector drd(DRD_TIMEOUT, DRD_ADDRESS);
 
 IPAddress timeServerIP;
-const char* ntpServerName = "time.google.com";  // NTP server address
+const char* ntpServerName = DEFAULT_NTP_SERVER;  // NTP server address
 const int NTP_PACKET_SIZE = 48;               // NTP time stamp is in the first 48 bytes of the message
 byte packetBuffer[NTP_PACKET_SIZE];           // buffer to hold incoming and outgoing packets
 
@@ -159,28 +95,18 @@ byte packetBuffer[NTP_PACKET_SIZE];           // buffer to hold incoming and out
 // ---------------------------------------------------------------------------
 // Hardware Timer1 symbol timing
 // ---------------------------------------------------------------------------
-// ESP8266 Timer1 with TIM_DIV256 prescaler runs at 80 MHz / 256 = 312,500 Hz.
-// WSPR symbol period = 8192 / 12000 s = 0.682666... s
-// Required ticks = 0.682666... * 312,500 = 213,333.33  -> round to 213,333
-// Resulting period = 213,333 / 312,500 = 0.682666 s  (error < 0.001 ms/symbol,
-// cumulative drift over 162 symbols < 0.2 ms -- well within WSPR tolerance).
 #define WSPR_TIMER_TICKS 213333UL
 
 // ---------------------------------------------------------------------------
 // WSPR audio window randomization
-// The 200 Hz WSPR passband runs 1400-1600 Hz. The signal is ~6 Hz wide
-// (4 tones x ~1.46 Hz), so the max safe lower-tone offset is 1594 Hz.
 // ---------------------------------------------------------------------------
-#define WSPR_OFFSET_MIN 1400UL
-#define WSPR_OFFSET_MAX 1594UL
+#define WSPR_OFFSET_MIN DEFAULT_WSPR_OFFSET_MIN
+#define WSPR_OFFSET_MAX DEFAULT_WSPR_OFFSET_MAX
 
 // ---------------------------------------------------------------------------
 // Transmission duty cycle
-// WSPR best practice is to skip some slots to reduce channel congestion.
-// Set to a value 1-100 representing the percentage of even-minute slots
-// on which the beacon will actually transmit.
 // ---------------------------------------------------------------------------
-#define TX_PERCENT 100
+#define TX_PERCENT DEFAULT_TX_PERCENT
 
 volatile bool symbol_ready = false;   // set by ISR; cleared by transmit loop
 
@@ -221,10 +147,6 @@ uint8_t tx_buffer[SYMBOL_COUNT];
 
 // ---------------------------------------------------------------------------
 // EEPROM parameter struct
-// Added myHopMode flag (stored as uint8_t: 1 = hop, 0 = fixed band).
-// NOTE: the struct is one byte larger than the previous version.
-// After flashing, do a double-reset and re-enter all parameters in the
-// portal once to write the new layout cleanly to EEPROM.
 // ---------------------------------------------------------------------------
 struct WSPRparams {
   char    myCall[13];
@@ -279,8 +201,6 @@ int getFreqIndex() {
 
 // ---------------------------------------------------------------------------
 // getActiveBandIndex
-// Hop mode is now driven by myWSPRparams.myHopMode (set via portal), not by
-// the jumper state.  Jumpers only select the fixed band when hop mode is off.
 // ---------------------------------------------------------------------------
 int getActiveBandIndex() {
   if (hopMode) {
@@ -290,7 +210,7 @@ int getActiveBandIndex() {
 }
 
 // ---------------------------------------------------------------------------
-// transmitWSPR  --  hardware-timer-driven, WiFi-suspended symbol loop
+// transmitWSPR
 // ---------------------------------------------------------------------------
 void transmitWSPR() {
   // --- Encode ---
@@ -394,8 +314,6 @@ void setupWiFi() {
   wm.setConnectRetries(5);
   wm.setSaveConnectTimeout(15);
 
-  // Portal fields start empty (same as original code).
-  // User must re-enter call, grid, power, and hop mode on each portal visit.
   WiFiManagerParameter CallSignBox("CallSignHtml",
     "Enter your Call Sign (max 12 characters)", "", 12);
 
@@ -405,8 +323,6 @@ void setupWiFi() {
   WiFiManagerParameter PowerLevelBox("Powerhtml",
     "Enter your power in dBm (max 4 characters)", "", 4);
 
-  // New field: Band Hop Mode.  Enter Y to hop all bands, N for fixed band.
-  // When N, the jumper pins (D5/D6/D7) select the band (all open = 10m).
   WiFiManagerParameter HopModeBox("HopModeHtml",
     "Band Hop Mode: Y = hop all bands, N = fixed band via jumpers", "N", 2);
 
@@ -475,7 +391,7 @@ void hw_wdt_disable() {
 
 void setup() {
   Serial.begin(9600);
-   delay(500); // Give the serial port a moment to stabilize
+  delay(500); // Give the serial port a moment to stabilize
   Serial.println("\n=============================================");
   Serial.println("!!! BEACON Power up or REBOOT EXECUTED / RESET COMPLETED !!!");
   Serial.println("=============================================\n");
@@ -491,15 +407,12 @@ void setup() {
   digitalWrite(LED_INTERNAL, HIGH);
   setupSi5351();
 
-  //si5351Test();  // uncomment to verify calibration on 10 MHz
+  // Print runtime mode
+  Serial.print("WiFi suspend during TX: ");
+  Serial.println(SUSPEND_WIFI_FOR_TX ? "ENABLED" : "DISABLED");
 
   setupWiFi();
 
-  // ---------------------------------------------------------------------------
-  // Set hopMode from the EEPROM flag written by the portal.
-  // The old jumper-pin-7 detection is removed; jumpers now only select the
-  // fixed band when hopMode is false.
-  // ---------------------------------------------------------------------------
   hopMode = (myWSPRparams.myHopMode == 1);
   if (hopMode) {
     Serial.println("Band Hop Mode Enabled (via portal configuration)");
