@@ -82,6 +82,10 @@
 
 */
 
+// Compile-time toggle: set to 1 to suspend WiFi during transmission (original behavior).
+// Set to 0 to keep WiFi active during TX (recommended for stable NTP/UDP).
+#define SUSPEND_WIFI_FOR_TX 0
+
 #include <ESP_EEPROM.h>
 #include <ESP8266WiFi.h>
 #include <WiFiManager.h>
@@ -142,6 +146,9 @@ volatile bool symbol_ready = false;   // set by ISR; cleared by transmit loop
 
 bool hopMode = false;
 uint8_t hopBandIndex = 0;
+
+// Track whether we've successfully bound the UDP port
+bool udpBound = false;
 
 // ISR must reside in IRAM on ESP8266 (ICACHE_RAM_ATTR)
 void ICACHE_RAM_ATTR wspr_symbol_isr() {
@@ -260,9 +267,11 @@ void transmitWSPR() {
   Serial.print("TX audio offset Hz: ");
   Serial.println(txOffset);
 
+#if SUSPEND_WIFI_FOR_TX
   // --- Suspend WiFi to prevent interrupt-driven timing jitter ---
   WiFi.forceSleepBegin();
   delay(100);  // give WiFi stack time to quiesce before entering TX
+#endif
 
   si5351.set_clock_pwr(SI5351_CLK0, 1);
   digitalWrite(LED_INTERNAL, LOW);
@@ -288,11 +297,12 @@ void transmitWSPR() {
   si5351.set_clock_pwr(SI5351_CLK0, 0);
   digitalWrite(LED_INTERNAL, HIGH);
 
+#if SUSPEND_WIFI_FOR_TX
   // --- Restore WiFi ---
   WiFi.forceSleepWake();
   delay(100);
 
-    WiFi.begin(WiFi.SSID().c_str(), WiFi.psk().c_str());
+  WiFi.begin(WiFi.SSID().c_str(), WiFi.psk().c_str());
   Serial.print("Reconnecting WiFi");
   uint8_t retries = 40;          // up to 20 seconds
   while (WiFi.status() != WL_CONNECTED && retries > 0) {
@@ -305,7 +315,20 @@ void transmitWSPR() {
   } else {
     Serial.println("\nWiFi reconnect failed -- will retry next cycle");
   }
+
+  // Re-bind UDP after WiFi reconnect (necessary after forceSleep)
+  udp.stop(); // close previous socket mapping (safe even if not open)
+  if (udp.begin(localPort) == 1) {
+    Serial.println("UDP re-bound after TX");
+    udpBound = true;
+  } else {
+    Serial.println("UDP re-bind failed after TX");
+    udpBound = false;
+  }
+#endif
 }
+
+// ---------------------------------------------------------------------------
 
 void getDatafromEEPROM() {
   EEPROM.get(0, myWSPRparams);
@@ -374,6 +397,18 @@ void setupWiFi() {
 
   Serial.println("WiFi connected successfully");
   flashLED(2, 500, 200);
+
+  // Bind UDP once after WiFi is up (avoid re-binding in loop)
+  udp.stop();
+  if (udp.begin(localPort) == 1) {
+    Serial.print("UDP bound to port ");
+    Serial.println(localPort);
+    udpBound = true;
+  } else {
+    Serial.print("UDP bind reported non-1 result on port ");
+    Serial.println(localPort);
+    udpBound = false;
+  }
 
   if (shouldSaveConfig) {
     char myChar[5];
@@ -469,153 +504,199 @@ void sendNTPpacket(IPAddress& address) {
 // ---------------------------------------------------------------------------
 void loop() {
   drd.loop();
-// Re-open the UDP local port so the chip can accept server responses!
-  udp.begin(localPort);
 
-  WiFi.hostByName(ntpServerName, timeServerIP);
+  // Ensure UDP port is bound before attempting NTP
+  if (!udpBound) {
+    Serial.println("UDP not bound, attempting to bind before NTP...");
+    udp.stop();
+    if (udp.begin(localPort) == 1) {
+      Serial.println("UDP bind succeeded");
+      udpBound = true;
+    } else {
+      Serial.println("UDP bind failed; will retry later");
+      delay(1000);
+      return;
+    }
+  }
+
+  // Ensure WiFi is up before attempting DNS/UDP
+  if (WiFi.status() != WL_CONNECTED) {
+    Serial.print("WiFi not connected (status=");
+    Serial.print(WiFi.status());
+    Serial.println("). Waiting 5s...");
+    delay(5000);
+    return;
+  }
+
+  // Resolve NTP server name to IP (check return value)
+  Serial.print("Resolving NTP server: ");
+  Serial.println(ntpServerName);
+  if (!WiFi.hostByName(ntpServerName, timeServerIP)) {
+    Serial.println("hostByName FAILED - using fallback NTP IP (time.nist.gov example)");
+    // fallback — test-only IP (replace if you want another)
+    timeServerIP = IPAddress(129, 6, 15, 28); // example IP (time.nist.gov)
+    Serial.print("Fallback NTP IP: ");
+    Serial.println(timeServerIP);
+  } else {
+    Serial.print("Resolved NTP IP: ");
+    Serial.println(timeServerIP);
+  }
+
+  // Build NTP packet in packetBuffer
   memset(packetBuffer, 0, NTP_PACKET_SIZE);
-  
-  packetBuffer[0] = 0b11100011;   
-  packetBuffer[1] = 0;     
-  packetBuffer[2] = 6;     
-  packetBuffer[3] = 0xEC;  
+  packetBuffer[0] = 0b11100011;
+  packetBuffer[1] = 0;
+  packetBuffer[2] = 6;
+  packetBuffer[3] = 0xEC;
   packetBuffer[12] = 49;
   packetBuffer[13] = 49;
   packetBuffer[14] = 49;
   packetBuffer[15] = 52;
 
-  udp.beginPacket(timeServerIP, 123); 
+  Serial.print("Sending NTP packet to ");
+  Serial.println(timeServerIP);
+  udp.beginPacket(timeServerIP, 123);
   udp.write(packetBuffer, NTP_PACKET_SIZE);
   udp.endPacket();
 
+  // Wait for a reply (slightly longer timeout while debugging)
   uint32_t ntpTimer = millis();
   int packetSize = 0;
-  while ((packetSize = udp.parsePacket()) == 0 && millis() - ntpTimer < 3000) {
+  while ((packetSize = udp.parsePacket()) == 0 && millis() - ntpTimer < 5000) {
     delay(50);
   }
+
+  Serial.print("udp.parsePacket returned packetSize=");
+  Serial.println(packetSize);
 
   if (packetSize == 0) {
     Serial.println("No NTP packet received");
     yield();
-    delay(10000); 
-  } else {
-    uint32_t packet_rx_micros = micros();
-    udp.read(packetBuffer, NTP_PACKET_SIZE); 
+    delay(10000);
+    return; // go back to top of loop and try again
+  }
 
-    unsigned long highWord = word(packetBuffer[40], packetBuffer[41]);
-    unsigned long lowWord = word(packetBuffer[42], packetBuffer[43]);
-    unsigned long secsSince1900 = highWord << 16 | lowWord;
+  // packet received -> process it
+  uint32_t packet_rx_micros = micros();
+  udp.read(packetBuffer, NTP_PACKET_SIZE); 
 
-    const unsigned long seventyYears = 2208988800UL;
-    unsigned long epoch = secsSince1900 - seventyYears;
+  unsigned long highWord = word(packetBuffer[40], packetBuffer[41]);
+  unsigned long lowWord = word(packetBuffer[42], packetBuffer[43]);
+  unsigned long secsSince1900 = highWord << 16 | lowWord;
 
-    uint32_t elapsed_us = micros() - packet_rx_micros;
-    epoch += elapsed_us / 1000000UL;
-    uint32_t residual_us = elapsed_us % 1000000UL;
+  const unsigned long seventyYears = 2208988800UL;
+  unsigned long epoch = secsSince1900 - seventyYears;
 
-    int minute = (epoch % 3600) / 60;
-    int second = epoch % 60;
-    int currentHour = (epoch % 86400) / 3600;
+  uint32_t elapsed_us = micros() - packet_rx_micros;
+  epoch += elapsed_us / 1000000UL;
+  uint32_t residual_us = elapsed_us % 1000000UL;
 
-    // Convert epoch to year/month/day correctly.
-    unsigned long daysSince1970 = epoch / 86400UL;
+  int minute = (epoch % 3600) / 60;
+  int second = epoch % 60;
+  int currentHour = (epoch % 86400) / 3600;
 
-    // Gregorian conversion (Howard Hinnant's algorithm)
-    long z = (long)daysSince1970 + 719468L;
-    long era = (z >= 0 ? z : z - 146096L) / 146097L;
-    long doe = z - era * 146097L;           // [0, 146096]
-    long yoe = (doe - doe/1460 + doe/36524 - doe/146096) / 365;   // [0,399]
-    long y = yoe + era * 400;               // year within 400-year era
-    long doy = doe - (365*yoe + yoe/4 - yoe/100);  // [0, 365]
-    long mp = (5*doy + 2) / 153;            // [0, 11]
-    int currentDay = (int)(doy - (153*mp + 2)/5 + 1);
-    int currentMonth = (int)(mp + (mp < 10 ? 3 : -9));
-    int currentYear = (int)(y + (currentMonth <= 2));
+  // Convert epoch to year/month/day correctly.
+  unsigned long daysSince1970 = epoch / 86400UL;
 
-    int minutesToWait = ((minute + 1) % 2);
-    int secondsToWait = (minutesToWait * 60) + (60 - second);
+  // Gregorian conversion (Howard Hinnant's algorithm)
+  long z = (long)daysSince1970 + 719468L;
+  long era = (z >= 0 ? z : z - 146096L) / 146097L;
+  long doe = z - era * 146097L;           // [0, 146096]
+  long yoe = (doe - doe/1460 + doe/36524 - doe/146096) / 365;   // [0,399]
+  long y = yoe + era * 400;               // year within 400-year era
+  long doy = doe - (365*yoe + yoe/4 - yoe/100);  // [0, 365]
+  long mp = (5*doy + 2) / 153;            // [0, 11]
+  int currentDay = (int)(doy - (153*mp + 2)/5 + 1);
+  int currentMonth = (int)(mp + (mp < 10 ? 3 : -9));
+  int currentYear = (int)(y + (currentMonth <= 2));
 
-    unsigned long waitMs = (unsigned long)secondsToWait * 1000UL;
-    if (waitMs > residual_us / 1000UL) {
-      waitMs -= residual_us / 1000UL;
-    }
+  int minutesToWait = ((minute + 1) % 2);
+  int secondsToWait = (minutesToWait * 60) + (60 - second);
 
-    Serial.print("Seconds to wait = ");
-    Serial.println(secondsToWait);
-    Serial.print("Residual us subtracted = ");
-    Serial.println(residual_us);
+  unsigned long waitMs = (unsigned long)secondsToWait * 1000UL;
+  if (waitMs > residual_us / 1000UL) {
+    waitMs -= residual_us / 1000UL;
+  }
 
-    delay(waitMs);
+  Serial.print("Seconds to wait = ");
+  Serial.println(secondsToWait);
+  Serial.print("Residual us subtracted = ");
+  Serial.println(residual_us);
 
-    getDatafromEEPROM();
-    hopMode = (myWSPRparams.myHopMode == 1);
-    
-    if (!hopMode) {
-      if (digitalRead(D3) == HIGH && digitalRead(D4) == HIGH && digitalRead(D5) == HIGH && digitalRead(D6) == HIGH && digitalRead(D7) == HIGH) {
-        hopBandIndex = 7; 
-        Serial.println("Fixed Band Mode - jumper index: 7 (10m - All Open)");
-      } else {
-        hopBandIndex = 0;
-        if (digitalRead(D3) == LOW) hopBandIndex += 1;
-        if (digitalRead(D4) == LOW) hopBandIndex += 2;
-        if (digitalRead(D5) == LOW) hopBandIndex += 4;
-        Serial.print("Fixed Band Mode - jumper index: ");
-        Serial.println(hopBandIndex);
-      }
-    }
+  delay(waitMs);
 
-    if (random(100) < TX_PERCENT) {
-      Serial.print("[");
-      if (currentMonth < 10) Serial.print("0");
-      Serial.print(currentMonth);
-      Serial.print("/");
-      if (currentDay < 10) Serial.print("0");
-      Serial.print(currentDay);
-      Serial.print(" ");
-      if (currentHour < 10) Serial.print("0");
-      Serial.print(currentHour);
-      Serial.print(":");
-      if (minute < 10) Serial.print("0");
-      Serial.print(minute);
-      Serial.print(":");
-      if (second < 10) Serial.print("0");
-      Serial.print(second);
-      Serial.print(" UTC] ");
-      Serial.println("WSPR TX start");
-      
-      transmitWSPR();
-      Serial.println("WSPR TX end");
-
-      if (hopMode) {
-        hopBandIndex = (hopBandIndex + 1) % 8;
-      }
+  getDatafromEEPROM();
+  hopMode = (myWSPRparams.myHopMode == 1);
+  
+  if (!hopMode) {
+    if (digitalRead(D3) == HIGH && digitalRead(D4) == HIGH && digitalRead(D5) == HIGH && digitalRead(D6) == HIGH && digitalRead(D7) == HIGH) {
+      hopBandIndex = 7; 
+      Serial.println("Fixed Band Mode - jumper index: 7 (10m - All Open)");
     } else {
-      Serial.println("WSPR TX skipped (duty cycle)");
+      hopBandIndex = 0;
+      if (digitalRead(D3) == LOW) hopBandIndex += 1;
+      if (digitalRead(D4) == LOW) hopBandIndex += 2;
+      if (digitalRead(D5) == LOW) hopBandIndex += 4;
+      Serial.print("Fixed Band Mode - jumper index: ");
+      Serial.println(hopBandIndex);
     }
+  }
 
-    delay(10000);  
+  if (random(100) < TX_PERCENT) {
+    Serial.print("[");
+    if (currentMonth < 10) Serial.print("0");
+    Serial.print(currentMonth);
+    Serial.print("/");
+    if (currentDay < 10) Serial.print("0");
+    Serial.print(currentDay);
+    Serial.print("/");
+    Serial.print(currentYear);
+    Serial.print(" ");
+    if (currentHour < 10) Serial.print("0");
+    Serial.print(currentHour);
+    Serial.print(":");
+    if (minute < 10) Serial.print("0");
+    Serial.print(minute);
+    Serial.print(":");
+    if (second < 10) Serial.print("0");
+    Serial.print(second);
+    Serial.print(" UTC] ");
+    Serial.println("WSPR TX start");
+    
+    transmitWSPR();
+    Serial.println("WSPR TX end");
 
-    if (millis() > 43200000UL) { 
-      Serial.print("[");
-      if (currentMonth < 10) Serial.print("0");
-      Serial.print(currentMonth);
-      Serial.print("/");
-      if (currentDay < 10) Serial.print("0");
-      Serial.print(currentDay);
-      Serial.print(" ");
-      if (currentHour < 10) Serial.print("0");
-      Serial.print(currentHour);
-      Serial.print(":");
-      if (minute < 10) Serial.print("0");
-      Serial.print(minute);
-      Serial.print(":");
-      if (second < 10) Serial.print("0");
-      Serial.print(second);
-      Serial.print(" UTC] ");
-      Serial.println("Performing scheduled every 12 hour refresh reboot...");
-      
-      delay(1000);
-      ESP.restart(); 
+    if (hopMode) {
+      hopBandIndex = (hopBandIndex + 1) % 8;
     }
+  } else {
+    Serial.println("WSPR TX skipped (duty cycle)");
+  }
+
+  delay(10000);  
+
+  if (millis() > 43200000UL) { 
+    Serial.print("[");
+    if (currentMonth < 10) Serial.print("0");
+    Serial.print(currentMonth);
+    Serial.print("/");
+    if (currentDay < 10) Serial.print("0");
+    Serial.print(currentDay);
+    Serial.print("/");
+    Serial.print(currentYear);
+    Serial.print(" ");
+    if (currentHour < 10) Serial.print("0");
+    Serial.print(currentHour);
+    Serial.print(":");
+    if (minute < 10) Serial.print("0");
+    Serial.print(minute);
+    Serial.print(":");
+    if (second < 10) Serial.print("0");
+    Serial.print(second);
+    Serial.print(" UTC] ");
+    Serial.println("Performing scheduled every 12 hour refresh reboot...");
+    
+    delay(1000);
+    ESP.restart(); 
   }
 }
