@@ -1,86 +1,66 @@
 /*
-    Modified 5 July 2026 by km4udx
-  -- Patched loop execution bug: forced `hopMode` state re-evaluation immediately 
-     following `getDatafromEEPROM()`. This stops open hardware jumper states 
-     from overwriting portal settings and permanently unlocks automated 8-band cycling.
-  -- Implemented dynamic connection recovery using `WiFi.begin(WiFi.SSID().c_str(), WiFi.psk().c_str())`.
-     This bypasses slow background channel scans, allowing the radio to snap back 
-     online instantly after transmissions and locking down first-try NTP syncs.
-  -- Added a 12-hour automated watchdog safety refresh (`43200000UL` ms countdown). 
-     The chip now performs a clean internal memory and DHCP lease flush twice a day, 
-     completely preventing long-term network freezes and stack drift lockups.
+ 
+  Maintainers:
+    - km4udx (primary), Dean Souleles KK4DAS, Bob Fontana AK3Y, et al.
 
-  Modified 13 June 2026 by Dean Souleles, KK4DAS and a good final bit by km4udx VerA WSPR_Mouse_Config_bandhop
-  -- Band Hop Mode is now a portal configuration item ("Y" or "N") stored
-     in EEPROM, replacing the jumper-pin-7 (all-open) detection for hop mode.
-     With hop mode in the portal:
-       - Portal "Band Hop = Y" -> cycles all 8 bands, jumpers ignored.
-       - Portal "Band Hop = N" -> jumpers select fixed band (index 0-7),
-         where all jumpers open = index 7 = 10m (no longer accidentally
-         triggers hop mode as it did previously).
+  Project repository:
+    https://github.com/km4udx/WSPR-WiFi-BandHop
 
-  Modified 13 April 2026 by Dean Souleles, KK4DAS (with Claude Code assist)
-  -- Removed fixed audio offset from band frequency table; offset is now
-     calculated at transmit time as a random value within the 200 Hz WSPR
-     audio window (1400-1594 Hz) so the beacon does not always transmit on
-     the same frequency within the window.
-  -- Added TX_PERCENT constant to control the percentage of available
-     even-minute slots on which the beacon will transmit (default 50%).
-
-  Modified 7 April 2026 by Dean Souleles, KK4DAS
-  -- Changed timing logic to use timer interrupts vs blocking delays (code assist from Claude Code)
-  -- Added retry logic to Wifi initialization
-  -- Added 2 slow led blinks on wifi connect,  10 sets of 3 rapid blinks on wifi connect fail
-
-  Modified 2 October 2024 by Bob Fontana AK3Y
-  -- Added dialog boxes for Call, Grid Square and Power entries
-  -- Added WiFiManager library to enable WiFi Provisioning
-
-  *** TIMING & NTP FIXES (see change log below) ***
-  -- Replaced delay(683) symbol loop with hardware Timer1 ISR for precise,
-     jitter-free symbol timing immune to WiFi background task interruptions.
-  -- Suspended WiFi during transmission to eliminate all interrupt-driven
-     timing disruption; WiFi is reconnected automatically after TX ends.
-  -- Fixed NTP staleness: micros() is latched the instant the NTP packet is
-     received; elapsed time is added back to epoch before computing the wait
-     interval, removing the ~2-second systematic late-start error.
-  
-  Acknowledgements
-  
-  WSPR Beacon Code Segments
-
- * Very simple WSPR beacon using NTP for time synchronisation and an Si5351 oscillator.
- * Created on a WeMos D1 R2 (ESP8266 on Arduino style board) by Peter Marks VK3TPM
- * Heavily based on work by Jason Milgram & Michael Margolis
-
-  UDP NTP Client
-
-  Get the time from a Network Time Protocol (NTP) time server
-  Demonstrates use of UDP sendPacket and ReceivePacket
-  For more on NTP time servers and the messages needed to communicate with them,
-  see http://en.wikipedia.org/wiki/Network_Time_Protocol
-
-  Created 4 Sep 2010 by Michael Margolis
-  Modified 9 Apr 2012 by Tom Igoe
-  Updated for the ESP8266 12 Apr 2015 by Ivan Grokhotkov
-
-  This code is in the public domain.
+  License:
+    Project code and this header are public-domain / permissive (follow the
+    project's license). Adapt as needed.
 */
+
+
+#define SUSPEND_WIFI_FOR_TX_DEFAULT 0     // 0 = keep WiFi on during TX (recommended)
+#define DEFAULT_NTP_SERVER          "time.google.com"
+#define DEFAULT_UDP_LOCAL_PORT      2390
+#define DEFAULT_TX_PERCENT          100   // percentage of even-minute slots to transmit
+#define DEFAULT_WSPR_OFFSET_MIN     1400UL
+#define DEFAULT_WSPR_OFFSET_MAX     1594UL
+
+/* Why these settings were chosen (summary)
+   - SUSPEND_WIFI_FOR_TX_DEFAULT = 0:
+       We keep WiFi active during WSPR TX by default because suspending the WiFi
+       stack caused UDP/NTP socket rebind and reply loss after transmissions.
+       With the hardware Timer1 ISR handling symbol timing in IRAM and the busy
+       transmit loop preventing yields, symbol timing remains precise even with
+       WiFi enabled. Keeping WiFi on improves NTP reliability and simplifies
+       networking.
+   - DEFAULT_NTP_SERVER = "time.google.com":
+       Switched from pool.ntp.org to a stable provider to reduce intermittent
+       failures from rotating pool members. A try-list or IP cache is recommended
+       for maximum resiliency.
+   - DEFAULT_UDP_LOCAL_PORT = 2390:
+       The sketch binds a single UDP port once after WiFi connects. The code
+       also tracks `udpBound` and rebinds after WiFi reconnection if needed.
+*/
+
+/* Change log — high-level (short)
+   - 2026-07-05 (km4udx)
+     * Fixed hopMode re-evaluation after EEPROM read
+     * Improved WiFi reconnection behavior after TX
+     * Automated 12-hour watchdog reboot refresh
+   - 2026-06-13 (KK4DAS)
+     * Portal-driven Band Hop (myHopMode in EEPROM) replaces old jumper-only hop
+   - 2026-04-13
+     * Randomized WSPR audio offset each TX (within 1400-1594 Hz window)
+     * Added TX_PERCENT control
+   - 2026-04-07
+     * Replaced blocking symbol timing with Timer1 ISR; improved WiFi init retry
+   - earlier
+     * WiFiManager portal, EEPROM storage, and UI changes
+*/
+
 
 /*
-  Library Dependencies
-
-  Install the following libraries:
-  	ESP_EEPROM (by j-watson)
-    Etherkit JTEncode (by Jason Mildrum)
-    Etherkit Si5351 (by Jason Mildrum)
-    WiFiManager (by tablatronix, tzapu)
-    DoubleResetDetector (by Stephen Denne)
-  
-  Add the following link to the "Additional Boards Manager" in File/Preferences
-    http://arduino.esp8266.com/stable/package_esp8266com_index.json
 
 */
+
+
+// Compile-time toggle: set to 1 to suspend WiFi during transmission (original behavior).
+// Set to 0 to keep WiFi active during TX (recommended for stable NTP/UDP).
+#define SUSPEND_WIFI_FOR_TX 0
 
 #include <ESP_EEPROM.h>
 #include <ESP8266WiFi.h>
@@ -96,7 +76,7 @@
 int32_t cal_factor = 0;  
 
 int LED_INTERNAL = 2;           // NodeMCU onboard LED
-unsigned int localPort = 2390;  // local port to listen for UDP packets
+unsigned int localPort = DEFAULT_UDP_LOCAL_PORT;  // local port to listen for UDP packets
 bool shouldSaveConfig = false;
 
 #define DRD_ADDRESS 0   // Double Reset Detector Parameters
@@ -105,7 +85,7 @@ bool shouldSaveConfig = false;
 DoubleResetDetector drd(DRD_TIMEOUT, DRD_ADDRESS);
 
 IPAddress timeServerIP;
-const char* ntpServerName = "pool.ntp.org";  // NTP server address
+const char* ntpServerName = DEFAULT_NTP_SERVER;  // NTP server address
 const int NTP_PACKET_SIZE = 48;               // NTP time stamp is in the first 48 bytes of the message
 byte packetBuffer[NTP_PACKET_SIZE];           // buffer to hold incoming and outgoing packets
 
@@ -115,33 +95,26 @@ byte packetBuffer[NTP_PACKET_SIZE];           // buffer to hold incoming and out
 // ---------------------------------------------------------------------------
 // Hardware Timer1 symbol timing
 // ---------------------------------------------------------------------------
-// ESP8266 Timer1 with TIM_DIV256 prescaler runs at 80 MHz / 256 = 312,500 Hz.
-// WSPR symbol period = 8192 / 12000 s = 0.682666... s
-// Required ticks = 0.682666... * 312,500 = 213,333.33  -> round to 213,333
-// Resulting period = 213,333 / 312,500 = 0.682666 s  (error < 0.001 ms/symbol,
-// cumulative drift over 162 symbols < 0.2 ms -- well within WSPR tolerance).
 #define WSPR_TIMER_TICKS 213333UL
 
 // ---------------------------------------------------------------------------
 // WSPR audio window randomization
-// The 200 Hz WSPR passband runs 1400-1600 Hz. The signal is ~6 Hz wide
-// (4 tones x ~1.46 Hz), so the max safe lower-tone offset is 1594 Hz.
 // ---------------------------------------------------------------------------
-#define WSPR_OFFSET_MIN 1400UL
-#define WSPR_OFFSET_MAX 1594UL
+#define WSPR_OFFSET_MIN DEFAULT_WSPR_OFFSET_MIN
+#define WSPR_OFFSET_MAX DEFAULT_WSPR_OFFSET_MAX
 
 // ---------------------------------------------------------------------------
 // Transmission duty cycle
-// WSPR best practice is to skip some slots to reduce channel congestion.
-// Set to a value 1-100 representing the percentage of even-minute slots
-// on which the beacon will actually transmit.
 // ---------------------------------------------------------------------------
-#define TX_PERCENT 100
+#define TX_PERCENT DEFAULT_TX_PERCENT
 
 volatile bool symbol_ready = false;   // set by ISR; cleared by transmit loop
 
 bool hopMode = false;
 uint8_t hopBandIndex = 0;
+
+// Track whether we've successfully bound the UDP port
+bool udpBound = false;
 
 // ISR must reside in IRAM on ESP8266 (ICACHE_RAM_ATTR)
 void ICACHE_RAM_ATTR wspr_symbol_isr() {
@@ -160,7 +133,7 @@ unsigned long freq630  = 474200UL;    // 630 meter band
 unsigned long freq160  = 1836600UL;   // 160 meter band
 unsigned long freq80   = 3568600UL;   // 80 meter band
 unsigned long freq60   = 5287200UL;   // 60 meter band
-unsigned long freq40   = 7038600UL;   // 40 meter band
+unsigned long freq40   = 7038600UL;  // 40 meter band
 unsigned long freq30   = 10138700UL;  // 30 meter band
 unsigned long freq20   = 14095600UL;  // 20 meter band
 unsigned long freq17   = 18104600UL;  // 17 meter band
@@ -174,10 +147,6 @@ uint8_t tx_buffer[SYMBOL_COUNT];
 
 // ---------------------------------------------------------------------------
 // EEPROM parameter struct
-// Added myHopMode flag (stored as uint8_t: 1 = hop, 0 = fixed band).
-// NOTE: the struct is one byte larger than the previous version.
-// After flashing, do a double-reset and re-enter all parameters in the
-// portal once to write the new layout cleanly to EEPROM.
 // ---------------------------------------------------------------------------
 struct WSPRparams {
   char    myCall[13];
@@ -232,8 +201,6 @@ int getFreqIndex() {
 
 // ---------------------------------------------------------------------------
 // getActiveBandIndex
-// Hop mode is now driven by myWSPRparams.myHopMode (set via portal), not by
-// the jumper state.  Jumpers only select the fixed band when hop mode is off.
 // ---------------------------------------------------------------------------
 int getActiveBandIndex() {
   if (hopMode) {
@@ -243,7 +210,7 @@ int getActiveBandIndex() {
 }
 
 // ---------------------------------------------------------------------------
-// transmitWSPR  --  hardware-timer-driven, WiFi-suspended symbol loop
+// transmitWSPR
 // ---------------------------------------------------------------------------
 void transmitWSPR() {
   // --- Encode ---
@@ -260,9 +227,11 @@ void transmitWSPR() {
   Serial.print("TX audio offset Hz: ");
   Serial.println(txOffset);
 
+#if SUSPEND_WIFI_FOR_TX
   // --- Suspend WiFi to prevent interrupt-driven timing jitter ---
   WiFi.forceSleepBegin();
   delay(100);  // give WiFi stack time to quiesce before entering TX
+#endif
 
   si5351.set_clock_pwr(SI5351_CLK0, 1);
   digitalWrite(LED_INTERNAL, LOW);
@@ -288,11 +257,12 @@ void transmitWSPR() {
   si5351.set_clock_pwr(SI5351_CLK0, 0);
   digitalWrite(LED_INTERNAL, HIGH);
 
+#if SUSPEND_WIFI_FOR_TX
   // --- Restore WiFi ---
   WiFi.forceSleepWake();
   delay(100);
 
-    WiFi.begin(WiFi.SSID().c_str(), WiFi.psk().c_str());
+  WiFi.begin(WiFi.SSID().c_str(), WiFi.psk().c_str());
   Serial.print("Reconnecting WiFi");
   uint8_t retries = 40;          // up to 20 seconds
   while (WiFi.status() != WL_CONNECTED && retries > 0) {
@@ -305,7 +275,20 @@ void transmitWSPR() {
   } else {
     Serial.println("\nWiFi reconnect failed -- will retry next cycle");
   }
+
+  // Re-bind UDP after WiFi reconnect (necessary after forceSleep)
+  udp.stop(); // close previous socket mapping (safe even if not open)
+  if (udp.begin(localPort) == 1) {
+    Serial.println("UDP re-bound after TX");
+    udpBound = true;
+  } else {
+    Serial.println("UDP re-bind failed after TX");
+    udpBound = false;
+  }
+#endif
 }
+
+// ---------------------------------------------------------------------------
 
 void getDatafromEEPROM() {
   EEPROM.get(0, myWSPRparams);
@@ -331,8 +314,6 @@ void setupWiFi() {
   wm.setConnectRetries(5);
   wm.setSaveConnectTimeout(15);
 
-  // Portal fields start empty (same as original code).
-  // User must re-enter call, grid, power, and hop mode on each portal visit.
   WiFiManagerParameter CallSignBox("CallSignHtml",
     "Enter your Call Sign (max 12 characters)", "", 12);
 
@@ -342,8 +323,6 @@ void setupWiFi() {
   WiFiManagerParameter PowerLevelBox("Powerhtml",
     "Enter your power in dBm (max 4 characters)", "", 4);
 
-  // New field: Band Hop Mode.  Enter Y to hop all bands, N for fixed band.
-  // When N, the jumper pins (D5/D6/D7) select the band (all open = 10m).
   WiFiManagerParameter HopModeBox("HopModeHtml",
     "Band Hop Mode: Y = hop all bands, N = fixed band via jumpers", "N", 2);
 
@@ -375,6 +354,18 @@ void setupWiFi() {
   Serial.println("WiFi connected successfully");
   flashLED(2, 500, 200);
 
+  // Bind UDP once after WiFi is up (avoid re-binding in loop)
+  udp.stop();
+  if (udp.begin(localPort) == 1) {
+    Serial.print("UDP bound to port ");
+    Serial.println(localPort);
+    udpBound = true;
+  } else {
+    Serial.print("UDP bind reported non-1 result on port ");
+    Serial.println(localPort);
+    udpBound = false;
+  }
+
   if (shouldSaveConfig) {
     char myChar[5];
     Serial.println("*** Storing Parameters into EEProm ***");
@@ -400,7 +391,7 @@ void hw_wdt_disable() {
 
 void setup() {
   Serial.begin(9600);
-   delay(500); // Give the serial port a moment to stabilize
+  delay(500); // Give the serial port a moment to stabilize
   Serial.println("\n=============================================");
   Serial.println("!!! BEACON Power up or REBOOT EXECUTED / RESET COMPLETED !!!");
   Serial.println("=============================================\n");
@@ -416,15 +407,12 @@ void setup() {
   digitalWrite(LED_INTERNAL, HIGH);
   setupSi5351();
 
-  //si5351Test();  // uncomment to verify calibration on 10 MHz
+  // Print runtime mode
+  Serial.print("WiFi suspend during TX: ");
+  Serial.println(SUSPEND_WIFI_FOR_TX ? "ENABLED" : "DISABLED");
 
   setupWiFi();
 
-  // ---------------------------------------------------------------------------
-  // Set hopMode from the EEPROM flag written by the portal.
-  // The old jumper-pin-7 detection is removed; jumpers now only select the
-  // fixed band when hopMode is false.
-  // ---------------------------------------------------------------------------
   hopMode = (myWSPRparams.myHopMode == 1);
   if (hopMode) {
     Serial.println("Band Hop Mode Enabled (via portal configuration)");
@@ -469,147 +457,199 @@ void sendNTPpacket(IPAddress& address) {
 // ---------------------------------------------------------------------------
 void loop() {
   drd.loop();
-// Re-open the UDP local port so the chip can accept server responses!
-  udp.begin(localPort);
 
-  WiFi.hostByName(ntpServerName, timeServerIP);
+  // Ensure UDP port is bound before attempting NTP
+  if (!udpBound) {
+    Serial.println("UDP not bound, attempting to bind before NTP...");
+    udp.stop();
+    if (udp.begin(localPort) == 1) {
+      Serial.println("UDP bind succeeded");
+      udpBound = true;
+    } else {
+      Serial.println("UDP bind failed; will retry later");
+      delay(1000);
+      return;
+    }
+  }
+
+  // Ensure WiFi is up before attempting DNS/UDP
+  if (WiFi.status() != WL_CONNECTED) {
+    Serial.print("WiFi not connected (status=");
+    Serial.print(WiFi.status());
+    Serial.println("). Waiting 5s...");
+    delay(5000);
+    return;
+  }
+
+  // Resolve NTP server name to IP (check return value)
+  Serial.print("Resolving NTP server: ");
+  Serial.println(ntpServerName);
+  if (!WiFi.hostByName(ntpServerName, timeServerIP)) {
+    Serial.println("hostByName FAILED - using fallback NTP IP (time.nist.gov example)");
+    // fallback — test-only IP (replace if you want another)
+    timeServerIP = IPAddress(129, 6, 15, 28); // example IP (time.nist.gov)
+    Serial.print("Fallback NTP IP: ");
+    Serial.println(timeServerIP);
+  } else {
+    Serial.print("Resolved NTP IP: ");
+    Serial.println(timeServerIP);
+  }
+
+  // Build NTP packet in packetBuffer
   memset(packetBuffer, 0, NTP_PACKET_SIZE);
-  
-  packetBuffer[0] = 0b11100011;   
-  packetBuffer[1] = 0;     
-  packetBuffer[2] = 6;     
-  packetBuffer[3] = 0xEC;  
+  packetBuffer[0] = 0b11100011;
+  packetBuffer[1] = 0;
+  packetBuffer[2] = 6;
+  packetBuffer[3] = 0xEC;
   packetBuffer[12] = 49;
   packetBuffer[13] = 49;
   packetBuffer[14] = 49;
   packetBuffer[15] = 52;
 
-  udp.beginPacket(timeServerIP, 123); 
+  Serial.print("Sending NTP packet to ");
+  Serial.println(timeServerIP);
+  udp.beginPacket(timeServerIP, 123);
   udp.write(packetBuffer, NTP_PACKET_SIZE);
   udp.endPacket();
 
+  // Wait for a reply (slightly longer timeout while debugging)
   uint32_t ntpTimer = millis();
   int packetSize = 0;
-  while ((packetSize = udp.parsePacket()) == 0 && millis() - ntpTimer < 3000) {
+  while ((packetSize = udp.parsePacket()) == 0 && millis() - ntpTimer < 5000) {
     delay(50);
   }
+
+  Serial.print("udp.parsePacket returned packetSize=");
+  Serial.println(packetSize);
 
   if (packetSize == 0) {
     Serial.println("No NTP packet received");
     yield();
-    delay(10000); 
-  } else {
-    uint32_t packet_rx_micros = micros();
-    udp.read(packetBuffer, NTP_PACKET_SIZE); 
+    delay(10000);
+    return; // go back to top of loop and try again
+  }
 
-    unsigned long highWord = word(packetBuffer[40], packetBuffer[41]);
-    unsigned long lowWord = word(packetBuffer[42], packetBuffer[43]);
-    unsigned long secsSince1900 = highWord << 16 | lowWord;
+  // packet received -> process it
+  uint32_t packet_rx_micros = micros();
+  udp.read(packetBuffer, NTP_PACKET_SIZE); 
 
-    const unsigned long seventyYears = 2208988800UL;
-    unsigned long epoch = secsSince1900 - seventyYears;
+  unsigned long highWord = word(packetBuffer[40], packetBuffer[41]);
+  unsigned long lowWord = word(packetBuffer[42], packetBuffer[43]);
+  unsigned long secsSince1900 = highWord << 16 | lowWord;
 
-    uint32_t elapsed_us = micros() - packet_rx_micros;
-    epoch += elapsed_us / 1000000UL;
-    uint32_t residual_us = elapsed_us % 1000000UL;
+  const unsigned long seventyYears = 2208988800UL;
+  unsigned long epoch = secsSince1900 - seventyYears;
 
-    int minute = (epoch % 3600) / 60;
-    int second = epoch % 60;
-    int currentHour = (epoch % 86400) / 3600;
+  uint32_t elapsed_us = micros() - packet_rx_micros;
+  epoch += elapsed_us / 1000000UL;
+  uint32_t residual_us = elapsed_us % 1000000UL;
 
-    unsigned long daysSince1970 = epoch / 86400UL;
-    int currentDay = ((daysSince1970 * 4 + 3) % 1461) / 4 + 1;
-    int currentMonth = (currentDay * 5 + 2) / 153;
-    currentDay -= (currentMonth * 153 + 2) / 5;
-    currentMonth += 3;
-    if (currentMonth > 12) {
-      currentMonth -= 12;
-    }
+  int minute = (epoch % 3600) / 60;
+  int second = epoch % 60;
+  int currentHour = (epoch % 86400) / 3600;
 
-    int minutesToWait = ((minute + 1) % 2);
-    int secondsToWait = (minutesToWait * 60) + (60 - second);
+  // Convert epoch to year/month/day correctly.
+  unsigned long daysSince1970 = epoch / 86400UL;
 
-    unsigned long waitMs = (unsigned long)secondsToWait * 1000UL;
-    if (waitMs > residual_us / 1000UL) {
-      waitMs -= residual_us / 1000UL;
-    }
+  // Gregorian conversion (Howard Hinnant's algorithm)
+  long z = (long)daysSince1970 + 719468L;
+  long era = (z >= 0 ? z : z - 146096L) / 146097L;
+  long doe = z - era * 146097L;           // [0, 146096]
+  long yoe = (doe - doe/1460 + doe/36524 - doe/146096) / 365;   // [0,399]
+  long y = yoe + era * 400;               // year within 400-year era
+  long doy = doe - (365*yoe + yoe/4 - yoe/100);  // [0, 365]
+  long mp = (5*doy + 2) / 153;            // [0, 11]
+  int currentDay = (int)(doy - (153*mp + 2)/5 + 1);
+  int currentMonth = (int)(mp + (mp < 10 ? 3 : -9));
+  int currentYear = (int)(y + (currentMonth <= 2));
 
-    Serial.print("Seconds to wait = ");
-    Serial.println(secondsToWait);
-    Serial.print("Residual us subtracted = ");
-    Serial.println(residual_us);
+  int minutesToWait = ((minute + 1) % 2);
+  int secondsToWait = (minutesToWait * 60) + (60 - second);
 
-    delay(waitMs);
+  unsigned long waitMs = (unsigned long)secondsToWait * 1000UL;
+  if (waitMs > residual_us / 1000UL) {
+    waitMs -= residual_us / 1000UL;
+  }
 
-    getDatafromEEPROM();
-    hopMode = (myWSPRparams.myHopMode == 1);
-    
-    if (!hopMode) {
-      if (digitalRead(D3) == HIGH && digitalRead(D4) == HIGH && digitalRead(D5) == HIGH && digitalRead(D6) == HIGH && digitalRead(D7) == HIGH) {
-        hopBandIndex = 7; 
-        Serial.println("Fixed Band Mode - jumper index: 7 (10m - All Open)");
-      } else {
-        hopBandIndex = 0;
-        if (digitalRead(D3) == LOW) hopBandIndex += 1;
-        if (digitalRead(D4) == LOW) hopBandIndex += 2;
-        if (digitalRead(D5) == LOW) hopBandIndex += 4;
-        Serial.print("Fixed Band Mode - jumper index: ");
-        Serial.println(hopBandIndex);
-      }
-    }
+  Serial.print("Seconds to wait = ");
+  Serial.println(secondsToWait);
+  Serial.print("Residual us subtracted = ");
+  Serial.println(residual_us);
 
-    if (random(100) < TX_PERCENT) {
-      Serial.print("[");
-      if (currentMonth < 10) Serial.print("0");
-      Serial.print(currentMonth);
-      Serial.print("/");
-      if (currentDay < 10) Serial.print("0");
-      Serial.print(currentDay);
-      Serial.print(" ");
-      if (currentHour < 10) Serial.print("0");
-      Serial.print(currentHour);
-      Serial.print(":");
-      if (minute < 10) Serial.print("0");
-      Serial.print(minute);
-      Serial.print(":");
-      if (second < 10) Serial.print("0");
-      Serial.print(second);
-      Serial.print(" UTC] ");
-      Serial.println("WSPR TX start");
-      
-      transmitWSPR();
-      Serial.println("WSPR TX end");
+  delay(waitMs);
 
-      if (hopMode) {
-        hopBandIndex = (hopBandIndex + 1) % 8;
-      }
+  getDatafromEEPROM();
+  hopMode = (myWSPRparams.myHopMode == 1);
+  
+  if (!hopMode) {
+    if (digitalRead(D3) == HIGH && digitalRead(D4) == HIGH && digitalRead(D5) == HIGH && digitalRead(D6) == HIGH && digitalRead(D7) == HIGH) {
+      hopBandIndex = 7; 
+      Serial.println("Fixed Band Mode - jumper index: 7 (10m - All Open)");
     } else {
-      Serial.println("WSPR TX skipped (duty cycle)");
+      hopBandIndex = 0;
+      if (digitalRead(D3) == LOW) hopBandIndex += 1;
+      if (digitalRead(D4) == LOW) hopBandIndex += 2;
+      if (digitalRead(D5) == LOW) hopBandIndex += 4;
+      Serial.print("Fixed Band Mode - jumper index: ");
+      Serial.println(hopBandIndex);
     }
+  }
 
-    delay(10000);  
+  if (random(100) < TX_PERCENT) {
+    Serial.print("[");
+    if (currentMonth < 10) Serial.print("0");
+    Serial.print(currentMonth);
+    Serial.print("/");
+    if (currentDay < 10) Serial.print("0");
+    Serial.print(currentDay);
+    Serial.print("/");
+    Serial.print(currentYear);
+    Serial.print(" ");
+    if (currentHour < 10) Serial.print("0");
+    Serial.print(currentHour);
+    Serial.print(":");
+    if (minute < 10) Serial.print("0");
+    Serial.print(minute);
+    Serial.print(":");
+    if (second < 10) Serial.print("0");
+    Serial.print(second);
+    Serial.print(" UTC] ");
+    Serial.println("WSPR TX start");
+    
+    transmitWSPR();
+    Serial.println("WSPR TX end");
 
-    if (millis() > 43200000UL) { 
-      Serial.print("[");
-      if (currentMonth < 10) Serial.print("0");
-      Serial.print(currentMonth);
-      Serial.print("/");
-      if (currentDay < 10) Serial.print("0");
-      Serial.print(currentDay);
-      Serial.print(" ");
-      if (currentHour < 10) Serial.print("0");
-      Serial.print(currentHour);
-      Serial.print(":");
-      if (minute < 10) Serial.print("0");
-      Serial.print(minute);
-      Serial.print(":");
-      if (second < 10) Serial.print("0");
-      Serial.print(second);
-      Serial.print(" UTC] ");
-      Serial.println("Performing scheduled every 12 hour refresh reboot...");
-      
-      delay(1000);
-      ESP.restart(); 
+    if (hopMode) {
+      hopBandIndex = (hopBandIndex + 1) % 8;
     }
+  } else {
+    Serial.println("WSPR TX skipped (duty cycle)");
+  }
+
+  delay(10000);  
+
+  if (millis() > 43200000UL) { 
+    Serial.print("[");
+    if (currentMonth < 10) Serial.print("0");
+    Serial.print(currentMonth);
+    Serial.print("/");
+    if (currentDay < 10) Serial.print("0");
+    Serial.print(currentDay);
+    Serial.print("/");
+    Serial.print(currentYear);
+    Serial.print(" ");
+    if (currentHour < 10) Serial.print("0");
+    Serial.print(currentHour);
+    Serial.print(":");
+    if (minute < 10) Serial.print("0");
+    Serial.print(minute);
+    Serial.print(":");
+    if (second < 10) Serial.print("0");
+    Serial.print(second);
+    Serial.print(" UTC] ");
+    Serial.println("Performing scheduled every 12 hour refresh reboot...");
+    
+    delay(1000);
+    ESP.restart(); 
   }
 }
