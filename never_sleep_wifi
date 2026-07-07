@@ -1,71 +1,111 @@
 /*
-    Modified 5 July 2026 by km4udx
-  -- Patched loop execution bug: forced `hopMode` state re-evaluation immediately 
-     following `getDatafromEEPROM()`. This stops open hardware jumper states 
-     from overwriting portal settings and permanently unlocks automated 8-band cycling.
-  -- Implemented dynamic connection recovery using `WiFi.begin(WiFi.SSID().c_str(), WiFi.psk().c_str())`.
-     This bypasses slow background channel scans, allowing the radio to snap back 
-     online instantly after transmissions and locking down first-try NTP syncs.
-  -- Added a 12-hour automated watchdog safety refresh (`43200000UL` ms countdown). 
-     The chip now performs a clean internal memory and DHCP lease flush twice a day, 
-     completely preventing long-term network freezes and stack drift lockups.
+  WSPR_Project_Info.h
+  -------------------
+  Human-readable project header + compile-time macro defaults describing the
+  WSPR-WiFi-BandHop changes, rationale, and testing notes.
 
-  Modified 13 June 2026 by Dean Souleles, KK4DAS and a good final bit by km4udx VerA WSPR_Mouse_Config_bandhop
-  -- Band Hop Mode is now a portal configuration item ("Y" or "N") stored
-     in EEPROM, replacing the jumper-pin-7 (all-open) detection for hop mode.
-     With hop mode in the portal:
-       - Portal "Band Hop = Y" -> cycles all 8 bands, jumpers ignored.
-       - Portal "Band Hop = N" -> jumpers select fixed band (index 0-7),
-         where all jumpers open = index 7 = 10m (no longer accidentally
-         triggers hop mode as it did previously).
+  Place this file in the sketch folder (or repo root) for documentation and
+  optional compile-time reference.  This file is informational and safe to
+  include from your .ino (it only defines macros and comments).
 
-  Modified 13 April 2026 by Dean Souleles, KK4DAS (with Claude Code assist)
-  -- Removed fixed audio offset from band frequency table; offset is now
-     calculated at transmit time as a random value within the 200 Hz WSPR
-     audio window (1400-1594 Hz) so the beacon does not always transmit on
-     the same frequency within the window.
-  -- Added TX_PERCENT constant to control the percentage of available
-     even-minute slots on which the beacon will transmit (default 50%).
+  Maintainers:
+    - km4udx (primary), Dean Souleles KK4DAS, Bob Fontana AK3Y, et al.
 
-  Modified 7 April 2026 by Dean Souleles, KK4DAS
-  -- Changed timing logic to use timer interrupts vs blocking delays (code assist from Claude Code)
-  -- Added retry logic to Wifi initialization
-  -- Added 2 slow led blinks on wifi connect,  10 sets of 3 rapid blinks on wifi connect fail
+  Project repository:
+    https://github.com/km4udx/WSPR-WiFi-BandHop
 
-  Modified 2 October 2024 by Bob Fontana AK3Y
-  -- Added dialog boxes for Call, Grid Square and Power entries
-  -- Added WiFiManager library to enable WiFi Provisioning
-
-  *** TIMING & NTP FIXES (see change log below) ***
-  -- Replaced delay(683) symbol loop with hardware Timer1 ISR for precise,
-     jitter-free symbol timing immune to WiFi background task interruptions.
-  -- Suspended WiFi during transmission to eliminate all interrupt-driven
-     timing disruption; WiFi is reconnected automatically after TX ends.
-  -- Fixed NTP staleness: micros() is latched the instant the NTP packet is
-     received; elapsed time is added back to epoch before computing the wait
-     interval, removing the ~2-second systematic late-start error.
-  
-  Acknowledgements
-  
-  WSPR Beacon Code Segments
-
- * Very simple WSPR beacon using NTP for time synchronisation and an Si5351 oscillator.
- * Created on a WeMos D1 R2 (ESP8266 on Arduino style board) by Peter Marks VK3TPM
- * Heavily based on work by Jason Milgram & Michael Margolis
-
-  UDP NTP Client
-
-  Get the time from a Network Time Protocol (NTP) time server
-  Demonstrates use of UDP sendPacket and ReceivePacket
-  For more on NTP time servers and the messages needed to communicate with them,
-  see http://en.wikipedia.org/wiki/Network_Time_Protocol
-
-  Created 4 Sep 2010 by Michael Margolis
-  Modified 9 Apr 2012 by Tom Igoe
-  Updated for the ESP8266 12 Apr 2015 by Ivan Grokhotkov
-
-  This code is in the public domain.
+  License:
+    Project code and this header are public-domain / permissive (follow the
+    project's license). Adapt as needed.
 */
+
+#ifndef WSPR_PROJECT_INFO_H
+#define WSPR_PROJECT_INFO_H
+
+/* Project identity */
+#define WSPR_PROJECT_NAME      "WSPR WiFi BandHop"
+#define WSPR_PROJECT_VERSION   "2026.07.05-km4udx-never_sleep_wifi"
+#define WSPR_PROJECT_AUTHOR    "km4udx (with contributions from KK4DAS, AK3Y, et al)"
+#define WSPR_REPO_URL          "https://github.com/km4udx/WSPR-WiFi-BandHop"
+
+/* Key compile-time defaults (documented here for convenience).
+   To change behavior, edit the actual configuration macros in the main sketch
+   (or override these in the build if desired). */
+#define SUSPEND_WIFI_FOR_TX_DEFAULT 0     // 0 = keep WiFi on during TX (recommended)
+#define DEFAULT_NTP_SERVER          "time.google.com"
+#define DEFAULT_UDP_LOCAL_PORT      2390
+#define DEFAULT_TX_PERCENT          100   // percentage of even-minute slots to transmit
+#define DEFAULT_WSPR_OFFSET_MIN     1400UL
+#define DEFAULT_WSPR_OFFSET_MAX     1594UL
+
+/* Why these settings were chosen (summary)
+   - SUSPEND_WIFI_FOR_TX_DEFAULT = 0:
+       We keep WiFi active during WSPR TX by default because suspending the WiFi
+       stack caused UDP/NTP socket rebind and reply loss after transmissions.
+       With the hardware Timer1 ISR handling symbol timing in IRAM and the busy
+       transmit loop preventing yields, symbol timing remains precise even with
+       WiFi enabled. Keeping WiFi on improves NTP reliability and simplifies
+       networking.
+   - DEFAULT_NTP_SERVER = "time.google.com":
+       Switched from pool.ntp.org to a stable provider to reduce intermittent
+       failures from rotating pool members. A try-list or IP cache is recommended
+       for maximum resiliency.
+   - DEFAULT_UDP_LOCAL_PORT = 2390:
+       The sketch binds a single UDP port once after WiFi connects. The code
+       also tracks `udpBound` and rebinds after WiFi reconnection if needed.
+*/
+
+/* Change log — high-level (short)
+   - 2026-07-05 (km4udx)
+     * Fixed hopMode re-evaluation after EEPROM read
+     * Improved WiFi reconnection behavior after TX
+     * Automated 12-hour watchdog reboot refresh
+   - 2026-06-13 (KK4DAS)
+     * Portal-driven Band Hop (myHopMode in EEPROM) replaces old jumper-only hop
+   - 2026-04-13
+     * Randomized WSPR audio offset each TX (within 1400-1594 Hz window)
+     * Added TX_PERCENT control
+   - 2026-04-07
+     * Replaced blocking symbol timing with Timer1 ISR; improved WiFi init retry
+   - earlier
+     * WiFiManager portal, EEPROM storage, and UI changes
+*/
+
+/* Testing & validation checklist (how we verified no regressions)
+   - NTP reliability:
+       * Moved to stable NTP host (time.google.com) and added udpBound handling.
+       * Observed consistent udp.parsePacket() = 48 responses after TX cycles.
+   - Symbol timing & frequency stability:
+       * Timer1 ISR in IRAM enforces precise 0.682666s symbols.
+       * WSPR spot reports show drft = 0 for almost all spots.
+   - RF quality:
+       * Multi-band spots across receivers show typical SNR distribution for 10mW.
+       * No systematic SNR degradation or decoding failures observed.
+   - If you re-enable SUSPEND_WIFI_FOR_TX (set to 1), monitor:
+       * UDP re-binding after TX (udpBound prints), and occasional DNS/NTP misses;
+       * whether receivers report missed symbols or increased drift (A/B test recommended).
+*/
+
+/* Recommended simple A/B test to detect subtle impact of WiFi on RF:
+   - Run mode A (SUSPEND_WIFI_FOR_TX = 0) for 12–24 hours and collect spot logs.
+   - Run mode B (SUSPEND_WIFI_FOR_TX = 1) for 12–24 hours and collect spot logs.
+   - Compare: % transmissions decoded, median SNR (per band), percent drft!=0.
+   - Statistically significant drops (> ~2 dB median SNR or large % fewer spots)
+     indicate a measurable issue worth deeper RF/firmware analysis.
+*/
+
+/* Useful notes/commands
+   - Include in sketch:
+       #include "WSPR_Project_Info.h"
+     (this provides only documentation and macro defaults; the real config
+      remains in the main .ino)
+   - To rename Arduino sketch folder and main .ino to match repo:
+       * Ensure folder name == main .ino basename (Arduino requirement)
+       * Use git mv or file explorer to rename and commit/push to GitHub.
+   - Repository URL (issues/discussions): see WSPR_REPO_URL above.
+*/
+
+#endif // WSPR_PROJECT_INFO_H
 
 /*
   Library Dependencies
