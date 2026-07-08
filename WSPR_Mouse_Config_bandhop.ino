@@ -12,15 +12,16 @@
 */
 
 
-#define SUSPEND_WIFI_FOR_TX_DEFAULT 0     // 0 = keep WiFi on during TX (recommended)
 #define DEFAULT_NTP_SERVER          "time.google.com"
+#define FALLBACK_NTP_SERVER         "time.cloudflare.com"
+#define NTP_FAILS_BEFORE_FALLBACK   3    // consecutive failed round-trips before switching server
 #define DEFAULT_UDP_LOCAL_PORT      2390
 #define DEFAULT_TX_PERCENT          100   // percentage of even-minute slots to transmit
 #define DEFAULT_WSPR_OFFSET_MIN     1400UL
 #define DEFAULT_WSPR_OFFSET_MAX     1594UL
 
 /* Why these settings were chosen (summary)
-   - SUSPEND_WIFI_FOR_TX_DEFAULT = 0:
+   - SUSPEND_WIFI_FOR_TX = 0:
        We keep WiFi active during WSPR TX by default because suspending the WiFi
        stack caused UDP/NTP socket rebind and reply loss after transmissions.
        With the hardware Timer1 ISR handling symbol timing in IRAM and the busy
@@ -29,14 +30,29 @@
        networking.
    - DEFAULT_NTP_SERVER = "time.google.com":
        Switched from pool.ntp.org to a stable provider to reduce intermittent
-       failures from rotating pool members. A try-list or IP cache is recommended
-       for maximum resiliency.
+       failures from rotating pool members.
+   - FALLBACK_NTP_SERVER = "time.cloudflare.com":
+       Google's public NTP service is anycast across multiple backend IPs; one
+       of those IPs has been observed to intermittently drop/delay replies for
+       several consecutive attempts. After NTP_FAILS_BEFORE_FALLBACK consecutive
+       failed round-trips on whichever server is currently active, the sketch
+       toggles to the other server and resets the failure counter. A successful
+       round-trip on either server also resets the counter, so it simply keeps
+       using whichever server is currently working.
    - DEFAULT_UDP_LOCAL_PORT = 2390:
        The sketch binds a single UDP port once after WiFi connects. The code
        also tracks `udpBound` and rebinds after WiFi reconnection if needed.
 */
 
 /* Change log — high-level (short)
+   - 2026-07-07 (km4udx)
+     * Added fallback NTP server (time.cloudflare.com): toggles after
+       NTP_FAILS_BEFORE_FALLBACK consecutive failed round-trips instead of
+       retrying the same possibly-flaky anycast IP indefinitely.
+     * Removed dead code: unused sendNTPpacket()/delay1()/si5351Test() helpers,
+       unused freq2200/freq630/freq160 and legacy `offset` variable, unused
+       SUSPEND_WIFI_FOR_TX_DEFAULT macro, and the redundant fixed-band jumper
+       block in loop() that duplicated (and disagreed with) getFreqIndex().
    - 2026-07-05 (km4udx)
      * Fixed hopMode re-evaluation after EEPROM read
      * Improved WiFi reconnection behavior after TX
@@ -50,11 +66,6 @@
      * Replaced blocking symbol timing with Timer1 ISR; improved WiFi init retry
    - earlier
      * WiFiManager portal, EEPROM storage, and UI changes
-*/
-
-
-/*
-
 */
 
 
@@ -86,6 +97,7 @@ DoubleResetDetector drd(DRD_TIMEOUT, DRD_ADDRESS);
 
 IPAddress timeServerIP;
 const char* ntpServerName = DEFAULT_NTP_SERVER;  // NTP server address
+uint8_t ntpConsecutiveFailures = 0;   // consecutive failed round-trips on the current server
 const int NTP_PACKET_SIZE = 48;               // NTP time stamp is in the first 48 bytes of the message
 byte packetBuffer[NTP_PACKET_SIZE];           // buffer to hold incoming and outgoing packets
 
@@ -126,13 +138,7 @@ Si5351 si5351;
 JTEncode jtencode;
 WiFiUDP udp;
 
-unsigned long offset = 1500UL;  // Default WSPR audio offset (Hz) - retained for reference
-
-unsigned long freq2200 = 136000UL;    // 2200 meter band
-unsigned long freq630  = 474200UL;    // 630 meter band
-unsigned long freq160  = 1836600UL;   // 160 meter band
 unsigned long freq80   = 3568600UL;   // 80 meter band
-unsigned long freq60   = 5287200UL;   // 60 meter band
 unsigned long freq40   = 7038600UL;  // 40 meter band
 unsigned long freq30   = 10138700UL;  // 30 meter band
 unsigned long freq20   = 14095600UL;  // 20 meter band
@@ -175,15 +181,6 @@ void flashLED(int flashes, int onMs, int offMs) {
   }
 }
 
-void si5351Test() {
-  uint64_t target_freq = 1000000000ULL;  // 10 MHz in hundredths of Hz
-  si5351.set_freq(target_freq, SI5351_CLK0);
-  digitalWrite(LED_INTERNAL, LOW);
-  si5351.set_clock_pwr(SI5351_CLK0, 1);
-  delay(60000);
-  digitalWrite(LED_INTERNAL, HIGH);
-}
-
 void setupSi5351() {
   bool i2c_found = si5351.init(SI5351_CRYSTAL_LOAD_8PF, 0, cal_factor);
   if (i2c_found == true) {
@@ -195,6 +192,9 @@ void setupSi5351() {
   }
 }
 
+// getFreqIndex() is the single source of truth for reading the fixed-band
+// jumpers (D5/D6/D7). Used both for fixed-band TX selection and, on entry
+// to setup(), for logging the jumper-selected band.
 int getFreqIndex() {
   return digitalRead(D5) + 2 * digitalRead(D6) + 4 * digitalRead(D7);
 }
@@ -422,20 +422,6 @@ void setup() {
   }
 }
 
-// ---------------------------------------------------------------------------
-// delay1  --  yield-friendly delay (used only while WiFi is active)
-// ---------------------------------------------------------------------------
-void delay1(unsigned long ms) {
-  uint32_t start = micros();
-  while (ms > 0) {
-    yield();
-    while (ms > 0 && (micros() - start) >= 1000) {
-      ms--;
-      start += 1000;
-    }
-  }
-}
-
 void sendNTPpacket(IPAddress& address) {
   Serial.println("Sending NTP packet...");
   memset(packetBuffer, 0, NTP_PACKET_SIZE);
@@ -444,7 +430,7 @@ void sendNTPpacket(IPAddress& address) {
   packetBuffer[2]  = 6;
   packetBuffer[3]  = 0xEC;
   packetBuffer[12] = 49;
-  packetBuffer[13] = 0x4E;
+  packetBuffer[13] = 49;
   packetBuffer[14] = 49;
   packetBuffer[15] = 52;
   udp.beginPacket(address, 123);
@@ -495,22 +481,7 @@ void loop() {
     Serial.println(timeServerIP);
   }
 
-  // Build NTP packet in packetBuffer
-  memset(packetBuffer, 0, NTP_PACKET_SIZE);
-  packetBuffer[0] = 0b11100011;
-  packetBuffer[1] = 0;
-  packetBuffer[2] = 6;
-  packetBuffer[3] = 0xEC;
-  packetBuffer[12] = 49;
-  packetBuffer[13] = 49;
-  packetBuffer[14] = 49;
-  packetBuffer[15] = 52;
-
-  Serial.print("Sending NTP packet to ");
-  Serial.println(timeServerIP);
-  udp.beginPacket(timeServerIP, 123);
-  udp.write(packetBuffer, NTP_PACKET_SIZE);
-  udp.endPacket();
+  sendNTPpacket(timeServerIP);
 
   // Wait for a reply (slightly longer timeout while debugging)
   uint32_t ntpTimer = millis();
@@ -524,12 +495,20 @@ void loop() {
 
   if (packetSize == 0) {
     Serial.println("No NTP packet received");
+    ntpConsecutiveFailures++;
+    if (ntpConsecutiveFailures >= NTP_FAILS_BEFORE_FALLBACK) {
+      ntpServerName = (ntpServerName == DEFAULT_NTP_SERVER) ? FALLBACK_NTP_SERVER : DEFAULT_NTP_SERVER;
+      Serial.print("Switching NTP server to: ");
+      Serial.println(ntpServerName);
+      ntpConsecutiveFailures = 0;
+    }
     yield();
     delay(10000);
     return; // go back to top of loop and try again
   }
 
   // packet received -> process it
+  ntpConsecutiveFailures = 0;
   uint32_t packet_rx_micros = micros();
   udp.read(packetBuffer, NTP_PACKET_SIZE); 
 
@@ -563,36 +542,40 @@ void loop() {
   int currentMonth = (int)(mp + (mp < 10 ? 3 : -9));
   int currentYear = (int)(y + (currentMonth <= 2));
 
-  int minutesToWait = ((minute + 1) % 2);
-  int secondsToWait = (minutesToWait * 60) + (60 - second);
+ // Compute next even-minute boundary in epoch seconds.
+// WSPR uses 2-minute slots; we align to the next slot boundary.
+unsigned long nextTxEpoch = epoch - (epoch % 120UL) + 120UL;
 
-  unsigned long waitMs = (unsigned long)secondsToWait * 1000UL;
-  if (waitMs > residual_us / 1000UL) {
-    waitMs -= residual_us / 1000UL;
+Serial.print("Current epoch = ");
+Serial.println(epoch);
+Serial.print("Next TX epoch = ");
+Serial.println(nextTxEpoch);
+
+// Wait until we reach or cross the boundary (never early).
+// We use a small sleep to avoid starving WiFi, but keep latency < ~1s.
+while (true) {
+  unsigned long nowElapsedUs = micros() - packet_rx_micros;
+  unsigned long nowEpoch = secsSince1900 - seventyYears + (nowElapsedUs / 1000000UL);
+
+  if (nowEpoch >= nextTxEpoch) {
+    break;  // safe to start TX: we are at or just past the slot boundary
   }
 
-  Serial.print("Seconds to wait = ");
-  Serial.println(secondsToWait);
-  Serial.print("Residual us subtracted = ");
-  Serial.println(residual_us);
+  delay(10);  // yield to WiFi/UDP; keeps jitter small but avoids early start
+}
 
-  delay(waitMs);
+Serial.println("Reached TX slot boundary; starting TX sequence.");
+
 
   getDatafromEEPROM();
   hopMode = (myWSPRparams.myHopMode == 1);
-  
+
   if (!hopMode) {
-    if (digitalRead(D3) == HIGH && digitalRead(D4) == HIGH && digitalRead(D5) == HIGH && digitalRead(D6) == HIGH && digitalRead(D7) == HIGH) {
-      hopBandIndex = 7; 
-      Serial.println("Fixed Band Mode - jumper index: 7 (10m - All Open)");
-    } else {
-      hopBandIndex = 0;
-      if (digitalRead(D3) == LOW) hopBandIndex += 1;
-      if (digitalRead(D4) == LOW) hopBandIndex += 2;
-      if (digitalRead(D5) == LOW) hopBandIndex += 4;
-      Serial.print("Fixed Band Mode - jumper index: ");
-      Serial.println(hopBandIndex);
-    }
+    // Fixed-band mode: getActiveBandIndex() reads the jumpers directly via
+    // getFreqIndex(), so hopBandIndex isn't used for TX selection here.
+    // We still log the jumper-selected band for visibility.
+    Serial.print("Fixed Band Mode - jumper index: ");
+    Serial.println(getFreqIndex());
   }
 
   if (random(100) < TX_PERCENT) {
